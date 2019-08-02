@@ -1,0 +1,66 @@
+/**index.wxss**/
+.top {
+  position: fixed;
+  top: -2rpx;
+  left: 0;
+  padding: 30rpx;
+  /* margin-bottom: 50rpx; */
+  width: calc(100% - 60rpx);
+  background: #fff;
+  z-index: 1000;
+}
+.top-shadow {
+  box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+}
+.top-address {
+  align-items: center;
+  font-size: 34rpx;
+  position: relative;
+}
+.picker-wrapper {
+  align-items: center;
+}
+.picker {
+  padding-right: 40rpx;
+}
+.picker-arrow {
+  position: absolute;
+  right: 5rpx;
+  top: 15rpx;
+}
+.search {
+  flex-grow: 1;
+  align-items: center;
+  width: auto;
+  height: 74rpx;
+  padding-left: 30rpx;
+  margin-left: 30rpx;
+  background: #F2F3F3;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  color: #BCBFC3;
+}
+.search text {
+  margin-left: 14rpx;
+}
+/* 轮播图 */
+.slider-title {
+  font-size: 40rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-weight: 700;
+}
+.swiper-wrapper {
+  position: relative;
+  height: 340rpx;
+  /* border-radius: 15rpx; */
+  overflow: hidden;
+  margin-bottom: 50rpx;
+}
+.swiper {
+  height: 100%;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+}

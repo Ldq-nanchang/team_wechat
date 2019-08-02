@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="{{search_shadow&&!tab_fixed?'top top-shadow flex-row':'top flex-row'}}">
+    <view class="top-address flex-row">
+        <view style="margin-right:10rpx;">
+          <text class="iconfont icondingwei1" style="font-size:38rpx"></text>
+        </view>
+        <picker class="picker-wrapper flex-row" bindchange="bindPickerChange" value="{{index}}" range="{{citys}}">
+          <view class="picker">{{citys[city_index]}}</view>
+        </picker>
+        <view class="picker-arrow arrow-bottom"></view>
+    </view>
+    <view class="search flex-row" bindtap="goSearch">
+      <icon type="search" size="18" />
+      <text>请输入关键字查询</text>
+    </view>
+  </view>
+  <view style="height:134rpx;"></view>
+<!-- 轮播图 -->
+  <view class="swiper-wrapper">
+    <swiper class="swiper"
+    indicator-dots="{{false}}"
+    autoplay="{{true}}"
+    interval="{{5000}}"
+    duration="{{1000}}"
+    bindchange="swiperChange"
+    >
+      <block wx:for="{{hot}}" wx:key="{{index}}">
+        <swiper-item bindtap="goInfo" data-url="{{item.url}}">
+          <!-- <image src="{{item.picname}}" class="slide-image"/> -->
+          <view style="{{'background:url('+'http://223.84.156.187:807/team_test/banner.jpg'+') center center /cover'}}" class="slide-image"></view>
+        </swiper-item>
+
+      </block>
+    </swiper>
+  </view>
+
+</view>
