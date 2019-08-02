@@ -8,11 +8,15 @@
         <picker class="picker-wrapper flex-row" bindchange="bindPickerChange" value="{{index}}" range="{{citys}}">
           <view class="picker">{{citys[city_index]}}</view>
         </picker>
-        <view class="picker-arrow arrow-bottom"></view>
+        <!-- <view class="picker-arrow arrow-bottom"></view> -->
+        <view class="iconfont iconjiantouxia"></view>
     </view>
     <view class="search flex-row" bindtap="goSearch">
       <icon type="search" size="18" />
       <text>请输入关键字查询</text>
+    </view>
+    <view class="top-message">
+      <view class="iconfont iconxiaoxi" style="font-size:45rpx;color:#ff9d20"></view>
     </view>
   </view>
   <view style="height:134rpx;"></view>
@@ -30,9 +34,121 @@
           <!-- <image src="{{item.picname}}" class="slide-image"/> -->
           <view style="{{'background:url('+'http://223.84.156.187:807/team_test/banner.jpg'+') center center /cover'}}" class="slide-image"></view>
         </swiper-item>
-
       </block>
     </swiper>
   </view>
+  <view class="news flex-row">
+    <view class="news-date">
+      <view style="font-size:30rpx;font-weight:700">
+        <text>02</text>
+      </view>
+      <view>
+        <text>2018-8</text>
+      </view>
+      
+    </view>
+    <view class="news-info">
+      <!-- <text>【招生季】全校总动员，学校启动2019年招生宣传季活动，学校召开专题会议，部署“2019年百所学校高水平大学”工作</text> -->
+      <swiper class="news-swiper"
+      indicator-dots="{{false}}"
+      vertical="{{true}}"
+      autoplay="{{true}}"
+      interval="{{5000}}"
+      duration="{{1000}}"
+      bindchange="swiperChange">
+        <block wx:for="{{hot}}" wx:key="{{index}}">
+          <swiper-item>
+            <view class="news-info-text">
+                <text>【招生季】全校总动员，学校启动2019年招生宣传季活动，学校召开专题会议，部署“2019年百所学校高水平大学”工作</text>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="news-more">
+      <view class="iconfont iconfenlei" style="font-size:60rpx;color:#ff9d20"></view>
+    </view>
+  </view>
+  <!-- 活动 -->
+  <view class="actions">
+    <view class="actions-title flex-row">
+      <view style="margin-right:20rpx;">
+        <view class="iconfont iconhuodong" style="font-size:30rpx;color:fe9c21;"></view>
+      </view>
+      <view>活动入口</view>
+    </view>
+    <view class="actions-content flex-row">
+
+      <view class="actions-item flex-row" style="background:#ffa808">
+        <view class="actions-item-icon">
+          <view class="iconfont iconweb__jiangli" style="font-size: 80rpx;"></view>
+        </view>
+        <view class="actions-item-info">
+          <view style="font-size:30rpx">有奖活动</view>
+          <view>参与活动赢大奖</view>
+        </view>
+      </view>
+      <view class="actions-item flex-row" style="background:#fe7678">
+        <view class="actions-item-icon">
+          <view class="iconfont iconweb__jiangli" style="font-size: 80rpx;"></view>
+        </view>
+        <view class="actions-item-info">
+          <view style="font-size:30rpx">积分活动</view>
+          <view>参与活动领积分</view>
+        </view>
+      </view>
+  </view>
+  </view>
+
+  <view class="people">
+
+    <view class="people-title flex-row">
+      <view class="people-title-icon">热门社团</view>
+      <view class="people-title-des">精选社团  等你加入！</view>
+    </view>
+
+      <view class="people-list">
+
+        <view class="people-item flex-row" wx:for="{{people_list}}" wx:key="{{index}}">
+          <view class="people-item-headpic" style="background:url(http://223.84.156.187:807/team_test/banner.jpg) center center /cover"></view>
+          <view class="people-item-content">
+            <view class="people-item-name flex-row">
+              <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>
+              <view>南昌翰林编程学习社团</view>
+            </view>
+            <view class="people-item-address flex-row">
+              <view class="iconfont iconaddress" style="margin-right:10rpx;"></view>
+              <view>京东大道719号桃湖产业园</view>
+            </view>
+            <view class="people-item-stars flex-row">
+              <view wx:for="{{stars}}" wx:key="{{index}}"
+              class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
+            </view>
+            <view class="people-item-foot flex-row">
+              <view class="people-item-num flex-row">
+                <view class="iconfont iconyonghu"></view>
+                <view>500</view>
+              </view>
+              <view class="people-item-btn">
+                <text>少儿编程</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+  </view>
+
+
+  <!-- <swiper class='swiper-tab' bindchange='pagechange' current='{{tab_index}}' style="{{'height:'+swiper_h+';min-height:100vh'}}">
+    <swiper-item class='swiper-tab'> -->
+      <activityList id="activityList"/>
+    <!-- </swiper-item>
+  </swiper> -->
+  <view style="height:50rpx;"></view>
+
+
+
 
 </view>

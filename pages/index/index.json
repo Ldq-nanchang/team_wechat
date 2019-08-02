@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "activityList": "/components/activity_list/activity_list"
+  },
+  "enablePullDownRefresh": true
 }

@@ -1,0 +1,43 @@
+<!--components/activity_list/activity_list.wxml-->
+  <view class="people">
+
+    <view class="people-title flex-row">
+      <view class="people-title-icon">精选活动</view>
+      <view class="people-title-des">爆款抄底  想玩靠抢！</view>
+    </view>
+
+      <view class="people-list">
+
+        <view class="people-item flex-row" wx:for="{{people_list}}" wx:key="{{index}}">
+          <view class="people-item-headpic" style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
+          <view class="people-item-content">
+            <view class="actions-item-name flex-row">
+
+              <view>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</view>
+            </view>
+            <view class="des">
+              <text>进行中  线上活动</text>
+            </view>
+
+            <view class="people-item-foot flex-row">
+              <view class="people-item-num flex-row">
+                <view>￥</view>
+                <view>49</view>
+              </view>
+              <view class="people-item-btn">
+                <text>3548人已报名</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+      
+    </view>
+  </view>
+  

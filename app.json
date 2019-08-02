@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/people/people",
+    "pages/class/class",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -9,5 +12,35 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/home.png",
+        "selectedIconPath": "assets/home_.png"
+      },
+      {
+        "pagePath": "pages/people/people",
+        "text": "社团",
+        "iconPath": "assets/people.png",
+        "selectedIconPath": "assets/people_.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "关注",
+        "iconPath": "assets/class.png",
+        "selectedIconPath": "assets/class_.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "assets/my.png",
+        "selectedIconPath": "assets/my_.png"
+      }
+    ],
+    "color": "#333333",
+    "selectedColor": "#ff9d20"
+  }
 }

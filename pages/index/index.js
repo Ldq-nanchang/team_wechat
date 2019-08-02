@@ -7,7 +7,10 @@ Page({
     citys: [],
     city_index: 0,
     search_shadow: false,
-    hot:['','']
+    hot:['',''],
+    people_list: ['','',''],
+    stars: ['', '', '', '', ''],
+    swiper_h: ''
   },
   //事件处理函数
   swiperChange: function (e) {
@@ -51,6 +54,22 @@ Page({
   onLoad: function () {
     this.setData({
       citys: app.globalData.citys,
+    });
+  },
+  /**
+    * 页面上拉触底事件的处理函数
+    */
+  onReachBottom: function () {
+    let that = this;
+    let component = "#activityList";
+    console.log(component)
+    console.log(this.selectComponent('#activityList'))
+    this.selectComponent(component).get_list('', '', '', () => {
+      // util.domH(component, (rect) => {
+      //   that.setData({
+      //     swiper_h: rect.height + 'px'
+      //   })
+      // })
     });
   },
 
