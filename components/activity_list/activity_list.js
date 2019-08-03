@@ -20,6 +20,9 @@ Component({
    */
   methods: {
     get_list() {
+      if (!this.data.loading_state) {
+        return false;
+      }
       wx.showLoading({
         title: '加载中',
         icon: 'loading',
@@ -29,8 +32,14 @@ Component({
       setTimeout(()=>{
         this.setData({
           people_list: [...that.data.people_list,...list]
+
         })
         wx.hideLoading();
+        if (that.data.people_list.length > 15) {
+          this.setData({
+            loading_state: false
+          });
+        }
       },1000)
     }
   }

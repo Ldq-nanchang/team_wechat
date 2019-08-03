@@ -38,7 +38,7 @@
     </swiper>
   </view>
   <view class="news flex-row">
-    <view class="news-date">
+    <view class="news-date flex-col">
       <view style="font-size:30rpx;font-weight:700">
         <text>02</text>
       </view>
@@ -59,14 +59,14 @@
         <block wx:for="{{hot}}" wx:key="{{index}}">
           <swiper-item>
             <view class="news-info-text">
-                <text>【招生季】全校总动员，学校启动2019年招生宣传季活动，学校召开专题会议，部署“2019年百所学校高水平大学”工作</text>
+                <text style="font-size:26rpx;">【招生季】全校总动员，学校启动2019年招生宣传季活动，学校召开专题会议，部署“2019年百所学校高水平大学”工作</text>
             </view>
           </swiper-item>
         </block>
       </swiper>
     </view>
     <view class="news-more">
-      <view class="iconfont iconfenlei" style="font-size:60rpx;color:#ff9d20"></view>
+      <view class="iconfont iconfenlei" style="font-size:70rpx;color:#ff9d20"></view>
     </view>
   </view>
   <!-- 活动 -->
@@ -90,7 +90,7 @@
       </view>
       <view class="actions-item flex-row" style="background:#fe7678">
         <view class="actions-item-icon">
-          <view class="iconfont iconweb__jiangli" style="font-size: 80rpx;"></view>
+          <view class="iconfont iconzuanshi" style="font-size: 80rpx;"></view>
         </view>
         <view class="actions-item-info">
           <view style="font-size:30rpx">积分活动</view>
@@ -146,7 +146,7 @@
       <activityList id="activityList"/>
     <!-- </swiper-item>
   </swiper> -->
-  <view style="height:50rpx;"></view>
+  <view style="height:100rpx;"></view>
 
 
 

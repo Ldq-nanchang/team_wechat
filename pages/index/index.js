@@ -40,7 +40,7 @@ Page({
  */
   onReady: function () {
     wx.setNavigationBarTitle({
-      title: '首页',
+      title: '我社团活动',
     });
     wx.setNavigationBarColor({
       frontColor: '#ffffff',

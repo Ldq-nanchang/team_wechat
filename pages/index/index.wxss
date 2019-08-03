@@ -75,22 +75,24 @@
 /* 新闻轮播 */
 .news {
   align-items: center;
-  margin-bottom: 20rpx;
-  padding: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 30rpx;
   background: #fff;
 }
 .news-date {
-  width: 80rpx;
-  height: 80rpx;
+  justify-content: center;
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
   margin-right: 20rpx;
   background: #ff9d20;
   color: #fff;
-  font-size: 20rpx;
+  /* font-size: 24rpx!important; */
   text-align: center;
 }
 .news-info {
-  width: calc(100% - 200rpx);
-  height: 80rpx;
+  width: calc(100% - 240rpx);
+  height: 100rpx;
   font-size: 24rpx;
   /* overflow: hidden; */
   color: #999;
@@ -99,7 +101,7 @@
   height: 80rpx;
 }
 .news-info-text {
-  height: 64rpx;
+  height: 74rpx;
   margin: 8rpx 0;
   display: -webkit-box;
   overflow: hidden;
@@ -115,10 +117,10 @@
 /* 活动 */
 .actions {
   background: #fff;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
 }
 .actions-title {
-  padding: 20rpx;
+  padding: 30rpx;
   border-bottom: 1px solid #eee;
   font-size: 28rpx;
   color: #dd4841;
@@ -126,7 +128,7 @@
 }
 .actions-content {
   justify-content: space-between;
-  padding: 30rpx 20rpx;
+  padding: 30rpx;
 }
 .actions-item {
   justify-content: space-between;
@@ -139,11 +141,11 @@
 /* 社团列表 */
 .people {
   background: #fff;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
 }
 .people-title {
   position: relative;
-  padding: 20rpx;
+  padding: 30rpx;
   border-bottom: 1px solid #eee;
   font-size: 28rpx;
   color: #999;
@@ -158,20 +160,21 @@
 }
 .people-title-des {
   position: absolute;
-  bottom: 20rpx;
-  left: 180rpx;
+  bottom: 30rpx;
+  left: 190rpx;
 }
 .people-item {
-  padding: 20rpx;
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
 } 
 .people-item-headpic {
   width: 300rpx;
-  height: 180rpx;
+  height: 220rpx;
   margin-right: 20rpx;
 }
 .people-item-content {
   position: relative;
-  width: calc(100% - 340rpx);
+  width: calc(100% - 320rpx);
 }
 .people-item-name {
   margin-bottom: 15rpx;

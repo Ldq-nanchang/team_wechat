@@ -10,7 +10,7 @@
   box-sizing: border-box;
   /* padding: 30rpx; */
   min-height: 100vh;
-  background: #f9f9f9;
+  background: #f6f6f6;
   font-size: 24rpx;
 }
 .flex-row {

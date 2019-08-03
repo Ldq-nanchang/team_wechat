@@ -12,7 +12,7 @@
 }
 .people-title {
   position: relative;
-  padding: 20rpx;
+  padding: 30rpx;
   border-bottom: 1px solid #eee;
   font-size: 28rpx;
   color: #999;
@@ -27,15 +27,16 @@
 }
 .people-title-des {
   position: absolute;
-  bottom: 20rpx;
-  left: 180rpx;
+  bottom: 30rpx;
+  left: 190rpx;
 }
 .people-item {
-  padding: 20rpx;
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
 } 
 .people-item-headpic {
   width: 300rpx;
-  height: 180rpx;
+  height: 220rpx;
   margin-right: 20rpx;
 }
 .people-item-content {
