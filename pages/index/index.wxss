@@ -178,7 +178,7 @@
 }
 .people-item-name {
   margin-bottom: 15rpx;
-  font-size: 26rpx;
+  font-size: 30rpx;
 }
 .people-item-address {
   margin-bottom: 15rpx;

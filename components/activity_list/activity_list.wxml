@@ -9,7 +9,8 @@
       <view class="people-list">
 
         <view class="people-item flex-row" wx:for="{{people_list}}" wx:key="{{index}}">
-          <view class="people-item-headpic" style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
+          <view class="people-item-headpic" bindtap="perview" data-url="http://223.84.156.187:807/team_test/headpic.jpg"
+          style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
           <view class="people-item-content">
             <view class="actions-item-name flex-row">
 

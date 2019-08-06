@@ -41,6 +41,14 @@ Component({
           });
         }
       },1000)
+    },
+
+    perview(e) {
+      console.log()
+      wx.previewImage({
+        urls: [e.currentTarget.dataset.url],
+      })
     }
+
   }
 })

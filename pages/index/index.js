@@ -7,10 +7,16 @@ Page({
     citys: [],
     city_index: 0,
     search_shadow: false,
-    hot:['',''],
+    hot: ['http://223.84.156.187:807/team_test/banner.jpg','http://223.84.156.187:807/team_test/banner.jpg'],
     people_list: ['','',''],
     stars: ['', '', '', '', ''],
     swiper_h: ''
+  },
+  perview(e) {
+    console.log(e.currentTarget.dataset.item)
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.item],
+    })
   },
   //事件处理函数
   swiperChange: function (e) {
@@ -40,7 +46,7 @@ Page({
  */
   onReady: function () {
     wx.setNavigationBarTitle({
-      title: '我社团活动',
+      title: '社团行动',
     });
     wx.setNavigationBarColor({
       frontColor: '#ffffff',

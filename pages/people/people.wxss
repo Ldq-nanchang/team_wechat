@@ -1,1 +1,53 @@
 /* pages/people/people.wxss */
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30rpx;
+  /* margin-bottom: 50rpx; */
+  width: calc(100% - 60rpx);
+  background: #ff9d20;
+  z-index: 1000;
+}
+
+.top-address {
+  align-items: center;
+  font-size: 34rpx;
+  position: relative;
+  color:#fff;
+}
+/* .picker-wrapper {
+  align-items: center;
+}
+.picker {
+  padding-right: 40rpx;
+}
+.picker-condition {
+  padding-right: 40rpx;
+  color: transparent;
+}
+.picker- {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.picker-arrow {
+  position: absolute;
+  right: 5rpx;
+  top: 15rpx;
+} */
+.search {
+  flex-grow: 1;
+  align-items: center;
+  width: auto;
+  height: 74rpx;
+  padding-left: 30rpx;
+  margin-left: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.search input {
+  margin-left: 14rpx;
+}

@@ -28,11 +28,12 @@
     interval="{{5000}}"
     duration="{{1000}}"
     bindchange="swiperChange"
+    circular="true"
     >
       <block wx:for="{{hot}}" wx:key="{{index}}">
-        <swiper-item bindtap="goInfo" data-url="{{item.url}}">
+        <swiper-item bindtap="perview" data-item="{{item}}">
           <!-- <image src="{{item.picname}}" class="slide-image"/> -->
-          <view style="{{'background:url('+'http://223.84.156.187:807/team_test/banner.jpg'+') center center /cover'}}" class="slide-image"></view>
+          <view style="{{'background:url('+item+') center center /cover'}}" class="slide-image"></view>
         </swiper-item>
       </block>
     </swiper>
@@ -55,6 +56,7 @@
       autoplay="{{true}}"
       interval="{{5000}}"
       duration="{{1000}}"
+      circular="true"
       bindchange="swiperChange">
         <block wx:for="{{hot}}" wx:key="{{index}}">
           <swiper-item>
@@ -110,7 +112,9 @@
       <view class="people-list">
 
         <view class="people-item flex-row" wx:for="{{people_list}}" wx:key="{{index}}">
-          <view class="people-item-headpic" style="background:url(http://223.84.156.187:807/team_test/banner.jpg) center center /cover"></view>
+          <view class="people-item-headpic" 
+          bindtap="perview" data-item="{{'http://223.84.156.187:807/team_test/banner.jpg'}}"
+          style="background:url(http://223.84.156.187:807/team_test/banner.jpg) center center /cover"></view>
           <view class="people-item-content">
             <view class="people-item-name flex-row">
               <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>

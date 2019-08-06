@@ -1,0 +1,6 @@
+<!--components/people_list/people_list.wxml-->
+<view>
+<view>people-list</view>
+  <view>people-list</view><view>people-list</view><view>people-list</view><view>people-list</view><view>people-list</view>
+</view>
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "peopleList": "/components/people_list/people_list"
+  },
+  "enablePullDownRefresh": true
+}
