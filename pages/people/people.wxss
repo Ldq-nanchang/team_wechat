@@ -1,4 +1,5 @@
 /* pages/people/people.wxss */
+
 .top {
   position: fixed;
   top: 0;
@@ -51,3 +52,5 @@
 .search input {
   margin-left: 14rpx;
 }
+
+

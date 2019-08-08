@@ -1,6 +1,37 @@
 <!--components/people_list/people_list.wxml-->
 <view>
-<view>people-list</view>
-  <view>people-list</view><view>people-list</view><view>people-list</view><view>people-list</view><view>people-list</view>
+      <view class="people-list">
+
+        <view class="people-item flex-row" wx:for="{{people_list}}" wx:key="{{index}}">
+          <view class="people-item-headpic" 
+          bindtap="perview" data-item="{{'http://223.84.156.187:807/team_test/banner.jpg'}}"
+          style="background:url(http://223.84.156.187:807/team_test/banner.jpg) center center /cover"></view>
+          <view class="people-item-content">
+            <view class="people-item-name flex-row">
+              <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>
+              <view>南昌翰林编程学习社团</view>
+            </view>
+            <view class="people-item-address flex-row">
+              <view class="iconfont iconaddress" style="margin-right:10rpx;"></view>
+              <view>京东大道719号桃湖产业园</view>
+            </view>
+            <view class="people-item-stars flex-row">
+              <view wx:for="{{stars}}" wx:key="{{index}}"
+              class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
+            </view>
+            <view class="people-item-foot flex-row">
+              <view class="people-item-num flex-row">
+                <view class="iconfont iconyonghu"></view>
+                <view>500</view>
+              </view>
+              <view class="people-item-btn">
+                <text>少儿编程</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
 </view>
 

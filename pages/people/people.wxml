@@ -16,8 +16,16 @@
     </view>
   </view>
   <view style="height:188rpx;"></view>
+  <view>
+    <peopleList id="peopleList"/>
 
-    <peopleList/>
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+      
+    </view>
+  </view>
+    
 
 
 </view>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    loading_state: true
   },
 
   /**
@@ -63,10 +63,32 @@ Page({
   },
 
   /**
+   * 获取社团列表
+   */
+  get_list: function() {
+
+    setTimeout(()=>{
+      this.selectComponent('#peopleList').get_list(['','','']);
+      
+      if (this.selectComponent('#peopleList').people_list.length>9) {
+        this.setData({
+          loading_state: false
+        });
+      }
+
+    },1000)
+
+  },
+
+  /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('sss')
+    if (this.data.loading_state) {
+     
+      this.get_list();
+    }
   },
 
   /**

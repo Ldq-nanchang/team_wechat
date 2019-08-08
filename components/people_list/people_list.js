@@ -19,6 +19,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    get_list(list) {
+      let that = this;
+      this.setData({
+        people_list: [...that.data.people_list,...list]
+      })
+    }
   }
 })
