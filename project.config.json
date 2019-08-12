@@ -40,12 +40,34 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/people/people",
+					"id": 0,
+					"name": "社团",
 					"pathName": "pages/people/people",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关注",
+					"pathName": "pages/class/class",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "pages/activity_info/activity_info",
+					"query": "",
 					"scene": null
 				}
 			]

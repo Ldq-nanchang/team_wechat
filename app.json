@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/people/people",
     "pages/class/class",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/activity_info/activity_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

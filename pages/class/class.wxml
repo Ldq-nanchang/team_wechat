@@ -1,2 +1,34 @@
 <!--pages/class/class.wxml-->
-<text>pages/class/class.wxml</text>
+<view class="container">
+    <wux-tabs theme="assertive" 
+    wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
+        <block wx:for="{{ tabs }}" wx:key="key">
+            <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+        </block>
+    </wux-tabs>
+    <view style="height:30rpx"></view>
+    <swiper current="{{ index }}" bindchange="onSwiperChange" style="{{'height:'+swiper_h+';min-height:100vh'}}">
+        <block>
+            <swiper-item>
+                <view class="content">
+                  <followList id="followList"/>
+                </view>
+            </swiper-item>
+        </block>
+        <block>
+            <swiper-item>
+                <view class="content">
+                  <peopleList id="peopleList"/>
+                </view>
+            </swiper-item>
+        </block>
+        <block>
+            <swiper-item>
+                <view class="content">
+                  2
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+
+</view>

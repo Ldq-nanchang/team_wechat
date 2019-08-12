@@ -31,7 +31,11 @@
           </view>
         </view>
 
-
+      </view>
+      <view class="loading-wrapper">
+        <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+        <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+        
       </view>
 </view>
 

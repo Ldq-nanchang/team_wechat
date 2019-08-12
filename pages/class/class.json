@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "关注",
+  "usingComponents": {
+    "wux-tabs": "../../dist/tabs/index",
+    "wux-tab": "../../dist/tab/index",
+    "wux-badge": "../../dist/badge/index",
+
+    "followList": "/components/follow_list/follow_list",
+    "peopleList": "/components/people_list/people_list"
+  }
 }

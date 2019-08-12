@@ -1,0 +1,40 @@
+/* components/user_list/user_list.wxss */
+.flex-row {
+  display: flex;
+}
+.follow-item {
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.follow-item-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx; 
+}
+.follow-item-name {
+  font-size: 30rpx;
+  color: #1A1A1AFF;
+}
+.follow-time {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #808080FF;
+}
+.follow-item-btn {
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  background: #BFBFBFFF;
+  border-radius: 4px;
+  color: #fff;
+}
+.loading-wrapper {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #777;
+}

@@ -89,3 +89,9 @@
 .des {
   color: #999;
 }
+.loading-wrapper {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #777;
+}

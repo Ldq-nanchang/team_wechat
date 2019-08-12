@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function domH(dom, callback) {
+  var query = wx.createSelectorQuery();
+  query.select(dom).boundingClientRect(function (rect) {
+    if (typeof callback == 'function') {
+      callback(rect)
+    }
+  }).exec();
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  domH
 }

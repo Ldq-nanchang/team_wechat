@@ -1,1 +1,66 @@
-/* pages/my/my.wxss */
+ /* pages/my/my.wxss */
+.head {
+  padding: 30rpx;
+  align-items: center;
+  background: #fff;
+}
+.head-icon-img {
+  width: 156rpx;
+  height: 156rpx;
+}
+.head-info {
+  width: calc(100% - 331rpx);
+  padding-left: 25rpx;
+  font-size: 24rpx;
+}
+.head-info-name {
+  font-size: 38rpx;
+  color: #1A1A1AFF;
+  font-weight: bold;
+}
+.head-info-btn {
+  width: 150rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
+  background: #ff9d20;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+/* 功能按钮 */
+.condition-list {
+  justify-content: space-around;
+  padding: 30rpx;
+  background: #fff;
+  /* color: #1A1A1AFF; */
+  text-align: center;
+}
+.condition {
+  padding: 30rpx;
+  background: #fff;
+}
+.condition-list {
+  box-shadow: -6px 1px 20px 0px rgba(77,77,77,0.1);
+}
+.condition-item-name {
+  margin-top: 20rpx;
+  color: #1A1A1AFF;
+}
+/* 个人中心列表 */
+.center-list {
+  padding: 30rpx;
+  background: #fff;
+}
+.center-item {
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0 ;
+  border-bottom: 1px solid #E6E6E6FF;
+}
+.center-item-name {
+  padding-left: 30rpx;
+  height: 37rpx;
+  font-size: 30rpx;
+  color: #1A1A1AFF;
+}

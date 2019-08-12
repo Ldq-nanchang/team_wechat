@@ -64,7 +64,7 @@
   border-radius: 10rpx; 
 }
 .theme-color {
-  color: #34C3CB!important;
+  color: #ff9d20!important;
 }
 .loading-wrapper {
   padding: 20rpx;
@@ -78,4 +78,10 @@
   bottom: 60rpx;
   width: calc(100% - 60rpx);
   z-index: 2000;
+}
+.margin-top-15 {
+  margin-top: 15rpx;
+}
+.margin-top-10 {
+  margin-top: 10rpx;
 }

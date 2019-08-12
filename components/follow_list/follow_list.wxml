@@ -1,0 +1,26 @@
+<!--components/user_list/user_list.wxml-->
+<view class="container">
+  <view class="follow-list">
+
+    <view class="follow-item flex-row" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="flex-row" style="align-items: center;">
+        <view class="follow-item-icon">
+          <image class="follow-item-icon" src="/assets/evaluate_icon.jpg"></image>
+        </view>
+        <view class="follow-item-info">
+          <view class="follow-item-name">王明白</view>
+          <view class="follow-time">2019-04-15 20:30 关注了Ta</view>
+        </view>
+      </view>
+      <view class="follow-item-btn">已关注</view>
+
+    </view>
+
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+      
+    </view>
+    
+  </view>
+</view>

@@ -1,2 +1,99 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+
+  <view class="head flex-row">
+    <view class="head-icon">
+      <image class="head-icon-img" src="/assets/evaluate_icon.jpg"></image>
+    </view>
+    <view class="head-info">
+      <view class="head-info-name">王小明</view>
+      <view class="theme-color margin-top-10">会员等级</view>
+      <view class="theme-color margin-top-10">积分：888</view>
+    </view>
+    <view class="head-info-btn">
+      <text>签到</text>
+    </view>
+  </view>
+  <!-- 菜单按钮 -->
+  <view class="condition">
+
+    <view class="condition-list flex-row">
+
+      <view class="condition-item">
+        <view class="condition-item-icon">
+          <wux-icon type="md-person-add" color="#fe5e77ff"/>
+        </view>
+        <view class="condition-item-name">创建社团</view>
+      </view>
+      <view class="condition-item">
+        <view class="condition-item-icon">
+          <wux-icon type="md-basket" color="#f5dc62ff"/>
+        </view>
+        <view class="condition-item-name">积分商城</view>
+      </view>
+      <view class="condition-item">
+        <view class="condition-item-icon">
+          <wux-icon type="md-barcode" color="#3bcec3ff"/>
+        </view>
+        <view class="condition-item-name">扫一扫</view>
+      </view>
+
+    </view>
+
+  </view>
+  <!-- 个人中心列表 -->
+  <view class="center">
+
+    <view class="center-list">
+
+      <view class="center-item flex-row">
+        <view class="flex-row" style="align-items: center;">
+          <view class="center-item-cion">
+            <wux-icon type="md-contacts" color="#ff9d20"></wux-icon>
+          </view>
+          <view class="center-item-name">参加的社团</view>
+        </view>
+        <view class="center-item-btn">
+          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+        </view>
+      </view>
+      <view class="center-item flex-row">
+        <view class="flex-row" style="align-items: center;">
+          <view class="center-item-cion">
+            <wux-icon type="md-pricetags" color="#ff9d20"></wux-icon>
+          </view>
+          <view class="center-item-name">参加的活动</view>
+        </view>
+        <view class="center-item-btn">
+          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+        </view>
+      </view>
+      <view class="center-item flex-row">
+        <view class="flex-row" style="align-items: center;">
+          <view class="center-item-cion">
+            <wux-icon type="md-clock" color="#ff9d20"></wux-icon>
+          </view>
+          <view class="center-item-name">浏览记录</view>
+        </view>
+        <view class="center-item-btn">
+          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+        </view>
+      </view>
+      <view class="center-item flex-row">
+        <view class="flex-row" style="align-items: center;">
+          <view class="center-item-cion">
+            <wux-icon type="md-share-alt" color="#ff9d20"></wux-icon>
+          </view>
+          <view class="center-item-name">发分享小程序</view>
+        </view>
+        <view class="center-item-btn">
+          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+        </view>
+      </view>
+
+
+    </view>
+
+  </view>
+
+</view>
