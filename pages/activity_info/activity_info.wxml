@@ -1,16 +1,93 @@
 <!--pages/activity_info/activity_i.wxml-->
 <view class="container">
+
   <view class="banner">
     <image class="banner" src="http://223.84.156.187:807/team_test/headpic.jpg"></image>
   </view>
+
   <view class="activity-head-wrapper">
     <view class="activity-head">
       <view class="activity-name">
         <text>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</text>
       </view>
-      <view class="activity-hot flex">
-      
+      <view class="activity-hot flex-row">
+        <wux-icon type="md-eye" color="#9DABB2" size="17" style="margin-right:15rpx"></wux-icon>6286
+        <wux-icon type="md-share-alt" color="#9DABB2" size="17" 
+        style="margin: 0 15rpx 0 30rpx"></wux-icon>13
+        <wux-icon type="md-star" color="#9DABB2" size="17" 
+        style="margin: 0 15rpx 0 30rpx"></wux-icon>20
       </view>
     </view>
+    <view></view>
   </view>
+
+  <view class="activity-action">
+    <view class="activity-action-item- flex-row" style="margin-bottom:30rpx;">
+        <wux-icon type="md-clock" color="#9DABB2" size="17" 
+        style="margin-right:30rpx"></wux-icon>
+        08-28 08:00  至  08-29 19:30
+    </view>
+
+    <view class="activity-action-item flex-row">
+      <view class="activity-action-item- flex-row">
+        <wux-icon type="md-pin" color="#9DABB2" size="17" 
+        style="margin-right:30rpx"></wux-icon>
+        北京市朝阳区东三环(详细地址开始前通知)
+      </view>
+      <wux-icon type="md-arrow-forward" color="#9DABB2" size="17"></wux-icon>
+    </view>
+
+    <view class="activity-action-item flex-row" style="margin-bottom:0">
+      <view class="activity-action-item- flex-row theme-color">
+        <wux-icon type="logo-usd" color="#9DABB2" size="17" 
+        style="margin-right:30rpx"></wux-icon>
+        免费
+      </view>
+      <wux-icon type="md-arrow-forward" color="#9DABB2" size="17"></wux-icon>
+    </view>
+
+  </view>
+
+  <view class="association">
+
+    <view class="association-head flex-row">
+      <view>
+        <image class="association-icon" src="/assets/evaluate_icon.jpg"></image>
+      </view>
+      <view class="association-contant">
+        <view class="association-name">晓虫森林
+          <wux-icon type="md-ribbon" color="#F5DC62" size="17" style="margin-left:15rpx"></wux-icon>
+        </view>
+        <view class="association-hot flex-row">
+          <view>11 活动</view>
+          <view class="association-hot-line"></view>
+          <view>553粉丝</view>
+        </view>
+      </view>
+    </view>
+    <view class="assocation-des">2013年成立至今，为人们改变生活方式，提供更丰富的生活为特点</view>
+    <view class="assocation-btns flex-row">
+       <view class="assocation-btn" style="background:#0c60ee">+关注</view>
+       <view style="width:30rpx;"></view>
+       <view class="assocation-btn" style="background:#eee;color:#0c60ee">联系Ta</view> 
+    </view>
+  </view>
+  <view style="height:80rpx;"></view>
+
+  <view class="condition flex-row">
+    <view class="condition-item flex-row">
+      <view class="condition-btn">
+        <wux-icon type="md-home" color="" size="17"></wux-icon>
+        <view>首页</view>
+        
+      </view>
+      <view class="condition-btn">
+        <wux-icon type="md-share-alt" color="" size="17"></wux-icon>
+        <view>分享</view>
+        
+      </view>
+    </view>
+    <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;">我要报名</view>
+  </view>
+
 </view>

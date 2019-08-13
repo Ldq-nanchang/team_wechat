@@ -56,7 +56,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 30rpx 0 ;
-  border-bottom: 1px solid #E6E6E6FF;
+  border-bottom: 1px solid #E6E6E6;
 }
 .center-item-name {
   padding-left: 30rpx;

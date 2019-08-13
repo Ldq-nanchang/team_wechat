@@ -19,6 +19,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    to_info() {
+      wx.navigateTo({
+        url: '/pages/activity_info/activity_info',
+      })
+    },
     get_list() {
       if (!this.data.loading_state) {
         return false;

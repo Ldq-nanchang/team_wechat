@@ -8,6 +8,7 @@
   position: relative;
   padding: 0 30rpx;
   background: #fff;
+  min-height: 200rpx;
 }
 .activity-head {
   position: absolute;
@@ -32,3 +33,84 @@
   margin-bottom: 10rpx;
   font-size: 30rpx;
 }
+.activity-hot {
+  align-items: center;
+  margin-top: 20rpx;
+  color: #9DABB2;
+}
+.activity-action {
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+.activity-action-item {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.activity-action-item- {
+  align-items: center;
+}
+
+/* 社团介绍 */
+.association {
+  padding: 30rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.association-icon {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30px;
+}
+
+.association-name {
+  margin: 15rpx 0 20rpx 0;
+  font-size: 30rpx;
+}
+.association-hot {
+  align-items: center;
+}
+.association-hot-line {
+  border-right: 1px solid #9DABB2;
+  height: 20rpx;
+  margin: 0 20rpx;
+}
+.assocation-des {
+  margin: 30rpx 0 20rpx 0;
+  color: #9DABB2
+}
+.assocation-btn {
+  border-radius: 6rpx;
+  width: calc(100% - 30rpx);
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+}
+
+.condition {
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  box-shadow:0px 2px 8px 0px rgba(52,195,203,0.3);
+}
+.condition-item {
+  width: 50%;
+  text-align: center;
+  
+  color: #fff;
+}
+
+.condition-btn {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  color: #1a1a1a;
+}
+

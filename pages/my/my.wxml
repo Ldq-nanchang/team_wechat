@@ -21,19 +21,19 @@
 
       <view class="condition-item">
         <view class="condition-item-icon">
-          <wux-icon type="md-person-add" color="#fe5e77ff"/>
+          <wux-icon type="md-person-add" color="#FE5E77"></wux-icon>
         </view>
         <view class="condition-item-name">创建社团</view>
       </view>
       <view class="condition-item">
         <view class="condition-item-icon">
-          <wux-icon type="md-basket" color="#f5dc62ff"/>
+          <wux-icon type="md-basket" color="#F5DC62"></wux-icon>
         </view>
         <view class="condition-item-name">积分商城</view>
       </view>
       <view class="condition-item">
         <view class="condition-item-icon">
-          <wux-icon type="md-barcode" color="#3bcec3ff"/>
+          <wux-icon type="md-barcode" color="#3BCEC3"></wux-icon>
         </view>
         <view class="condition-item-name">扫一扫</view>
       </view>
@@ -54,7 +54,7 @@
           <view class="center-item-name">参加的社团</view>
         </view>
         <view class="center-item-btn">
-          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+          <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
       <view class="center-item flex-row">
@@ -65,7 +65,7 @@
           <view class="center-item-name">参加的活动</view>
         </view>
         <view class="center-item-btn">
-          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+          <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
       <view class="center-item flex-row">
@@ -76,7 +76,7 @@
           <view class="center-item-name">浏览记录</view>
         </view>
         <view class="center-item-btn">
-          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+          <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
       <view class="center-item flex-row">
@@ -87,7 +87,7 @@
           <view class="center-item-name">发分享小程序</view>
         </view>
         <view class="center-item-btn">
-          <wux-icon type="md-play" color="#9dabb2ff" size="16"></wux-icon>
+          <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
 
