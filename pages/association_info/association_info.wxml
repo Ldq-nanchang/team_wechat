@@ -1,0 +1,65 @@
+<!--pages/association_info/association_info.wxml-->
+<view class="container">
+
+  <view class="banner">
+    <image class="banner" src="http://223.84.156.187:807/team_test/banner.jpg"></image>
+  </view>
+
+  <view class="association-head-wrapper">
+
+    <view class="association-head">
+      <view class="flex-row">
+        <view>
+          <image class="association-icon" src="/assets/evaluate_icon.jpg"></image>
+        </view>
+        <view class="association-head-content">
+          <view class="association-name">晓虫森林</view>
+          <view>已认证</view>
+        </view>
+      </view>
+
+      <view class="flex-row" style="justify-content: space-between;margin-top:30rpx;">
+        <view class="association-hot flex-row">
+          <view>11 活动</view>
+          <view class="association-hot-line"></view>
+          <view>553粉丝</view>
+        </view>
+        <view class="association-btn">关注</view>
+      </view>
+
+    </view>
+
+  </view>
+  <view class="association-des flex-row">
+    <view class="association-des-title">Ta的简介</view>
+    <view class="association-des-info">2013年成立至今，为人们改变生活方式，提供更加丰富的生活体验为特点。</view>
+  </view>
+  <!-- 名人馆和成员 -->
+  <view class="people-wrapper">
+    
+    <view class="people-nav flex-row" wx:for="{{people_nav}}" wx:key="{{index}}">
+      <view class="pelple-nav-item">{{item}}</view>
+    </view>
+    <view class="people-content">
+      <swiper current="{{ index }}" bindchange="onSwiperChange">
+          <block>
+              <swiper-item>
+                  <view class="content">
+                   名人馆
+                  </view>
+              </swiper-item>
+          </block>
+          <block>
+              <swiper-item>
+                  <view class="content">
+                    社团成员
+                  </view>
+              </swiper-item>
+          </block>
+      </swiper>
+    </view>
+
+  </view>
+
+
+</view>

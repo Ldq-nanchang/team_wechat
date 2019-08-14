@@ -1,0 +1,78 @@
+/* pages/association_info/association_info.wxss */
+.banner {
+  width: 100%;
+  height: 300rpx;
+}
+.association-head-wrapper {
+  position: relative;
+  min-height: 270rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+.association-head {
+  position: absolute;
+  top: -30rpx;
+  left: 30rpx;
+  width: calc(100% - 120rpx);
+  z-index: 1000;
+  padding: 30rpx;
+  box-shadow:0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+  background: #fff;
+}
+.association-icon {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+}
+.association-name {
+  margin-bottom: 20rpx;
+  font-size: 38rpx;
+  color: #1a1a1a;
+}
+.association-hot {
+  align-items: center;
+  color: #9DABB2;
+}
+.association-hot-line {
+  margin: 0 20rpx;
+  border-right: 1px solid #9DABB2;
+  height: 28rpx;
+}
+.association-btn {
+  padding: 0 30rpx;
+  height: 60rpx;
+  border-radius: 6rpx; 
+  line-height: 60rpx;
+  text-align: center;
+  background:#0c60ee;
+  color: #fff;
+}
+.association-des {
+  margin-bottom: 30rpx;
+  padding: 0 30rpx 30rpx 30rpx;
+  background: #fff;
+}
+.association-des-title {
+  flex-shrink: 0;
+  margin-right: 30rpx;
+  color: #9DABB2;
+}
+
+/* 名人馆和社团成员 */
+.people-wrapper {
+  background: #fff;
+}
+.people-nav {
+  padding: 30rpx;
+}
+.pelple-nav-item {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.pelple-nav-item-active {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}

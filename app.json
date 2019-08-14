@@ -5,7 +5,8 @@
     "pages/people/people",
     "pages/class/class",
     "pages/my/my",
-    "pages/activity_info/activity_info"
+    "pages/activity_info/activity_info",
+    "pages/association_info/association_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

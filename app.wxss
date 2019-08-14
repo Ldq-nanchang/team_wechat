@@ -11,7 +11,7 @@
   /* padding: 30rpx; */
   min-height: 100vh;
   background: #f6f6f6;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .flex-row {
   display: flex;
