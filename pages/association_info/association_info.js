@@ -5,10 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    people_nav: ['名人馆','社团成员']
+    people_nav: ['名人馆','社团成员'],
+    people_active: 0
   },
   onSwiperChange(e) {
-    console.log(e.detail)
+    console.log(e.detail.current)
+    this.setData({ people_active: e.detail.current});
+    console.log(this.data.people_active)
   },
   /**
    * 生命周期函数--监听页面加载

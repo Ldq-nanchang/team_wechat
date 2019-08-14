@@ -37,22 +37,24 @@
   <!-- 名人馆和成员 -->
   <view class="people-wrapper">
     
-    <view class="people-nav flex-row" wx:for="{{people_nav}}" wx:key="{{index}}">
-      <view class="pelple-nav-item">{{item}}</view>
+    <view class="people-nav flex-row">
+      <view wx:for="{{people_nav}}" wx:key="{{index}}"
+       class="{{people_active==index?'pelple-nav-item-active':'pelple-nav-item'}}">
+       {{item}}</view>
     </view>
     <view class="people-content">
       <swiper current="{{ index }}" bindchange="onSwiperChange">
           <block>
               <swiper-item>
                   <view class="content">
-                   名人馆
+                   <text>名人馆</text>
                   </view>
               </swiper-item>
           </block>
           <block>
               <swiper-item>
                   <view class="content">
-                    社团成员
+                    <text>社团成员</text>
                   </view>
               </swiper-item>
           </block>

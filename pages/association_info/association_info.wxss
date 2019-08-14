@@ -67,12 +67,19 @@
   padding: 30rpx;
 }
 .pelple-nav-item {
+  display: flex;
+  align-items: center;
+  margin-right: 30rpx;
+  line-height: 28rpx;
   font-size: 28rpx;
   font-weight: bold;
   color: #1a1a1a;
 }
+
 .pelple-nav-item-active {
+  margin-right: 30rpx;
   font-size: 34rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #ff9d20;
+  
 }
