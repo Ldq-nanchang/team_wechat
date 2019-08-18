@@ -37,24 +37,60 @@
   <!-- 名人馆和成员 -->
   <view class="people-wrapper">
     
-    <view class="people-nav flex-row">
+    <view class="title-nav flex-row">
       <view wx:for="{{people_nav}}" wx:key="{{index}}"
-       class="{{people_active==index?'pelple-nav-item-active':'pelple-nav-item'}}">
+       class="{{people_active==index?'title-item-active':'title-item'}}">
        {{item}}</view>
     </view>
     <view class="people-content">
-      <swiper current="{{ index }}" bindchange="onSwiperChange">
+      <swiper current="{{ index }}" bindchange="onSwiperChange" style="height:580rpx">
           <block>
               <swiper-item>
-                  <view class="content">
-                   <text>名人馆</text>
+                  <view class="people-block">
+                    <view class="people-item flex-row"
+                    style="{{index==people_list.length-1?'border-bottom:none':''}}" 
+                    wx:for="{{people_list}}" wx:key="{{index}}">
+                      <view class="people-item-icon" style="background:url(/assets/evaluate_icon.jpg) center center /cover">
+                        <image src="/assets/evaluate_icon.jpg" style="width:100%;height:100%"></image>
+                      </view>
+                      <view class="people-item-content">
+                        <view class="people-item-name">
+                          <text style="margin-right:15rpx;">{{item}}</text>
+                          <wux-icon type="md-female" 
+                          color="#FF7171" size="16" wx:if="{{index==0}}"></wux-icon>
+                          <wux-icon type="md-male" 
+                          color="#29AEFF" size="16" wx:if="{{index!=0}}">></wux-icon>
+                        </view>
+                        <view class="people-item-des">2018-09-15 至 今</view>
+                      </view>
+                    </view>
+
+                    <view class="people-list-more theme-color">查看全部</view>
                   </view>
               </swiper-item>
           </block>
           <block>
               <swiper-item>
-                  <view class="content">
-                    <text>社团成员</text>
+                  <view class="people-block">
+                    <view class="people-item flex-row" 
+                    style="{{index==people_list_.length-1?'border-bottom:none':''}}"
+                    wx:for="{{people_list_}}" wx:key="{{index}}">
+                      <view class="people-item-icon" style="background:url(/assets/evaluate_icon.jpg) center center /cover">
+                        <image src="/assets/evaluate_icon.jpg" style="width:100%;height:100%"></image>
+                      </view>
+                      <view class="people-item-content">
+                        <view class="people-item-name">
+                          <text style="margin-right:15rpx;">{{item}}</text>
+                          <wux-icon type="md-female" 
+                          color="#FF7171" size="16" wx:if="{{index==0}}"></wux-icon>
+                          <wux-icon type="md-male" 
+                          color="#29AEFF" size="16" wx:if="{{index!=0}}">></wux-icon>
+                        </view>
+                        <view class="people-item-des">15170236956</view>
+                      </view>
+                    </view>
+
+                    <view class="people-list-more theme-color">查看全部</view>
                   </view>
               </swiper-item>
           </block>
@@ -62,6 +98,92 @@
     </view>
 
   </view>
+  <!-- 资讯和活动 -->
+  <view class="information-activity">
 
+    <view class="title-nav flex-row">
+      <view wx:for="{{information_activity_nav}}" wx:key="{{index}}"
+       class="{{information_activity_active==index?'title-item-active':'title-item'}}">
+       {{item}}</view>
+    </view>
+    <swiper current="{{ index }}" bindchange="onSwiperChangeA" style="height:846rpx">
+        <block>
+            <swiper-item>
+               
+              <view class="activity-list">
+
+                <view class="activity-item flex-row"
+                wx:for="{{news}}" wx:key="{{index}}">
+                  <view class="activity-item-headpic" bindtap="perview" data-url="http://223.84.156.187:807/team_test/headpic.jpg"
+                  style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
+                  <view class="activity-item-content" bindtap="to_info">
+                    <view class="actions-item-name flex-row">
+
+                      <view>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</view>
+                    </view>
+                    <view class="des">
+                      <text>进行中  线上活动</text>
+                    </view>
+
+                    <view class="activity-item-foot flex-row">
+                      <view class="activity-item-num flex-row">
+                        <view>￥</view>
+                        <view>49</view>
+                      </view>
+                      <view class="activity-item-btn">
+                        <text>3548人已报名</text>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+
+            </swiper-item>
+        </block>
+        <block>
+            <swiper-item>
+                
+              <view class="activity-list">
+
+                <view class="activity-item flex-row"
+                wx:for="{{news}}" wx:key="{{index}}">
+                  <view class="activity-item-headpic" bindtap="perview" data-url="http://223.84.156.187:807/team_test/headpic.jpg"
+                  style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
+                  <view class="activity-item-content" bindtap="to_info">
+                    <view class="actions-item-name flex-row">
+
+                      <view>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</view>
+                    </view>
+                    <view class="des">
+                      <text>进行中  线上活动</text>
+                    </view>
+
+                    <view class="activity-item-foot flex-row">
+                      <view class="activity-item-num flex-row">
+                        <view>￥</view>
+                        <view>49</view>
+                      </view>
+                      <view class="activity-item-btn">
+                        <text>3548人已报名</text>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+
+            </swiper-item>
+        </block>
+    </swiper>
+
+
+  </view>
+  <!-- 社团动态 -->
+  <view class="comment-list-title flex-row">
+    <view style="border-right: 10rpx solid #ff9d20;margin-right:30rpx;height:30rpx"></view>
+    <view>社团动态</view>
+  </view>
+  <commentList id="commentList"></commentList>
 
 </view>

@@ -6,69 +6,64 @@
   display: flex;
   flex-flow: column;
 } 
-.people {
+.activity {
   background: #fff;
   margin-bottom: 20rpx;
 }
-.people-title {
+.activity-title {
   position: relative;
   padding: 30rpx;
   border-bottom: 1px solid #eee;
   font-size: 28rpx;
   color: #999;
 }
-.people-title-icon {
-  padding: 5rpx 10rpx;
-  border: 1px solid #dd4841;
-  border-radius: 4rpx;
+.activity-title-icon {
   color: #dd4841;
   margin-right: 20rpx; 
   font-weight: 700;
+  font-size: 30rpx;
 }
-.people-title-des {
+.activity-title-des {
   position: absolute;
   bottom: 30rpx;
   left: 190rpx;
+  font-size: 26rpx!important;
 }
-.people-item {
+.activity-item {
   padding: 30rpx;
   border-bottom: 1px solid #eee;
 } 
-.people-item-headpic {
+.activity-item-headpic {
   width: 300rpx;
   height: 220rpx;
   margin-right: 20rpx;
 }
-.people-item-content {
+.activity-item-content {
   position: relative;
-  width: calc(100% - 340rpx);
+  width: calc(100% - 320rpx);
 }
-.people-item-name {
+.activity-item-name {
   margin-bottom: 15rpx;
   font-size: 26rpx;
 }
-.people-item-address {
+.activity-item-address {
   margin-bottom: 15rpx;
   color: #34C3CB;
 }
-.people-item-foot {
+.activity-item-foot {
   position: absolute;
   bottom: 0;
   left: 0;
   justify-content: space-between;
   width: 100%;
 }
-.people-item-num {
-  color: #e0a03c;
+.activity-item-num {
+  color: #faad14;
 }
-.people-item-btn {
+.activity-item-btn {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding:5rpx;
-  border: 1px solid #ed9c4b;
-  border-radius: 6px;
-  color: #e8b272;
 }
 
 .actions-item-name {

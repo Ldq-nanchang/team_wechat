@@ -1,33 +1,32 @@
 <!--components/activity_list/activity_list.wxml-->
-  <view class="people">
+  <view class="activity">
 
-    <view class="people-title flex-row">
-      <view class="people-title-icon">精选活动</view>
-      <view class="people-title-des">爆款抄底  想玩靠抢！</view>
+    <view class="activity-title flex-row">
+      <view class="activity-title-icon">精选活动</view>
+      <view class="activity-title-des">爆款抄底  想玩靠抢！</view>
     </view>
 
-      <view class="people-list">
+      <view class="activity-list">
 
-        <view class="people-item flex-row"
-        wx:for="{{people_list}}" wx:key="{{index}}">
-          <view class="people-item-headpic" bindtap="perview" data-url="http://223.84.156.187:807/team_test/headpic.jpg"
-          style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
-          <view class="people-item-content" bindtap="to_info">
+        <view class="activity-item flex-row"
+        wx:for="{{activity_list}}" wx:key="{{index}}">
+          <view class="activity-item-headpic" bindtap="perview" data-url="{{item.CoverPic}}"
+          style="background:url({{item.CoverPic}}) center center /cover"></view>
+          <view class="activity-item-content" bindtap="to_info" data-id="{{item.Id}}">
             <view class="actions-item-name flex-row">
-
-              <view>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</view>
+              <view>{{item.Title}}</view>
             </view>
             <view class="des">
               <text>进行中  线上活动</text>
             </view>
 
-            <view class="people-item-foot flex-row">
-              <view class="people-item-num flex-row">
+            <view class="activity-item-foot flex-row">
+              <view class="activity-item-num flex-row">
                 <view>￥</view>
-                <view>49</view>
+                <view>{{item.Price}}</view>
               </view>
-              <view class="people-item-btn">
-                <text>3548人已报名</text>
+              <view class="activity-item-btn">
+                <wux-tag color="orange">{{item.MemberCount}}人已报名</wux-tag>
               </view>
             </view>
           </view>

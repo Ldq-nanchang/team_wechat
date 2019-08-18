@@ -1,0 +1,18 @@
+/* pages/information_info/information.wxss */
+.container {
+  padding-top: 30rpx;
+}
+.information {
+  padding: 30rpx;
+  background: #fff;
+}
+.information-head {
+  margin-bottom: 30rpx;
+}
+.title {
+  font-size: 34rpx;
+  margin-bottom: 30rpx;
+}
+.hot {
+  color: #9DABB2;
+}

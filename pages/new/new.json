@@ -1,9 +1,9 @@
 {
   "navigationBarBackgroundColor": "#ff9d20",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "社团列表",
+  "navigationBarTitleText": "资讯",
   "usingComponents": {
-    "peopleList": "/components/people_list/people_list"
+    "informations": "/components/informations/informations"
   },
   "enablePullDownRefresh": true
 }

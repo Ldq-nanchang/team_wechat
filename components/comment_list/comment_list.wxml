@@ -1,0 +1,22 @@
+<!--components/component_list/comment_list.wxml-->
+<view class="comment-list">
+  <view class="comment-item" wx:for="{{list}}" wx:key="{{index}}">
+
+    <view class="comment-from flex-row">
+      <view class="flex-row">
+        <view class="comment-from-icon">
+          <image src="/assets/evaluate_icon.jpg" style="width:100%;height:100%;"></image>
+        </view>
+        <view>王羲之</view>
+      </view>
+      <view class="comment-time">2019-08-16</view>
+    </view>
+    <view class="comment-content">
+      <view class="comment-content-text">浏览了伊娃老师推荐的几个网站</view>
+      <view class="comment-imgs">
+        <image src="http://223.84.156.187:807/team_test/banner.jpg" style="width:100%;height:100%"></image>
+      </view>
+    </view>
+
+  </view>
+</view>

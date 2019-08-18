@@ -1,4 +1,5 @@
 // components/people_list/people_list.js
+var $http = require("../../utils/request.js");
 Component({
   /**
    * 组件的属性列表
@@ -11,7 +12,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    people_list: ['', '', '','',''],
+    page: 1,
+    page_size: 10,
+    community_list: [],
     stars: ['', '', '', '', '',],
     loading_state: true
   },
@@ -20,33 +23,34 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    get_list(list) {
-      // let that = this;
-      // this.setData({
-      //   people_list: [...that.data.people_list,...list]
-      // })
+    get_list() {
       if (!this.data.loading_state) {
         return false;
       }
-      wx.showLoading({
-        title: '加载中',
-        icon: 'loading',
-      });
-      setTimeout(() => {
-        wx.hideLoading();
-        let that = this;
-        let list = ['', '', '', '', '',]
-        // this.selectComponent('#peopleList').get_list(['', '', '', '', '']);
-        this.setData({
-          people_list: [...that.data.people_list, ...list]
+      let that = this;
+      $http.request(true,'/api/community/GetCommunityList',{
+        CurrentPage: that.data.page,
+        PageSize: that.data.page_size,
+        City: '',
+        Tag: '',
+        NearBy: '',
+        Lat: '',
+        Lng: '',
+        SortCode: ''
+      },(res)=>{
+        console.log(res.data)
+        
+        that.setData({
+          community_list: [...that.data.community_list,...res.data],
+          page: that.data.page++
         })
-        if (this.data.people_list.length > 9) {
-          this.setData({
+        if (res.data.length < that.data.page_size) {
+          that.setData({
             loading_state: false
-          });
+          })
         }
+      })
 
-      }, 1000)
     }
   }
 })

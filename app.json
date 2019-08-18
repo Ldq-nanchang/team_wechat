@@ -6,7 +6,9 @@
     "pages/class/class",
     "pages/my/my",
     "pages/activity_info/activity_info",
-    "pages/association_info/association_info"
+    "pages/association_info/association_info",
+    "pages/new/new",
+    "pages/information_info/information_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

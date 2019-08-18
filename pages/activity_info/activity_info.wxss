@@ -35,9 +35,15 @@
 }
 .activity-hot {
   align-items: center;
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   color: #9DABB2;
 }
+.activity-head-btn {
+  position: absolute;
+  bottom: 20rpx;
+  right: 30rpx;
+}
+
 .activity-action {
   margin-bottom: 30rpx;
   padding: 30rpx;
@@ -61,6 +67,7 @@
 .association-icon {
   width: 150rpx;
   height: 150rpx;
+  border-radius: 150rpx;
   margin-right: 30px;
 }
 

@@ -1,6 +1,12 @@
 {
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "社团行动",
   "usingComponents": {
-    "activityList": "/components/activity_list/activity_list"
+    "activityList": "/components/activity_list/activity_list",
+
+    "wux-icon": "../../dist/icon/index",
+    "wux-tag": "../../dist/tag/index"
   },
   "enablePullDownRefresh": true
 }

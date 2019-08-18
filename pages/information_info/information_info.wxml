@@ -1,0 +1,18 @@
+<!--pages/information_info/information.wxml-->
+<view class="container">
+  <view class="information">
+
+    <view class="information-head">
+      <view class="title">{{information.Title}}</view>
+      <view class="hot flex-row">
+        <text>{{information.date}}</text>
+        <wux-icon type="md-eye" color="#9DABB2" size="17" style="margin-left:20rpx"></wux-icon>
+        <text style="margin-left: 10rpx">{{information.ClicksNum}}</text>
+      </view>
+    </view>
+    <view class="information-content">
+      <rich-text nodes="{{information.Content}}" bindtap="tap"></rich-text>
+    </view>
+
+  </view>
+</view>

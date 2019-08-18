@@ -1,30 +1,31 @@
-// pages/activity_info/activity_i.js
-var $http = require("../../utils/request.js");
+// pages/information_info/information.js
+var util = require("../../utils/util.js");
+const $http = require("../../utils/request.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    activity: {},
-    community: {}
+    information: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.id) {
-      this.get_activity(options.id)
+    if(options.id) {
+      this.get_information(options.id)
     }
   },
-  get_activity(id) {
-    $http.request(true,'/api/activity/GetActivityDetails',{
+  get_information(id) {
+    $http.request(true,'/api/information/GetInformationDetails',{
       Id: id
     },(res)=>{
+      console.log(res.data);
+      res.data.date = util.timeTransform(res.data.PublishDate)
       this.setData({
-        activity: res.data.activityInfo,
-        community: res.data.communityInfo
+        information: res.data
       })
     })
   },
@@ -32,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

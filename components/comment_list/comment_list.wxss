@@ -1,0 +1,28 @@
+/* components/component_list/comment_list.wxss */
+.flex-row {
+  display: flex;
+}
+.comment-list {
+  background: #fff;
+}
+.comment-item {
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+.comment-from {
+  justify-content: space-between
+}
+.comment-from-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.comment-time {
+  color: #999;
+}
+.comment-content-text {
+  padding: 20rpx 0;
+}
+.comment-imgs {
+  height: 300rpx;
+}

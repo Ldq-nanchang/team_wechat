@@ -22,8 +22,30 @@ function domH(dom, callback) {
     }
   }).exec();
 }
+// 时间转换成倒计时
+function timeTransform(time) {
+  let _time = new Date()
+  let time_ = parseInt(_time.valueOf() / 1000) - (new Date(time.replace(/-/g, '/'))).getTime() / 1000;
+  let _time_ = '';
+  if (time_ <= 15) {
+    _time_ = '刚刚';
+  } else if (time_ > 15 && time_ < 60) {
+    _time_ = time_ + '秒前';
+  } else if (time_ >= 60 && time_ < 3600) {
+    _time_ = parseInt(time_ / 60) + '分钟前';
+  } else if (time_ >= 3600 && time_ < 86400) {
+    _time_ = parseInt(time_ / 3600) + '小时前'
+  } else if (time_ >= 86400 && time_ < 2592000) {
+    _time_ = (parseInt(time_ / 86400) + 1) + '天前'
+  } else if (time_ >= 2592000) {
+    _time_ = parseInt(time_ / 2592000) + '个月前'
+  }
+
+  return _time_;
+}
 
 module.exports = {
   formatTime: formatTime,
-  domH
+  domH,
+  timeTransform
 }

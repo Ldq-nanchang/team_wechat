@@ -6,12 +6,20 @@ Page({
    */
   data: {
     people_nav: ['名人馆','社团成员'],
-    people_active: 0
+    people_active: 0,
+    people_list: ['杜甫', '李白', '苏东坡','苏轼'],
+    people_list_: ['莎士比亚', '丘吉尔', '梵高','莫泊桑',],
+    information_activity_nav: ['资讯','活动'],
+    information_activity_active: 0,
+    news: ['','','']
   },
   onSwiperChange(e) {
     console.log(e.detail.current)
     this.setData({ people_active: e.detail.current});
-    console.log(this.data.people_active)
+  },
+  onSwiperChangeA(e) {
+    console.log(e.detail.current)
+    this.setData({ information_activity_active: e.detail.current });
   },
   /**
    * 生命周期函数--监听页面加载

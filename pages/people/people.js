@@ -12,18 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    wx.setNavigationBarTitle({
-      title: '社团列表',
-    });
-    wx.setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: '#ff9d20',
-      animation: {
-        duration: 400,
-        timingFunc: 'easeIn'
-      }
-    })
+    this.get_list();
 
   },
 
@@ -75,7 +64,6 @@ Page({
   onReachBottom: function () {
     console.log('sss')
     if (this.data.loading_state) {
-     
       this.get_list();
     }
   },

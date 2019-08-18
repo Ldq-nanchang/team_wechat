@@ -1,7 +1,6 @@
 <!--components/user_list/user_list.wxml-->
 <view class="container">
   <view class="follow-list">
-
     <view class="follow-item flex-row" wx:for="{{list}}" wx:key="{{index}}">
       <view class="flex-row" style="align-items: center;">
         <view class="follow-item-icon">

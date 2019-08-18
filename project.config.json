@@ -4,13 +4,21 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
@@ -40,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -64,16 +72,31 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "活动详情",
 					"pathName": "pages/activity_info/activity_info",
-					"query": "",
+					"query": "id=31474d3a-a559-48e7-b229-ebc7e354a481",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "社团详情",
 					"pathName": "pages/association_info/association_info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "资讯列表",
+					"pathName": "pages/new/new",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/information_info/information_info",
+					"pathName": "pages/information_info/information_info",
+					"query": "id=58b7ee9d-43d5-43d4-abc8-b3465dc3ddd2",
 					"scene": null
 				}
 			]
