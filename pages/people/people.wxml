@@ -18,12 +18,21 @@
       </view>
     </view>
 
-    <view class="flex-row">
-      
+    <view class="condition flex-row">
+        <view class="condition-item" wx:for="{{condition}}" wx:for-index="index_" wx:key="{{index_}}">
+          <picker class="picker-wrapper flex-row" bindchange="bindPickerChange" 
+          value="{{index}}" range="{{item.condition_value}}"
+          id="{{index_}}" range-key="ItemName">
+            <!-- <view class="picker-condition">{{item.condition_value[index_].ItemName}}</view> -->
+            <view class="picker-condition">{{item.condition_name}}</view>
+            <view class="picker- flex-row">{{item.condition_name}}
+            <view class="picker-arrow- arrow-bottom-10"></view></view>
+          </picker>
+        </view>
     </view>
 
   </view>
-  <view style="height:188rpx;"></view>
+  <view style="height:208rpx;"></view>
   <view>
     <peopleList id="peopleList"/>
 

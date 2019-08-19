@@ -87,11 +87,18 @@
 }
 
 .news-info {
+  position: relative;
   padding-top: 20rpx;
   /* height: 100rpx; */
   font-size: 24rpx;
   /* overflow: hidden; */
-  
+}
+.swiper-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 .new-date {
   text-align: right;

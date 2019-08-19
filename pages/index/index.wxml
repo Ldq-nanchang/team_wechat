@@ -41,9 +41,9 @@
   <!-- 活动 -->
   <view class="actions">
     <view class="actions-title flex-row">
-      <view style="margin-right:20rpx;">
+      <!-- <view style="margin-right:20rpx;">
         <view class="iconfont iconhuodong" style="font-size:30rpx;color:fe9c21;"></view>
-      </view>
+      </view> -->
       <view>活动入口</view>
     </view>
     <view class="actions-content flex-row">
@@ -72,8 +72,8 @@
   <view class="news">
     <view class="news-title flex-row" bindtap="to_new">
       <view class="news-title-lf">
-        <view class="iconfont icongonggaopai">
-          <text style="padding-left:15rpx">平台公告</text>
+        <view class="iconfont icongonggaopai" style="color:#dd4841">
+          <text style="padding-left:15rpx;font-size:30rpx;">平台公告</text>
         </view>
       </view>
       <view class="iconfont iconyoujiantou"></view>
@@ -90,12 +90,14 @@
         <block wx:for="{{news}}" wx:key="{{item.Id}}">
           <swiper-item>
             <view class="news-info-text">
-                <text style="font-size:26rpx;">【{{item.TypeName}}】{{item.Title}}</text>
+                <text style="font-size:28rpx;">【{{item.TypeName}}】{{item.Title}}</text>
             </view>
             <view class="new-date">{{item.PublishDate}}</view>
+            
           </swiper-item>
         </block>
       </swiper>
+      <view class="swiper-cover"></view>
     </view>
   </view>
 

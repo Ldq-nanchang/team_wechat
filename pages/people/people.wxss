@@ -53,4 +53,49 @@
   margin-left: 14rpx;
 }
 
+.condition {
+  position: fixed;
+  top: 128rpx;
+  left: 0;
+  justify-content: space-between;
+  z-index: 1000;
+  height: 26rpx;
+  padding: 30rpx;
+  padding-top: 0;
+  width: calc(100% - 60rpx);
+  font-size: 26rpx;
+  background: #ff9d20;
+}
+.condition-item {
+  position: relative;
+  color: #fff;
+}
+.picker-arrow- {
+  position: absolute;
+  right: -20rpx;
+  top: 2rpx;
+}
+
+
+.picker-wrapper {
+  align-items: center;
+}
+.picker {
+  padding-right: 40rpx;
+}
+.picker-condition {
+  padding-right: 40rpx;
+  color: transparent;
+}
+.picker- {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.picker-arrow {
+  position: absolute;
+  right: 5rpx;
+  top: 15rpx;
+}
+
 

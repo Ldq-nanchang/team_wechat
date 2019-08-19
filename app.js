@@ -1,42 +1,70 @@
 //app.js
+var util = require("/utils/util.js");
+const $http = require("/utils/request.js");
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
+    this.get_acticity_class();
+    this.get_activity_status();
+    this.get_near_list();
+    this.get_community_tag();
+    this.get_community_sort();
   },
+
+  // 获取活动分类
+  // "TypeCode": "01",
+  // "TypeName": "运动与健康"
+  get_acticity_class() {
+    $http.request(false,'/api/activity/GetActivityClassList',{},(res)=>{
+      this.globalData.acticity_class = res.data;
+      console.log(res.data)
+    });
+  },
+  // 获取活动状态
+  // "StatusCode": "00",
+  // "StatusName": "未开始"
+  get_activity_status() {
+    $http.request(false, '/api/Activity/GetActivityStatusList', {}, (res) => {
+      this.globalData.activity_status = res.data;
+      console.log(res.data)
+    });
+  },
+
+  // 获取附近列表
+  // "NearByCode": "00",
+  // "NearByName": "全城"
+  get_near_list() {
+    $http.request(false, '/api/common/GetNearByList', {}, (res) => {
+      this.globalData.near_list = res.data;
+      console.log(res.data)
+    });
+  },
+
+  // 获取社团标签
+  // "TagCode": "01",
+  // "TagName": "音乐"
+  get_community_tag() {
+    $http.request(false, '/api/Community/GetCommunityTagList', {}, (res) => {
+      this.globalData.community_tag = res.data;
+      console.log(res.data)
+    });
+  },
+  // 获取社团排序
+  // "SortCode": "01",
+  // "SortName": "离我最近"
+  get_community_sort() {
+    $http.request(false, '/api/community/GetCommunitySortList', {}, (res) => {
+      this.globalData.community_sort = res.data;
+      console.log(res.data)
+    });
+  },
+
   globalData: {
     userInfo: null,
-    citys: ['南昌市', '景德镇市', '萍乡市', '九江市', '新余市', '鹰潭市', '赣州市', '吉安市', '宜春市', '抚州市', '上饶市'],
-
-  
+    citys: ['南昌市', '景德镇市'],
+    acticity_class: [],
+    activity_status: [],
+    near_list: [],
+    community_tag: [],
+    community_sort: []
   }
 })
