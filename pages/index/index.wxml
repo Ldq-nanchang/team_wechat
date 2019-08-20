@@ -48,7 +48,7 @@
     </view>
     <view class="actions-content flex-row">
 
-      <view class="actions-item flex-row" style="background:#ffa808">
+      <view class="actions-item flex-row" style="background:#ffa808" bindtap="to_acctivity" data-type="02">
         <view class="actions-item-icon">
           <view class="iconfont iconweb__jiangli" style="font-size: 80rpx;"></view>
         </view>
@@ -57,7 +57,7 @@
           <view>参与活动赢大奖</view>
         </view>
       </view>
-      <view class="actions-item flex-row" style="background:#fe7678">
+      <view class="actions-item flex-row" style="background:#fe7678" bindtap="to_acctivity" data-type="01">
         <view class="actions-item-icon">
           <view class="iconfont iconzuanshi" style="font-size: 80rpx;"></view>
         </view>
@@ -148,6 +148,12 @@
 
   <!-- <swiper class='swiper-tab' bindchange='pagechange' current='{{tab_index}}' style="{{'height:'+swiper_h+';min-height:100vh'}}">
     <swiper-item class='swiper-tab'> -->
+      <view class="activity">
+        <view class="activity-title flex-row">
+          <view class="activity-title-icon">精选活动</view>
+          <view class="activity-title-des">爆款抄底  想玩靠抢！</view>
+        </view>
+      </view>
       <activityList id="activityList" status="-1"/>
     <!-- </swiper-item>
   </swiper> -->

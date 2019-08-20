@@ -7,6 +7,12 @@ Component({
   properties: {
     status: {
       type: String
+    },
+    is_page: {
+      type: Boolean
+    },
+    type_: {
+      type: String
     }
   },
 
@@ -29,24 +35,37 @@ Component({
         url: '/pages/activity_info/activity_info?id=' + e.currentTarget.dataset.id,
       })
     },
-    get_list() {
+    init_list(condition) {
+      this.setData({ loading_state: true, page: 1 });
+      this.get_list(condition,'init')
+    },
+    get_list(condition,init) {
       if (!this.data.loading_state) {
         return false;
       }
       let that = this;
-      $http.request(that.data.page!=1,'/api/activity/GetActivityList',{
+      let status = that.properties.status;
+      console.log(this.properties.type_)
+      let data = {
         City: '',
-        Type: '',
+        Type: this.properties.type_ ? this.properties.type_ : '',
+        NearBy: '',
         Category: '',
-        Status: that.properties.status,
+        Status: status,
         CurrentPage: that.data.page,
         PageSize: that.data.page_size,
+      }
+      if (condition) {
+        data.NearBy = condition.NearBy;
+        data.Category = condition.Category;
+        data.Status = condition.Status
+      }
 
-      },(res)=>{
+      $http.request(that.properties.is_page||that.data.page != 1, '/api/activity/GetActivityList', data,(res)=>{
         let activity_list = that.data.activity_list;
         this.setData({
           page: that.data.page + 1,
-          activity_list: [...activity_list, ...res.data]
+          activity_list: init != 'init' ? [...activity_list, ...res.data] : res.data
         });
         if (res.data.length<that.data.page_size) {
           this.setData({

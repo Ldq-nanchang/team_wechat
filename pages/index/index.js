@@ -18,6 +18,12 @@ Page({
       urls: [e.currentTarget.dataset.item],
     })
   },
+  to_acctivity(e) {
+    
+    wx.navigateTo({
+      url: '/pages/activity/activity?type='+e.currentTarget.dataset.type,
+    })
+  },
   to_new() {
     wx.navigateTo({ url: '/pages/new/new'})
   },
@@ -26,6 +32,7 @@ Page({
       url: '/pages/association_info/association_info',
     })
   },
+
 
   //事件处理函数
   swiperChange: function (e) {

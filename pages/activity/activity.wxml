@@ -1,0 +1,39 @@
+<!--pages/activity/activity.wxml-->
+<view class="container">
+
+  <view class="top">
+
+    <view class="flex-row">
+      <view class="top-address flex-row">
+          <view style="margin-right:10rpx;align-items:center;" class="flex-row">
+            <text class="iconfont iconaddress" style="font-size:38rpx"></text>
+          </view>
+          <view style="height:50rpx;">
+            <text>南昌</text>
+          </view>
+          <view class="iconfont iconjiantouxia" style="height:50rpx;"></view>
+      </view>
+      <view class="search flex-row" bindtap="goSearch">
+        <icon type="search" size="18" color="#999"/>
+        <text style="margin-left: 10rpx">请输入关键字查询</text>
+      </view>
+    </view>
+
+    <view class="condition flex-row">
+        <view class="condition-item" wx:for="{{condition}}" wx:for-index="index_" wx:key="{{index_}}">
+          <picker class="picker-wrapper flex-row" bindchange="bindPickerChange" 
+          value="{{index}}" range="{{item.condition_value}}"
+          id="{{index_}}" range-key="ItemName">
+            <!-- <view class="picker-condition">{{item.condition_value[index_].ItemName}}</view> -->
+            <view class="picker-condition">{{item.condition_name}}</view>
+            <view class="picker- flex-row">{{item.condition_name}}
+            <view class="picker-arrow- arrow-bottom-10"></view></view>
+          </picker>
+        </view>
+    </view>
+
+  </view>
+  <view style="height:208rpx;"></view>
+  <activityList id="activityList" status="-1" is_page="{{true}}" type_="{{type_}}"></activityList>
+
+</view>

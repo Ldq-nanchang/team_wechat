@@ -1,5 +1,5 @@
-// pages/people/people.js
-var app = getApp();
+// pages/activity/activity.js
+const app = getApp()
 Page({
 
   /**
@@ -9,9 +9,10 @@ Page({
     condition: [],
     condition_edit: {
       NearBy: '',
-      Tag: '',
-      SortCode: ''
-    }
+      Category: '',
+      Status: ''
+    },
+    type_: ''
   },
   // 条件筛选
   bindPickerChange(e) {
@@ -28,14 +29,14 @@ Page({
       condition,
       condition_edit: {
         NearBy: condition[1].condition_code,
-        Tag: condition[0].condition_code,
-        SortCode: condition[2].condition_code,
+        Category: condition[0].condition_code,
+        Status: condition[2].condition_code,
         // GroupCode: that.data.condition_edit.GroupCode,
         // TagCode: that.data.condition_edit.TagCode,
       }
     })
-    console.log(that.selectComponent("#peopleList"))
-    that.selectComponent("#peopleList").init_list(that.data.condition_edit);
+    console.log(that.selectComponent("#activityList"))
+    that.selectComponent("#activityList").init_list(that.data.condition_edit);
   },
   /**
    * 获取子组件传来的condition
@@ -52,10 +53,9 @@ Page({
   // },
   init_condition() {
     let condition = [
-
       {
         condition_code: '',
-        condition_name: '标签',
+        condition_name: '分类',
         condition_value: []
       },
       {
@@ -63,9 +63,10 @@ Page({
         condition_name: '附近',
         condition_value: []
       },
+
       {
         condition_code: '',
-        condition_name: '排序',
+        condition_name: '状态',
         condition_value: []
       },
     ];
@@ -75,29 +76,36 @@ Page({
         ItemCode: item.NearByCode
       })
     }
-    for (let item of app.globalData.community_tag) {
+    for (let item of app.globalData.acticity_class) {
       condition[0].condition_value.push({
-        ItemName: item.TagName,
-        ItemCode: item.TagCode
+        ItemName: item.TypeName,
+        ItemCode: item.TypeCode
       })
     }
-    for (let item of app.globalData.community_sort) {
+    for (let item of app.globalData.activity_status) {
       condition[2].condition_value.push({
-        ItemName: item.SortName,
-        ItemCode: item.SortCode
+        ItemName: item.StatusName,
+        ItemCode: item.StatusCode
       })
     }
-    this.setData({condition})
-    console.log(this.data.condition)
+    this.setData({ condition })
+    console.log(this.data.condition, app.globalData)
+  },
+  get_list() {
+    this.selectComponent('#activityList').get_list();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.init_condition();
+    if (options.type) {
+      this.setData({ type_: options.type})
+    }
+    this.init_condition()
     this.get_list();
+    
+    
   },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -135,17 +143,9 @@ Page({
   },
 
   /**
-   * 获取社团列表
-   */
-  get_list: function() {
-    this.selectComponent('#peopleList').get_list();
-  },
-
-  /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-      this.get_list();
 
   },
 

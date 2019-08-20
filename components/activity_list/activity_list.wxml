@@ -1,11 +1,6 @@
 <!--components/activity_list/activity_list.wxml-->
   <view class="activity">
 
-    <view class="activity-title flex-row">
-      <view class="activity-title-icon">精选活动</view>
-      <view class="activity-title-des">爆款抄底  想玩靠抢！</view>
-    </view>
-
       <view class="activity-list">
 
         <view class="activity-item flex-row"
