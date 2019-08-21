@@ -15,11 +15,18 @@ Page({
    */
   onLoad: function (options) {
     if(options.id) {
-      this.get_information(options.id)
+      this.get_information(options.id,options.type)
     }
   },
-  get_information(id) {
-    $http.request(true,'/api/information/GetInformationDetails',{
+  get_information(id,type) {
+    console.log(type)
+    let url = '/api/information/GetInformationDetails';
+    if (type=='is_notice') {
+      url = '/api/community/GetCommunityDetails';
+    } else if (type == 'is_community') {
+      url = '/api/community/GetCommunityInformDetails';
+    }
+    $http.request(true,url,{
       Id: id
     },(res)=>{
       console.log(res.data);

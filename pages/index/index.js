@@ -27,9 +27,9 @@ Page({
   to_new() {
     wx.navigateTo({ url: '/pages/new/new'})
   },
-  to_association_info() {
+  to_association_info(e) {
     wx.navigateTo({
-      url: '/pages/association_info/association_info',
+      url: '/pages/association_info/association_info?id='+e.currentTarget.dataset.id,
     })
   },
 

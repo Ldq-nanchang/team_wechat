@@ -44,7 +44,9 @@
       <!-- <view style="margin-right:20rpx;">
         <view class="iconfont iconhuodong" style="font-size:30rpx;color:fe9c21;"></view>
       </view> -->
-      <view>活动入口</view>
+      <wux-icon type="md-paper-plane" size="18"></wux-icon>
+      <text style="padding-left:15rpx;font-size:30rpx;">活动入口</text>
+      
     </view>
     <view class="actions-content flex-row">
 
@@ -69,38 +71,15 @@
   </view>
   </view>
   <!-- 社团公告 -->
-  <view class="news">
-    <view class="news-title flex-row" bindtap="to_new">
-      <view class="news-title-lf">
-        <view class="iconfont icongonggaopai" style="color:#dd4841">
-          <text style="padding-left:15rpx;font-size:30rpx;">平台公告</text>
-        </view>
+  <view class="news-title flex-row" bindtap="to_new">
+    <view class="news-title-lf">
+      <view class="iconfont icongonggaopai" style="color:#dd4841">
+        <text style="padding-left:15rpx;font-size:30rpx;">热点资讯</text>
       </view>
-      <view class="iconfont iconyoujiantou"></view>
     </view>
-    <view class="news-info">
-      <swiper class="news-swiper"
-      indicator-dots="{{false}}"
-      vertical="{{true}}"
-      autoplay="{{true}}"
-      interval="{{5000}}"
-      duration="{{1000}}"
-      circular="true"
-      bindchange="swiperChange">
-        <block wx:for="{{news}}" wx:key="{{item.Id}}">
-          <swiper-item>
-            <view class="news-info-text">
-                <text style="font-size:28rpx;">【{{item.TypeName}}】{{item.Title}}</text>
-            </view>
-            <view class="new-date">{{item.PublishDate}}</view>
-            
-          </swiper-item>
-        </block>
-      </swiper>
-      <view class="swiper-cover"></view>
-    </view>
+    <view class="iconfont iconyoujiantou"></view>
   </view>
-
+  <notice news="{{news}}"></notice>
 
   <view class="people">
 
@@ -115,7 +94,7 @@
           <view class="people-item-headpic" 
           bindtap="perview" data-item="{{item.CoverPic}}"
           style="{{'background:url('+item.CoverPic+') center center /cover'}}"></view>
-          <view class="people-item-content" bindtap="to_association_info">
+          <view class="people-item-content" bindtap="to_association_info" data-id="{{item.Id}}">
             <view class="people-item-name flex-row">
               <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>
               <view>{{item.FullName}}</view>
@@ -158,8 +137,5 @@
     <!-- </swiper-item>
   </swiper> -->
   <view style="height:100rpx;"></view>
-
-
-
 
 </view>

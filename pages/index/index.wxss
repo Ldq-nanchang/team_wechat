@@ -72,52 +72,7 @@
   width: 100%;
   height: 100%;
 }
-/* 新闻轮播 */
-.news {
-  align-items: center;
-  margin-bottom: 30rpx;
-  padding: 30rpx;
-  background: #fff;
-}
-.news-title {
-  justify-content: space-between;
-  padding-bottom: 20rpx;
-  border-bottom: 1px solid #eee;
-  font-weight: bold;
-}
 
-.news-info {
-  position: relative;
-  padding-top: 20rpx;
-  /* height: 100rpx; */
-  font-size: 24rpx;
-  /* overflow: hidden; */
-}
-.swiper-cover {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-.new-date {
-  text-align: right;
-  color: #999;
-}
-.news-swiper {
-  height: 120rpx;
-}
-.news-info-text {
-  height: 74rpx;
-  margin: 8rpx 0;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  white-space: normal !important;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
 
 /* 活动 */
 .actions {
@@ -143,6 +98,18 @@
   color: #fff;
   font-size: 24rpx;
 }
+
+
+.news-title {
+  padding: 30rpx;
+  background: #fff;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+}
+
+
 /* 社团列表 */
 .people {
   background: #fff;
@@ -233,7 +200,7 @@
 
 .activity {
   background: #fff;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
 }
 .activity-title {
   position: relative;

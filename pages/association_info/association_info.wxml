@@ -1,30 +1,27 @@
 <!--pages/association_info/association_info.wxml-->
 <view class="container">
 
-  <view class="banner">
-    <image class="banner" src="http://223.84.156.187:807/team_test/banner.jpg"></image>
-  </view>
+  <view class="banner" style="background:url({{community.CoverPic}}) center center /cover"></view>
 
   <view class="association-head-wrapper">
 
     <view class="association-head">
       <view class="flex-row">
-        <view>
-          <image class="association-icon" src="/assets/evaluate_icon.jpg"></image>
-        </view>
+        <view class="association-icon" style="background:url({{community.Logo}}) center center /cover"></view>
         <view class="association-head-content">
-          <view class="association-name">晓虫森林</view>
+          <view class="association-name">{{community.FullName}}</view>
           <view>已认证</view>
         </view>
       </view>
 
       <view class="flex-row" style="justify-content: space-between;margin-top:30rpx;">
         <view class="association-hot flex-row">
-          <view>11 活动</view>
+          <view>{{community.ActivityCount}} 活动</view>
           <view class="association-hot-line"></view>
-          <view>553粉丝</view>
+          <view>{{community.FollowsNum}}粉丝</view>
         </view>
-        <view class="association-btn">关注</view>
+        <view class="association-btn" wx:if="{{community.IsFollow==0}}">＋关注</view>
+        <view class="association-btn disable-btn" wx:if="{{community.IsFollow!=0}}">已关注</view>
       </view>
 
     </view>
@@ -32,8 +29,19 @@
   </view>
   <view class="association-des flex-row">
     <view class="association-des-title">Ta的简介</view>
-    <view class="association-des-info">2013年成立至今，为人们改变生活方式，提供更加丰富的生活体验为特点。</view>
+    <view class="association-des-info">{{community.Description}}</view>
   </view>
+  <!-- 社团公告 -->
+  <view class="news-title flex-row" bindtap="to_new">
+    <view class="news-title-lf">
+      <view class="iconfont icongonggaopai" style="color:#ff9d20">
+        <text style="padding-left:15rpx;font-size:30rpx;">热点资讯</text>
+      </view>
+    </view>
+    <view class="iconfont iconyoujiantou"></view>
+  </view>
+  <notice news="{{notice}}"></notice>
+
   <!-- 名人馆和成员 -->
   <view class="people-wrapper">
     
@@ -104,35 +112,30 @@
     <view class="title-nav flex-row">
       <view wx:for="{{information_activity_nav}}" wx:key="{{index}}"
        class="{{information_activity_active==index?'title-item-active':'title-item'}}">
-       {{item}}</view>
+       {{item.title}}</view>
     </view>
-    <swiper current="{{ index }}" bindchange="onSwiperChangeA" style="height:846rpx">
+    <swiper current="{{ index }}" bindchange="onSwiperChangeA" style="height:{{information_swiper_h}}">
         <block>
             <swiper-item>
                
-              <view class="activity-list">
+              <view class="activity-list information-activity-h-0">
 
                 <view class="activity-item flex-row"
-                wx:for="{{news}}" wx:key="{{index}}">
-                  <view class="activity-item-headpic" bindtap="perview" data-url="http://223.84.156.187:807/team_test/headpic.jpg"
-                  style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
-                  <view class="activity-item-content" bindtap="to_info">
+                wx:for="{{information}}" wx:key="{{item.Id}}">
+                  <view class="activity-item-headpic" bindtap="perview" data-url="{{item.CoverPic}}"
+                  style="background:url({{item.CoverPic}}) center center /cover"></view>
+                  <view class="activity-item-content" bindtap="to_information_info" data-id="{{item.Id}}">
                     <view class="actions-item-name flex-row">
 
-                      <view>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</view>
+                      <view>{{item.Title}}</view>
                     </view>
-                    <view class="des">
-                      <text>进行中  线上活动</text>
-                    </view>
+                    <!-- <view class="des">
+                      <text>{{item.Summary}}</text>
+                    </view> -->
 
                     <view class="activity-item-foot flex-row">
-                      <view class="activity-item-num flex-row">
-                        <view>￥</view>
-                        <view>49</view>
-                      </view>
-                      <view class="activity-item-btn">
-                        <text>3548人已报名</text>
-                      </view>
+                      <view class="activity-item-num flex-row"></view>
+                      <view class="information-date">{{item.PublishDate}}</view>
                     </view>
                   </view>
                 </view>
@@ -144,28 +147,28 @@
         <block>
             <swiper-item>
                 
-              <view class="activity-list">
+              <view class="activity-list information-activity-h-1">
 
                 <view class="activity-item flex-row"
-                wx:for="{{news}}" wx:key="{{index}}">
-                  <view class="activity-item-headpic" bindtap="perview" data-url="http://223.84.156.187:807/team_test/headpic.jpg"
-                  style="background:url(http://223.84.156.187:807/team_test/headpic.jpg) center center /cover"></view>
-                  <view class="activity-item-content" bindtap="to_info">
+                wx:for="{{activity}}" wx:key="{{item.Id}}">
+                  <view class="activity-item-headpic" bindtap="perview" data-url="{{item.CoverPic}}"
+                  style="background:url({{item.CoverPic}}) center center /cover"></view>
+                  <view class="activity-item-content" bindtap="to_activity_info" data-id="{{item.Id}}">
                     <view class="actions-item-name flex-row">
 
-                      <view>6-12岁在线少儿编程课，在家就能学6-12岁在线少儿编程课，在家就能学</view>
+                      <view>{{item.Title}}</view>
                     </view>
                     <view class="des">
-                      <text>进行中  线上活动</text>
+                      <text>{{item.StatusName}}</text>
                     </view>
 
                     <view class="activity-item-foot flex-row">
                       <view class="activity-item-num flex-row">
                         <view>￥</view>
-                        <view>49</view>
+                        <view>{{item.Price}}</view>
                       </view>
                       <view class="activity-item-btn">
-                        <text>3548人已报名</text>
+                        <wux-tag color="orange">{{item.MemberCount}}人已报名</wux-tag>
                       </view>
                     </view>
                   </view>
@@ -185,5 +188,21 @@
     <view>社团动态</view>
   </view>
   <commentList id="commentList"></commentList>
+
+  <view class="condition flex-row">
+    <view class="condition-item flex-row">
+      <view class="condition-btn">
+        <wux-icon type="md-home" color="" size="17"></wux-icon>
+        <view>首页</view>
+        
+      </view>
+      <view class="condition-btn">
+        <view class="iconfont iconfenxiang"></view>
+        <view>分享</view>
+        
+      </view>
+    </view>
+    <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;">我要加入</view>
+  </view>
 
 </view>

@@ -4,6 +4,7 @@
   "navigationBarTitleText": "社团行动",
   "usingComponents": {
     "activityList": "/components/activity_list/activity_list",
+    "notice": "/components/notice/notice",
 
     "wux-icon": "../../dist/icon/index",
     "wux-tag": "../../dist/tag/index"

@@ -23,6 +23,7 @@
 .association-icon {
   width: 150rpx;
   height: 150rpx;
+  border-radius: 150rpx;
   margin-right: 30rpx;
 }
 .association-name {
@@ -45,8 +46,13 @@
   border-radius: 6rpx; 
   line-height: 60rpx;
   text-align: center;
-  background:#0c60ee;
+  background:#ff9d20;
   color: #fff;
+}
+.disable-btn {
+  background: #f7f7f7;
+  color: #c5c8ce;
+  border: 1px solid #dcdee2;
 }
 .association-des {
   margin-bottom: 30rpx;
@@ -58,6 +64,17 @@
   margin-right: 30rpx;
   color: #9DABB2;
 }
+
+
+.news-title {
+  padding: 30rpx;
+  background: #fff;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+}
+
 
 /* 名人馆和社团成员 */
 .people-wrapper {
@@ -149,10 +166,9 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  padding:5rpx;
-  border: 1px solid #ed9c4b;
-  border-radius: 6px;
-  color: #e8b272;
+}
+.information-date {
+  color: #999;
 }
 
 .actions-item-name {
@@ -177,4 +193,30 @@
   padding: 30rpx;
   background: #fff;
   font-weight: bold;
+}
+
+
+.condition {
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  box-shadow:0px 2px 8px 0px rgba(52,195,203,0.3);
+}
+.condition-item {
+  width: 50%;
+  text-align: center;
+  
+  color: #fff;
+}
+
+.condition-btn {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  color: #1a1a1a;
 }

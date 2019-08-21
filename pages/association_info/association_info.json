@@ -1,8 +1,12 @@
 {
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
   "navigationBarTitleText": "社团详情",
   "usingComponents": {
     "commentList": "../../components/comment_list/comment_list",
+    "notice": "../../components/notice/notice",
 
+    "wux-tag": "../../dist/tag/index",
     "wux-icon": "../../dist/icon/index"
   }
 }

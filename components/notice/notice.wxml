@@ -1,0 +1,25 @@
+<!--components/notice/notice.wxml-->
+  <view class="news">
+
+    <view class="news-info">
+      <swiper class="news-swiper"
+      indicator-dots="{{false}}"
+      vertical="{{true}}"
+      autoplay="{{true}}"
+      interval="{{5000}}"
+      duration="{{1000}}"
+      circular="true"
+      bindchange="swiperChange">
+        <block wx:for="{{news}}" wx:key="{{item.Id}}">
+          <swiper-item>
+            <view class="news-info-text">
+                <text style="font-size:28rpx;">【{{item.TypeName}}】{{item.Title}}</text>
+            </view>
+            <view class="new-date">{{item.PublishDate}}</view>
+            
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="swiper-cover" bindtap="to_notice_info"></view>
+    </view>
+  </view>

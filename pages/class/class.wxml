@@ -1,12 +1,14 @@
 <!--pages/class/class.wxml-->
 <view class="container">
-    <wux-tabs theme="assertive" 
-    wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
-        <block wx:for="{{ tabs }}" wx:key="key">
-            <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
-        </block>
-    </wux-tabs>
-    <view style="height:30rpx"></view>
+    <view class="top-tab">
+      <wux-tabs theme="assertive" 
+      wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
+          <block wx:for="{{ tabs }}" wx:key="key">
+              <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+          </block>
+      </wux-tabs>
+    </view>
+    <view style="height:112rpx"></view>
     <swiper current="{{ index }}" bindchange="onSwiperChange" style="{{'height:'+swiper_h+';min-height:100vh'}}">
         <block>
             <swiper-item>

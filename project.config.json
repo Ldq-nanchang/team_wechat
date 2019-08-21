@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -79,10 +79,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "社团详情",
 					"pathName": "pages/association_info/association_info",
-					"query": "",
+					"query": "id=c271198d-b4cd-4330-b43f-a9d549445623",
 					"scene": null
 				},
 				{
@@ -103,6 +103,7 @@
 					"id": -1,
 					"name": "activity",
 					"pathName": "pages/activity/activity",
+					"query": "",
 					"scene": null
 				}
 			]
