@@ -10,7 +10,8 @@
     "pages/new/new",
     "pages/information_info/information_info",
     "pages/activity/activity",
-    "pages/comment_info/comment_info"
+    "pages/comment_info/comment_info",
+    "pages/post_comment/post_comment"
   ],
   "window": {
     "backgroundTextStyle": "light",

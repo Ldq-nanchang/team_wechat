@@ -52,7 +52,7 @@
   font-size: 30rpx;
 }
 .people-item-address {
-  margin-bottom: 15rpx;
+  margin-top: 15rpx;
   color: #34C3CB;
 }
 .people-item-address-text {

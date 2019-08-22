@@ -16,7 +16,7 @@ App({
   get_acticity_class() {
     $http.request(false,'/api/activity/GetActivityClassList',{},(res)=>{
       this.globalData.acticity_class = res.data;
-      console.log(res.data)
+
     });
   },
   // 获取活动状态
@@ -25,7 +25,7 @@ App({
   get_activity_status() {
     $http.request(false, '/api/Activity/GetActivityStatusList', {}, (res) => {
       this.globalData.activity_status = res.data;
-      console.log(res.data)
+
     });
   },
 
@@ -35,7 +35,7 @@ App({
   get_near_list() {
     $http.request(false, '/api/common/GetNearByList', {}, (res) => {
       this.globalData.near_list = res.data;
-      console.log(res.data)
+
     });
   },
 
@@ -45,7 +45,7 @@ App({
   get_community_tag() {
     $http.request(false, '/api/Community/GetCommunityTagList', {}, (res) => {
       this.globalData.community_tag = res.data;
-      console.log(res.data)
+
     });
   },
   // 获取社团排序
@@ -54,7 +54,7 @@ App({
   get_community_sort() {
     $http.request(false, '/api/community/GetCommunitySortList', {}, (res) => {
       this.globalData.community_sort = res.data;
-      console.log(res.data)
+
     });
   },
 

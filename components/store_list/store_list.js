@@ -1,11 +1,11 @@
-// components/user_list/user_list.js
-var $http = require('/../../utils/request.js')
+// components/store_list/store_list.js
+var $http = require('../../utils/request.js')
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    
+
   },
 
   /**
@@ -26,14 +26,13 @@ Component({
       if (!this.data.loading_state) {
         return false;
       }
-      $http.request(true,'/api/my/MyFollowList',{
+      $http.request(true,'/api/my/MyStoreList',{
         CurrentPage: this.data.page,
-        PageSize: this.data.page_size,
-        Type: '06'
+        PageSize: this.data.page_size
       },(res)=>{
-        this.setData({ list: [...this.data.list, ...res.data], page: this.data.page++})
+        this.setData({list:[...this.data.list,...res.data],page_size: this.data.page++});
         if(res.data.length<this.data.page_size) {
-          this.setData({loading_state: false})
+          this.setData({loading_state: false});
         }
       })
     }

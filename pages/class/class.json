@@ -1,4 +1,6 @@
 {
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
   "navigationBarTitleText": "关注",
   "usingComponents": {
     "wux-tabs": "../../dist/tabs/index",
@@ -6,6 +8,7 @@
     "wux-badge": "../../dist/badge/index",
 
     "followList": "/components/follow_list/follow_list",
-    "peopleList": "/components/people_list/people_list"
+    "peopleList": "/components/people_list/people_list",
+    "storeList": "/components/store_list/store_list"
   }
 }

@@ -31,15 +31,16 @@ Page({
   },
   onTabsChange(e) {
     this.updata_height();
-    // console.log('onTabsChange', e)
+
     const { key } = e.detail
+   
     const index = this.data.tabs.map((n) => n.key).indexOf(key)
 
     this.setData({
       key,
       index,
     })
-    // console.log(this.data.key,this.data.index)
+    console.log(this.data.tabs[index].active)
     if(!this.data.tabs[index].active) {
       let tabs = this.data.tabs;
       tabs[index].active = true;
@@ -50,7 +51,7 @@ Page({
   },
   onSwiperChange(e) {
     this.updata_height();
-    // console.log('onSwiperChange', e)
+    console.log( e)
     const { current: index, source } = e.detail
     const { key } = this.data.tabs[index]
 
@@ -61,6 +62,12 @@ Page({
       })
     }
     console.log(this.data.key, this.data.index)
+    if (!this.data.tabs[index].active) {
+      let tabs = this.data.tabs;
+      tabs[index].active = true;
+      this.setData({ tabs });
+      this.get_list();
+    }
   },
   get_list() {
     let that = this;
@@ -73,18 +80,17 @@ Page({
       case 1:
         active = "#peopleList";
         break;
-
       case 2:
-        active = "";
+        active = "#storeList";
         break;
     }
     console.log('ss')
     this.selectComponent(active).get_list();
-    util.domH(active, (rect) => {
-      that.setData({
-        swiper_h: rect.height + 'px'
-      })
-    })
+    // util.domH(active, (rect) => {
+    //   that.setData({
+    //     swiper_h: rect.height + 'px'
+    //   })
+    // })
     
   },
   updata_height() {
@@ -119,6 +125,17 @@ Page({
     
     this.get_list();
   },
+  follow_down() {
+    console.log('sss');
+    this.get_list();
+  },
+  remmber_down() {
+    this.get_list();
+  },
+  store_down() {
+    this.get_list();
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -160,7 +177,7 @@ Page({
    */
   onReachBottom: function () {
     console.log('sss')
-    this.get_list();
+    // this.get_list();
   },
 
   /**

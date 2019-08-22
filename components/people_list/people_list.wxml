@@ -6,19 +6,21 @@
           <view class="people-item-headpic" 
           bindtap="perview" data-item="{{item.CoverPic}}"
           style="background:url({{item.CoverPic}}) center center /cover"></view>
-          <view class="people-item-content">
+          <view class="people-item-content" bindtap="to_info" data-id="{{item.Id}}">
             <view class="people-item-name flex-row">
               <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>
               <view>{{item.FullName}}</view>
+            </view>
+
+            <view class="people-item-stars flex-row">
+              <view wx:for="{{stars}}" wx:key="{{index}}"
+              class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
             </view>
             <view class="people-item-address flex-row">
               <view class="iconfont iconaddress"></view>
               <view class="people-item-address-text"><text style="padding-left:10rpx;">{{item.Address}}</text></view>
             </view>
-            <view class="people-item-stars flex-row">
-              <view wx:for="{{stars}}" wx:key="{{index}}"
-              class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
-            </view>
+
             <view class="people-item-foot flex-row">
               <view class="people-item-num flex-row">
                 <wux-icon type="md-contacts" size="16"></wux-icon>

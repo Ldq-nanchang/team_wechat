@@ -1,7 +1,9 @@
 /* pages/class/class.wxss */
-.content {
-  min-height: 100vh;
+.container {
+  height: 100vh;
+  overflow: hidden;
 }
+
 .wux-tabs__tab--assertive .wux-tabs__tab-bar {
   background: #ff9d20!important;
 }

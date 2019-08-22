@@ -9,26 +9,36 @@
       </wux-tabs>
     </view>
     <view style="height:112rpx"></view>
-    <swiper current="{{ index }}" bindchange="onSwiperChange" style="{{'height:'+swiper_h+';min-height:100vh'}}">
+    <swiper current="{{ index }}" bindchange="onSwiperChange" style="height: calc(100vh - 112rpx)">
         <block>
             <swiper-item>
-                <view class="content">
-                  <followList id="followList"/>
-                </view>
+                <scroll-view bindscrolltolower="follow_down"
+                scroll-y style="height: calc(100vh - 112rpx);" >
+                  <view class="content">
+                    <followList id="followList"/>
+                  </view>
+                </scroll-view>
+
             </swiper-item>
         </block>
         <block>
             <swiper-item>
+                <scroll-view bindscrolltolower="remmber_down"
+                scroll-y style="height: calc(100vh - 112rpx);" >
                 <view class="content">
                   <peopleList id="peopleList"/>
                 </view>
+                </scroll-view>
             </swiper-item>
         </block>
         <block>
             <swiper-item>
+                <scroll-view bindscrolltolower="store_down"
+                scroll-y style="height: calc(100vh - 112rpx);" >
                 <view class="content">
-                  2
+                  <storeList id="storeList"></storeList>
                 </view>
+                </scroll-view>
             </swiper-item>
         </block>
     </swiper>

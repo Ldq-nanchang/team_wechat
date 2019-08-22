@@ -23,6 +23,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    to_info(e) {
+      wx.navigateTo({
+        url: '/pages/association_info/association_info?id='+e.currentTarget.dataset.id,
+      })
+    },
     init_list(condition) {
       this.setData({ loading_state: true, page: 1});
       this.get_list(condition,'init')

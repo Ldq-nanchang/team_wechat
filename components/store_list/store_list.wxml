@@ -1,0 +1,24 @@
+<!--components/store_list/store_list.wxml-->
+  <view class="list">
+    <view class="item flex-row" wx:for="{{list}}" wx:key="{{index}}" bindtap="toInfo" data-item="{{item}}">
+      <view class="{{item.CoverPic?'content':'content-100'}}">
+
+        <view>
+          <view class="title tow-line">{{item.Name}}</view>
+          <view class="name tow-line">{{item.ObjectName}}</view>
+        </view>
+
+        <view class="content-foot">
+          <!-- <text style="margin-right:26rpx;">{{item.TypeName}}</text> -->
+          <text>{{item.StoreDate}}</text>
+        </view>
+      </view>
+      <view wx:if="{{item.CoverPic}}" class="headpic-wrapper" style="{{'background:url('+item.CoverPic+') center center /cover'}}"></view>
+    </view>
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:if="{{!loading_state}}">没有更多数据了~</text>
+      
+    </view>
+    
+  </view>
