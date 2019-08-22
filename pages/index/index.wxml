@@ -79,7 +79,7 @@
     </view>
     <view class="iconfont iconyoujiantou"></view>
   </view>
-  <notice news="{{news}}"></notice>
+  <notice news="{{news}}" is_index="{{true}}"></notice>
 
   <view class="people">
 

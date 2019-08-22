@@ -22,7 +22,7 @@ Page({
     console.log(type)
     let url = '/api/information/GetInformationDetails';
     if (type=='is_notice') {
-      url = '/api/community/GetCommunityDetails';
+      url = '/api/community/GetCommunityNoticeDetails';
     } else if (type == 'is_community') {
       url = '/api/community/GetCommunityInformDetails';
     }

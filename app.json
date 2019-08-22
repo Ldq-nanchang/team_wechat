@@ -9,7 +9,8 @@
     "pages/association_info/association_info",
     "pages/new/new",
     "pages/information_info/information_info",
-    "pages/activity/activity"
+    "pages/activity/activity",
+    "pages/comment_info/comment_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

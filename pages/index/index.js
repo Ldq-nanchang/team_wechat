@@ -86,7 +86,6 @@ Page({
     let that = this;
     let component = "#activityList";
 
-    console.log(this.selectComponent('#activityList'))
     this.selectComponent(component).get_list();
   },
 

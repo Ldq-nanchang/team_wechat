@@ -35,7 +35,7 @@
   <view class="news-title flex-row" bindtap="to_new">
     <view class="news-title-lf">
       <view class="iconfont icongonggaopai" style="color:#ff9d20">
-        <text style="padding-left:15rpx;font-size:30rpx;">热点资讯</text>
+        <text style="padding-left:15rpx;font-size:30rpx;">社团公告</text>
       </view>
     </view>
     <view class="iconfont iconyoujiantou"></view>
@@ -48,7 +48,7 @@
     <view class="title-nav flex-row">
       <view wx:for="{{people_nav}}" wx:key="{{index}}"
        class="{{people_active==index?'title-item-active':'title-item'}}">
-       {{item}}</view>
+       {{item.title}}</view>
     </view>
     <view class="people-content">
       <swiper current="{{ index }}" bindchange="onSwiperChange" style="height:580rpx">
@@ -56,24 +56,32 @@
               <swiper-item>
                   <view class="people-block">
                     <view class="people-item flex-row"
-                    style="{{index==people_list.length-1?'border-bottom:none':''}}" 
-                    wx:for="{{people_list}}" wx:key="{{index}}">
-                      <view class="people-item-icon" style="background:url(/assets/evaluate_icon.jpg) center center /cover">
-                        <image src="/assets/evaluate_icon.jpg" style="width:100%;height:100%"></image>
-                      </view>
+                    style="{{index==3?'border-bottom:none':''}}" 
+                    wx:for="{{leader_list}}" wx:key="{{item.Id}}">
+                      <view class="people-item-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
                       <view class="people-item-content">
                         <view class="people-item-name">
-                          <text style="margin-right:15rpx;">{{item}}</text>
+                          <text style="margin-right:15rpx;">{{item.NickName}}</text>
                           <wux-icon type="md-female" 
-                          color="#FF7171" size="16" wx:if="{{index==0}}"></wux-icon>
+                          color="#FF7171" size="16" wx:if="{{item.Sex=='女'}}"></wux-icon>
                           <wux-icon type="md-male" 
-                          color="#29AEFF" size="16" wx:if="{{index!=0}}">></wux-icon>
+                          color="#29AEFF" size="16" wx:if="{{item.Sex=='男'}}">></wux-icon>
                         </view>
-                        <view class="people-item-des">2018-09-15 至 今</view>
+                        <view class="people-item-des">{{item.StartTime}} 至 {{item.EndTime}}</view>
                       </view>
                     </view>
 
-                    <view class="people-list-more theme-color">查看全部</view>
+                    <view class="people-item flex-row"
+                    style="{{index==leader_list_.length-1?'border-bottom:none':''}}" 
+                    wx:for="{{leader_list_}}" wx:key="{{index}}">
+                      <view class="people-item-icon" style="background:#eee"></view>
+                      <view class="people-item-content">
+                        <view class="people-item-name-"></view>
+                        <view class="people-item-des-"></view>
+                      </view>
+                    </view>
+
+                    <view class="people-list-more theme-color">更多>></view>
                   </view>
               </swiper-item>
           </block>
@@ -81,24 +89,31 @@
               <swiper-item>
                   <view class="people-block">
                     <view class="people-item flex-row" 
-                    style="{{index==people_list_.length-1?'border-bottom:none':''}}"
-                    wx:for="{{people_list_}}" wx:key="{{index}}">
-                      <view class="people-item-icon" style="background:url(/assets/evaluate_icon.jpg) center center /cover">
-                        <image src="/assets/evaluate_icon.jpg" style="width:100%;height:100%"></image>
-                      </view>
+                    style="{{index==3?'border-bottom:none':''}}"
+                    wx:for="{{member_list}}" wx:key="{{index}}">
+                      <view class="people-item-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
                       <view class="people-item-content">
                         <view class="people-item-name">
-                          <text style="margin-right:15rpx;">{{item}}</text>
+                          <text style="margin-right:15rpx;">{{item.NickName}}</text>
                           <wux-icon type="md-female" 
-                          color="#FF7171" size="16" wx:if="{{index==0}}"></wux-icon>
+                          color="#FF7171" size="16" wx:if="{{item.Sex=='女'}}"></wux-icon>
                           <wux-icon type="md-male" 
-                          color="#29AEFF" size="16" wx:if="{{index!=0}}">></wux-icon>
+                          color="#29AEFF" size="16" wx:if="{{item.Sex=='男'}}">></wux-icon>
                         </view>
                         <view class="people-item-des">15170236956</view>
                       </view>
                     </view>
 
-                    <view class="people-list-more theme-color">查看全部</view>
+                    <view class="people-item flex-row"
+                    style="{{index==member_list_.length-1?'border-bottom:none':''}}" 
+                    wx:for="{{member_list_}}" wx:key="{{index}}">
+                      <view class="people-item-icon" style="background:#eee"></view>
+                      <view class="people-item-content">
+                        <view class="people-item-name-"></view>
+                        <view class="people-item-des-"></view>
+                      </view>
+                    </view>
+                    <view class="people-list-more theme-color">更多>></view>
                   </view>
               </swiper-item>
           </block>
@@ -191,12 +206,12 @@
 
   <view class="condition flex-row">
     <view class="condition-item flex-row">
-      <view class="condition-btn">
+      <view class="condition-btn" bindtap="to_index">
         <wux-icon type="md-home" color="" size="17"></wux-icon>
         <view>首页</view>
         
       </view>
-      <view class="condition-btn">
+      <view class="condition-btn" bindtap="share">
         <view class="iconfont iconfenxiang"></view>
         <view>分享</view>
         

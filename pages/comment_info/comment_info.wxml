@@ -1,7 +1,6 @@
-<!--components/component_list/comment_list.wxml-->
-<view class="comment-list">
-  <view class="comment-item" wx:for="{{list}}" wx:key="{{index}}">
+<!--pages/comment_info/comment_info.wxml-->
 
+  <view class="comment-item">
     <view class="comment-from flex-row">
       <view class="flex-row">
         <view class="comment-from-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
@@ -20,22 +19,14 @@
         wx:for="{{item.imgs}}" wx:for-item="item_" wx:for-index="index_" wx:key="{{index_}}"></view>
       </view>
 
+
     </view>
     <view class="comment-foot flex-row">
       <view>
-        <wux-icon type="md-text" size="18" color="#666" bindtap="to_info" data-id="{{item.Id}}"></wux-icon>
-        <text style="margin:0 50rpx 0 10rpx" bindtap="to_info" data-id="{{item.Id}}">{{item.CommentsNum}}</text>
+        <wux-icon type="md-text" size="18" color="#666"></wux-icon>
+        <text style="margin:0 50rpx 0 10rpx">{{item.CommentsNum}}</text>
         <wux-icon type="md-thumbs-up" size="18" color="{{!item.IsPrize?'#666':'#FF8600'}}"></wux-icon>
         <text style="margin:0 0 0 10rpx">{{item.PrizesNum}}</text>
       </view>
     </view>
   </view>
-
-    <view class="loading-wrapper">
-      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
-      <text class="loaded" wx:if="{{!loading_state}}">没有更多数据了~</text>
-      
-    </view>
-    <view style="height:100rpx"></view>
-
-</view>

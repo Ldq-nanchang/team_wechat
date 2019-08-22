@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "动态详情",
+  "usingComponents": {
+    "wux-icon": "../../dist/icon/index"
+  }
+}

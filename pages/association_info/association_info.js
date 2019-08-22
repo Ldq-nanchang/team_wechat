@@ -11,11 +11,13 @@ Page({
     community: {},
     notice: [],
 
-    people_nav: ['名人馆','社团成员'],
+    people_nav: [{title:'名人馆',show:true},{title:'社团成员',show:false}],
     people_active: 0,
 
-    people_list: ['杜甫', '李白', '苏东坡','苏轼'],
-    people_list_: ['莎士比亚', '丘吉尔', '梵高','莫泊桑',],
+    leader_list: [],
+    leader_list_: [],
+    member_list: [],
+    member_list_: [],
 
     information_activity_nav: [{title:'资讯',show:true},{title:'活动',show:false}],
     information_activity_active: 0,
@@ -24,7 +26,9 @@ Page({
     activity: []
   },
   onSwiperChange(e) {
-  
+    if (!this.data.people_nav[e.detail.current].show) {
+      this.get_community_member(this.data.community.Id)
+    }
     this.setData({ people_active: e.detail.current});
   },
   onSwiperChangeA(e) {
@@ -42,6 +46,7 @@ Page({
     this.setData({ information_activity_active: e.detail.current });
   },
   // 请求数据
+  // 获取社团详情
   get_community(id) {
     $http.request(true,'/api/community/GetCommunityDetails',{
       Id: id
@@ -52,6 +57,7 @@ Page({
       });
     })
   },
+  // 获取社团详情公告
   get_community_notice(id) {
     $http.request(false,'/api/community/GetCommunityNoticeList',{
       CommunityId: id,
@@ -61,6 +67,37 @@ Page({
       this.setData({notice:res.data})
     })
   },
+  //获取社团详情名人列表
+  get_community_leader(id) {
+    $http.request(false,'/api/community/GetCommunityLeaderList',{
+      CurrentPage: 1,
+      PageSize: 4,
+      CommunityId: id
+    },(res)=>{
+      if (res.data.length<4) {
+        this.setData({ leader_list_: new Array(4 - res.data.length)})
+      }
+      this.setData({leader_list: res.data})
+    });
+  },
+  //获取社团详情成员列表
+  get_community_member(id) {
+    console.log(id)
+    $http.request(true, '/api/community/GetCommunityUserList', {
+      CurrentPage: 1,
+      PageSize: 4,
+      CommunityId: id,
+      KeyWords: ''
+    }, (res) => {
+      if (res.data.length < 4) {
+        this.setData({ member_list_: new Array(4 - res.data.length) })
+      }
+      let nav = this.data.people_nav;
+      nav[1].show = false;
+      this.setData({ member_list: res.data, people_nav: nav})
+    });
+  },
+  // 获取社团详情资讯
   get_community_information(id) {
     let that = this;
     $http.request(false,'/api/community/GetCommunityInformList',{
@@ -76,6 +113,7 @@ Page({
       })
     })
   },
+  // 获取社团详情活动
   get_community_activity(id) {
     let that = this;
     $http.request(true,'/api/activity/GetActivityList',{
@@ -101,6 +139,10 @@ Page({
       })
     })
   },
+  get_comment() {
+    console.log('sss')
+    this.selectComponent('#commentList').get_list(this.data.community.Id);
+  },
   // 交互事件
   to_information_info(e) {
     wx.navigateTo({
@@ -112,6 +154,12 @@ Page({
       url: '/pages/activity_info/activity_info?id=' + e.currentTarget.dataset.id
     })
   },
+  to_index() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
+  share() {},
 
   /**
    * 生命周期函数--监听页面加载
@@ -120,6 +168,7 @@ Page({
     if (options.id) {
       this.get_community(options.id)
       this.get_community_notice(options.id);
+      this.get_community_leader(options.id);
       this.get_community_information(options.id)
     }
     
@@ -157,14 +206,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.get_comment();
   },
 
   /**

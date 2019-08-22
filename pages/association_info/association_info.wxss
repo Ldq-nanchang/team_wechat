@@ -31,6 +31,20 @@
   font-size: 38rpx;
   color: #1a1a1a;
 }
+.people-item-name- {
+  margin-top: 10rpx;
+  width: 100rpx;
+  height: 28rpx;
+  border-radius: 28rpx;
+  background: #eee;
+}
+.people-item-des- {
+  margin-top: 10rpx;
+  width: 200rpx;
+  height: 28rpx;
+  border-radius: 28rpx;
+  background: #eee;
+}
 .association-hot {
   align-items: center;
   color: #9DABB2;
@@ -123,6 +137,8 @@
   position: absolute;
   bottom: 30rpx;
   right: 30rpx;
+  width: 100%;
+  text-align: right;
 }
 
 /* 资讯和活动 */

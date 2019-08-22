@@ -28,7 +28,7 @@ function initHtoken(callback) {
 //项目URL相同部分，减轻代码量，同时方便项目迁移
 //这里因为我是本地调试，所以host不规范，实际上应该是你备案的域名信息
 // var host = 'http://223.84.156.187:806';
-var host = 'http://39.106.32.160:806';
+var host = 'http://47.104.176.104:806';
 // var host = 'https://api.xcc-edu.com';
 
 /**

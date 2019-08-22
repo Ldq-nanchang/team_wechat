@@ -1,10 +1,4 @@
-/* components/component_list/comment_list.wxss */
-.flex-row {
-  display: flex;
-}
-.comment-list {
-  background: #fff;
-}
+/* pages/comment_info/comment_info.wxss */
 .comment-item {
   padding: 30rpx;
   border-bottom: 1px solid #eee;

@@ -8,6 +8,9 @@ Component({
     news: {
       type: Array
     },
+    is_index: {
+      type: Boolean
+    }
   },
 
   /**
@@ -34,8 +37,12 @@ Component({
       index = current.detail.current;
     },
     to_notice_info: function() {
+      let type = 'is_notice';
+      if (this.properties.is_index) {
+        type = '';
+      }
       wx.navigateTo({
-        url: '/pages/information_info/information_info?id=' + this.data.news[index].Id+'&type=is_notice',
+        url: '/pages/information_info/information_info?id=' + this.data.news[index].Id+'&type='+type,
       })
     }
   }
