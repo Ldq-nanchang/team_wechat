@@ -1,2 +1,6 @@
 <!--pages/post_comment/post_comment.wxml-->
-<text>pages/post_comment/post_comment.wxml</text>
+<view class="container">
+  <view>
+    <input placeholder="这是一个可以自动聚焦的input" auto-focus/>
+  </view>
+</view>

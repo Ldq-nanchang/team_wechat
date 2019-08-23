@@ -12,6 +12,7 @@
 .follow-item-icon {
   width: 100rpx;
   height: 100rpx;
+  border-radius: 100rpx;
   margin-right: 10rpx; 
 }
 .follow-item-name {

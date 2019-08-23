@@ -2,9 +2,9 @@
  * 后台接口请求封装
  */
 // var app = getApp();
-let uuid = '';
+let uuid = 'fa802c59-d04d-4251-a9d2-dceb79ee81a7';
 let mobile = '';
-let htoken = '';
+let htoken = 'FB13BA81F20294C5D88150CE4AD239C0';
 
 function initHtoken(callback) {
   wx.getStorage({
@@ -90,7 +90,7 @@ function request(loading, url, postData, doSuccess, doFail) {
           }
           setTimeout(() => {
             wx.switchTab({
-              url: '/pages/center/center',
+              url: '/pages/my/my',
             })
           }, 1000);
         })
