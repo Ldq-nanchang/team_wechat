@@ -1,1 +1,5 @@
 /* pages/post_comment/post_comment.wxss */
+.form {
+  padding: 30rpx;
+  background: #fff;
+}

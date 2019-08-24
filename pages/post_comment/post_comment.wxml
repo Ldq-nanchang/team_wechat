@@ -1,6 +1,6 @@
 <!--pages/post_comment/post_comment.wxml-->
 <view class="container">
-  <view>
-    <input placeholder="这是一个可以自动聚焦的input" auto-focus/>
+  <view class="form">
+    <input placeholder="说点什么吧..." auto-focus/>
   </view>
 </view>

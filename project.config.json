@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -94,14 +94,14 @@
 				},
 				{
 					"id": 6,
-					"name": "pages/information_info/information_info",
+					"name": "资讯详情",
 					"pathName": "pages/information_info/information_info",
 					"query": "id=58b7ee9d-43d5-43d4-abc8-b3465dc3ddd2",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "activity",
+					"id": 7,
+					"name": "活动列表",
 					"pathName": "pages/activity/activity",
 					"query": "",
 					"scene": null
@@ -111,6 +111,13 @@
 					"name": "动态详情",
 					"pathName": "pages/comment_info/comment_info",
 					"query": "id=137d702b-9c14-44aa-bd86-bb907495232a",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布动态",
+					"pathName": "pages/post_comment/post_comment",
+					"query": "",
 					"scene": null
 				}
 			]
