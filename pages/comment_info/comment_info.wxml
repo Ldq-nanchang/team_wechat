@@ -32,6 +32,12 @@
 
   </view>
 
-  <replyList id="replyList" comment_id="{{comment_id}}"></replyList>
+  <replyList id="replyList" comment_id="{{comment_id}}" 
+  is_prize="{{community.IsPrize}}" prizes_num="{{community.PrizesNum}}"></replyList>
+  <view style="height:80rpx;"></view>
 
+  <view class="foot-btns flex-row">
+    <view class="foot-btn" bindtap="post_comment">评论</view>
+    <view class="foot-btn">点赞</view>
+  </view>
 </view>

@@ -22,7 +22,7 @@
   background: #fff;
 }
 .activity-name {
-  height: 75rpx;
+  /* height: 75rpx; */
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -42,6 +42,15 @@
   position: absolute;
   bottom: 20rpx;
   right: 30rpx;
+
+  padding: 0 30rpx;
+  height: 60rpx;
+  border-radius: 6rpx; 
+  line-height: 60rpx;
+  text-align: center;
+  background:#ff9d20;
+  color: #fff;
+
 }
 
 .activity-action {
@@ -119,5 +128,10 @@
   align-items: center;
   width: 50%;
   color: #1a1a1a;
+}
+
+.wx-html {
+  padding: 30rpx;
+  background: #fff;
 }
 

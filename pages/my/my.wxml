@@ -23,7 +23,7 @@
         <view class="condition-item-icon">
           <wux-icon type="md-person-add" color="#FE5E77"></wux-icon>
         </view>
-        <view class="condition-item-name">创建社团</view>
+        <view class="condition-item-name">我的社团</view>
       </view>
       <view class="condition-item">
         <view class="condition-item-icon">
@@ -33,7 +33,8 @@
       </view>
       <view class="condition-item">
         <view class="condition-item-icon">
-          <wux-icon type="md-barcode" color="#3BCEC3"></wux-icon>
+          <!-- <wux-icon type="md-barcode" color="#3BCEC3"></wux-icon> -->
+          <view class="iconfont iconsaoma" style="font-size:29px;color:#3BCEC3"></view>
         </view>
         <view class="condition-item-name">扫一扫</view>
       </view>
@@ -49,9 +50,9 @@
       <view class="center-item flex-row">
         <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
-            <wux-icon type="md-contacts" color="#ff9d20"></wux-icon>
+            <wux-icon type="md-contacts" color="#ff9d20" size="24"></wux-icon>
           </view>
-          <view class="center-item-name">参加的社团</view>
+          <view class="center-item-name">负责的活动</view>
         </view>
         <view class="center-item-btn">
           <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
@@ -60,7 +61,7 @@
       <view class="center-item flex-row">
         <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
-            <wux-icon type="md-pricetags" color="#ff9d20"></wux-icon>
+            <wux-icon type="md-pricetags" color="#ff9d20" size="24"></wux-icon>
           </view>
           <view class="center-item-name">参加的活动</view>
         </view>
@@ -71,7 +72,7 @@
       <view class="center-item flex-row">
         <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
-            <wux-icon type="md-clock" color="#ff9d20"></wux-icon>
+            <wux-icon type="md-clock" color="#ff9d20" size="24"></wux-icon>
           </view>
           <view class="center-item-name">浏览记录</view>
         </view>
@@ -79,10 +80,11 @@
           <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
-      <view class="center-item flex-row">
+      <view class="center-item flex-row" style="border-bottom:none">
         <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
-            <wux-icon type="md-share-alt" color="#ff9d20"></wux-icon>
+            <!-- <wux-icon type="md-share-alt" color="#ff9d20" size="24"></wux-icon> -->
+            <view class="iconfont iconfenxiangzhuanfa theme-color" style="font-size:24px;"></view>
           </view>
           <view class="center-item-name">发分享小程序</view>
         </view>

@@ -25,7 +25,8 @@ Page({
       this.setData({
         activity: res.data.activityInfo,
         community: res.data.communityInfo
-      })
+      });
+      
     })
   },
   /**

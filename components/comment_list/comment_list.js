@@ -50,6 +50,19 @@ Component({
         urls: [e.currentTarget.dataset.item],
       })
     },
+    del_comment(e) {
+      $http.request(true,'/api/Community/DeleteCommunityCycle',{
+        Id: e.currentTarget.dataset.item.Id
+      },(res)=>{
+        let list = this.data.list;
+        for(let i=0;i<list.length;i++) {
+          if (list[i].Id == e.currentTarget.dataset.item.Id) {
+            list.splice(i,1)
+          }
+        }
+        this.setData({list});
+      })
+    }, 
 
     // 获取动态列表
     get_list(id) {
@@ -64,6 +77,11 @@ Component({
       },(res)=>{
         // res.data[0].FileUrl = res.data[0].HeadPic;
         for(let item of res.data) {
+          item.is_del = false;
+          if (item.UserId == wx.getStorageSync('uuid')) {
+            item.is_del = true;
+          }
+
           item.imgs = [];
           item.img_style = '';
           if (item.FileUrl) {

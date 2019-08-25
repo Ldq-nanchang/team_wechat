@@ -14,9 +14,8 @@
         <wux-icon type="md-star" color="#9DABB2" size="17" 
         style="margin: 0 15rpx 0 30rpx"></wux-icon>{{activity.StoresNum}}
       </view>
-      <view class="activity-head-btn">
-        <wux-button type="energized" style="background:#ff9d20" size="small">+ 收藏</wux-button>
-      </view>
+      <view class="activity-head-btn">＋收藏</view>
+      
     </view>
 
   </view>
@@ -75,6 +74,11 @@
        <view class="assocation-btn" style="background:#eee;color:#ff9d20">联系Ta</view> 
     </view>
   </view>
+  <view class="wx-html">
+    <rich-text nodes="{{activity.Content}}"></rich-text>
+  </view>
+
+
   <view style="height:80rpx;"></view>
 
   <view class="condition flex-row">

@@ -31,6 +31,7 @@
   font-size: 38rpx;
   color: #1a1a1a;
 }
+
 .people-item-name- {
   margin-top: 10rpx;
   width: 100rpx;

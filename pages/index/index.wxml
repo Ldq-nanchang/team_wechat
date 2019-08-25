@@ -77,7 +77,7 @@
         <text style="padding-left:15rpx;font-size:30rpx;">热点资讯</text>
       </view>
     </view>
-    <view class="iconfont iconyoujiantou"></view>
+    <view class="iconfont iconyoujiantou1"></view>
   </view>
   <notice news="{{news}}" is_index="{{true}}"></notice>
 
@@ -99,15 +99,17 @@
               <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>
               <view>{{item.FullName}}</view>
             </view>
+            <view class="people-item-stars flex-row">
+              <view wx:for="{{stars}}" wx:key="{{index}}"
+              class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
+            </view>
+
             <view class="people-item-address flex-row">
               <view class="iconfont iconaddress"></view>
               <view class="people-item-address-text"><text style="padding-left:10rpx;">{{item.Address}}</text></view>
               
             </view>
-            <view class="people-item-stars flex-row">
-              <view wx:for="{{stars}}" wx:key="{{index}}"
-              class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
-            </view>
+
             <view class="people-item-foot flex-row">
               <view class="people-item-num flex-row">
                 <wux-icon type="md-contacts" size="16"></wux-icon>

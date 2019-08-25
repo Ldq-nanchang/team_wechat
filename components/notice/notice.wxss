@@ -32,10 +32,10 @@
   color: #999;
 }
 .news-swiper {
-  height: 120rpx;
+  height: 140rpx;
 }
 .news-info-text {
-  height: 74rpx;
+  /* height: 74rpx; */
   margin: 8rpx 0;
   display: -webkit-box;
   overflow: hidden;

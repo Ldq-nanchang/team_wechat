@@ -150,6 +150,9 @@
   margin-bottom: 15rpx;
   font-size: 30rpx;
 }
+.people-item-stars {
+  margin-bottom: 15rpx;
+}
 .people-item-address {
 
   margin-bottom: 15rpx;
@@ -183,7 +186,7 @@
 }
 
 .actions-item-name {
-  height: 65rpx;
+  /* height: 65rpx; */
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;

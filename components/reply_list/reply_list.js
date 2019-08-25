@@ -6,9 +6,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    comment_id: {
-      type: String
-    }
+    comment_id: { type: String },
+    is_prize: { type: Number },
+    prizes_num: { type: Number }
   },
 
   /**
@@ -27,11 +27,28 @@ Component({
 
     comment_item: {}
   },
-
+  pageLifetimes: {
+    // 组件所在页面的生命周期函数
+    show() {
+      this.setData({
+        is_prize: this.properties.is_prize,
+        prizes_num: this.properties.prizes_num
+      })
+    },
+    hide() { },
+    resize() { },
+  },
   /**
    * 组件的方法列表
    */
   methods: {
+    action_prize() {
+      $http.request(true,'/api/Common/SavePrize',{
+        Id: this.properties.comment_id
+      },(res)=>{
+        
+      })
+    },
     get_list() {
       $http.request(this.data.page!=1,'/api/Common/GetCommentList',{
         Id: this.properties.comment_id,
@@ -70,7 +87,7 @@ Component({
       that.setData({style})
     },
     blur(e) {
-      this.setData({ comment: e.detail.value})
+      this.setData({ style: ''})
     },
     close_window() {
       this.setData({ 
@@ -80,31 +97,28 @@ Component({
     },
     post_comment_before(e) {
       this.show_window();
-      if (e.currentTarget.dataset.item) {
+      if (e&&e.currentTarget.dataset.item) {
         this.setData({ comment_item: e.currentTarget.dataset.item})
       }else {
         this.setData({ comment_item: {} })
       }
     },
     post_comment(e) {
-      console.log(this.data.comment);
-      return;
-      setTimeout(()=>{
-        let item = this.data.comment_item;
-        let that = this;
-        let  data = {
-          Id: item.Id ? item.Id : that.properties.comment_id,
-            Content: that.data.comment,
-            Type: item.Id?'02':'01'
-          }
-        $http.request(true,'/api/Common/SaveComment',data,(res)=>{
-          this.setData({
-            page: 1,
-            loading_state: true,
-          });
-          this.close_window();
-          this.get_list();
-        })
+      let item = this.data.comment_item;
+      let that = this;
+      let  data = {
+        Id: item.Id ? item.Id : that.properties.comment_id,
+        Content: e.detail.value.comment,
+        Type: item.Id?'02':'01'
+      }
+      console.log(data)
+      $http.request(true,'/api/Common/SaveComment',data,(res)=>{
+        this.setData({
+          page: 1,
+          loading_state: true,
+        });
+        this.close_window();
+        this.get_list();
       })
     },
     // 删除评论
