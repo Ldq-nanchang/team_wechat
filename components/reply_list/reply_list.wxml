@@ -1,0 +1,83 @@
+<!--components/reply_list/reply_list.wxml-->
+<view class="list">
+  
+  <view class="item-title flex-row">
+    <view></view>
+    <view class="iconfont iconpinglunxiao" bindtap="post_comment_before">
+      <text style="padding-left:15rpx;font-size:26rpx">{{total_count}}</text>
+    </view>
+    <view class="iconfont icondianzan">
+      <text style="padding-left:15rpx;font-size:26rpx">0</text>
+    </view>
+  </view>
+
+  <view class="item flex-row" wx:for="{{list}}" wx:key="{{item.Id}}">
+
+    <view class="item-icon" style="background:url({{item.CommentByHeadPic}}) center center /cover"></view>
+    <view class="item-content">
+
+      <view class="item-name flex-row">
+        <text>{{item.CommentByNickName}}</text>
+        <text style="color:#999" wx:if="{{item.IsMyPublish}}" bindtap="del_comment" data-item="{{item}}">删除</text>
+      </view>
+      <view class="item-date">{{item.CommentDate}}</view>
+      <view class="item-text" bindtap="post_comment_before" data-item="{{item}}">{{item.Content}}</view>
+      <view class="reply-list">
+
+        <view class="reply-item flex-row" 
+        wx:for="{{item.CommentList}}" wx:for-item="item_" wx:key="{{item_.Id}}">
+
+          <view class="reply-icon" style="background:url({{item_.CommentByHeadPic}}) center center /cover"></view>
+
+            <view class="reply-item-content">
+              <view class="reply-name flex-row">
+                <text>{{item_.CommentByNickName}}</text>
+                <text style="color:#999" wx:if="{{item_.IsMyPublish}}" bindtap="del_comment" data-item="{{item_}}">删除</text>
+              </view>
+              <view class="reply-date">{{item_.CommentDate}}</view>
+              <view class="reply-text">
+                <text>回复</text>
+                <text style="color:#ff9d20"> {{item_.ReceiveByNickName}} </text>
+                <text>:{{item_.Content}}</text>
+              </view>
+            </view>
+
+          </view>
+
+      </view>
+
+      <view class="item-line" wx:if="{{index!=list.lenght-1}}"></view>
+    </view>
+
+  </view>
+
+
+  <view class="window" wx:if="{{ visible }}"  style="{{style}}">
+    <form bindsubmit="post_comment">
+      <view class="flex-row">
+      
+        <textarea adjust-position="{{true}}" bindfocus="foucus" placeholder="说些什么..."
+        bindblur="blur"
+        style="width:calc(100% - 150rpx)"></textarea>
+        <view class="post-btn flex-row">
+          <button form-type="submit" class="submit">
+            <wux-icon type="md-send" size="25" color="#ff9d20"></wux-icon>
+          </button>
+        </view>
+
+      </view>
+    </form>
+
+  </view>
+
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+      
+    </view>
+  <view class="cover-bg" wx:if="{{visible}}" bindtap="close_window"></view>
+
+
+
+</view>
+

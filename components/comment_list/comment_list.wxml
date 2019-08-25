@@ -12,7 +12,8 @@
     <view class="comment-content">
       <view class="comment-content-text">{{item.Title}}</view>
       <view class="comment-imgs" wx:if="{{item.imgs.length<=1}}">
-        <image bindload="img_load" data-id="{{item.Id}}" style="{{item.img_style}}" bindtap="perview" data-item="{{item_}}"
+        <image bindload="img_load" data-id="{{item.Id}}" bindtap="perview" data-item="{{item_}}"
+        style="{{item.img_style}}"  class="comment-img-onely"
         wx:for="{{item.imgs}}" wx:for-item="item_" wx:for-index="index_" wx:key="{{index_}}" src="{{item_}}"></image>
       </view>
       <view class="comment-imgs flex-row" wx:if="{{item.imgs.length>1}}">

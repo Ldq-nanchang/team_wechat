@@ -159,8 +159,39 @@ Page({
       url: '/pages/index/index'
     })
   },
+  to_post_comment() {
+    if(!this.data.community.IsAdd) {
+      wx.showToast({
+        title: '请先加入社团',
+        icon: 'none',
+      })
+      return false;
+    }
+    wx.navigateTo({
+      url: '/pages/post_comment/post_comment?id=' + this.data.community.Id + '&name=' + this.data.community.FullName,
+    })
+  },
   share() {},
+  // 加入社团
+  join_community() {
+    let mobile = wx.getStorageSync('mobile');
+    if(!mobile) {
+      wx.showToast({
+        title: '请先完善手机号',
+        icon: 'none',
+      })
+      return false;
+    }
 
+    $http.request(true,'/api/Community/ApplyInCommunity',{
+      Mobile: mobile,
+      CommunityId: this.data.community.Id
+    },(res)=>{
+      let community = this.data.community;
+      community.IsAdd = 1;
+      this.setData({community});
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

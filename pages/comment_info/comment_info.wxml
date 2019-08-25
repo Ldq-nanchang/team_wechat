@@ -1,5 +1,5 @@
 <!--pages/comment_info/comment_info.wxml-->
-
+<view class="container">
   <view class="comment-item">
     <view class="comment-from flex-row">
       <view class="flex-row">
@@ -21,12 +21,17 @@
 
 
     </view>
-    <view class="comment-foot flex-row">
+    <!-- <view class="comment-foot flex-row">
       <view>
         <wux-icon type="md-text" size="18" color="#666"></wux-icon>
         <text style="margin:0 50rpx 0 10rpx">{{item.CommentsNum}}</text>
         <wux-icon type="md-thumbs-up" size="18" color="{{!item.IsPrize?'#666':'#FF8600'}}"></wux-icon>
         <text style="margin:0 0 0 10rpx">{{item.PrizesNum}}</text>
       </view>
-    </view>
+    </view> -->
+
   </view>
+
+  <replyList id="replyList" comment_id="{{comment_id}}"></replyList>
+
+</view>

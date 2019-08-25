@@ -1,6 +1,29 @@
 <!--pages/post_comment/post_comment.wxml-->
 <view class="container">
   <view class="form">
-    <input placeholder="说点什么吧..." auto-focus/>
+    <view class="form-textarea">
+      <textarea placeholder="说点什么吧..." auto-focus bindblur="get_comment"/>
+    </view>
+    <view class="imgs flex-row">
+      <view class="img-item"  wx:for="{{img_list}}" wx:key="{{item.Id}}" data-item="{{item}}"
+      bindtap="updata_img_list" style="background:url({{item.Url}}) center center /cover">
+        <view class="img-del" catchtap="del_img" data-id="{{item.Id}}">
+          <image class="img-del-icon" src="/assets/img_del.png"></image>
+        </view>
+      </view>
+      <view class="img-add" bindtap="updata_img_list" wx:if="{{img_list.length<9}}">
+        <image class="img-add-icon" src="/assets/img_add.png"></image>
+      </view>
+    </view>
+    <view class="flex-row">
+      <view class="select-community">
+        <text wx:if="{{!community.id}}"># 选择社团</text>
+        <text wx:if="{{community.id&&community.name}}"># {{community.name}}</text>
+      </view>
+    </view>
+
+  </view>
+  <view class="post-comment-btn" bindtap="post_comment">
+    <text>发布</text>
   </view>
 </view>

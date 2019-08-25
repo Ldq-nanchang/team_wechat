@@ -30,6 +30,9 @@
 .comment-imgs {
   flex-wrap: wrap;
 }
+.comment-img-onely {
+  width: 100%;
+}
 .comment-img {
   margin-top: 20rpx;
   margin-right: 20rpx;

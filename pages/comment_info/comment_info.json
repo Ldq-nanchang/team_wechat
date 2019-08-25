@@ -3,6 +3,8 @@
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "动态详情",
   "usingComponents": {
-    "wux-icon": "../../dist/icon/index"
+    "wux-icon": "../../dist/icon/index",
+    
+    "replyList": "../../components/reply_list/reply_list"
   }
 }

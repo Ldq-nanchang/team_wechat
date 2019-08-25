@@ -8,6 +8,80 @@ App({
     this.get_near_list();
     this.get_community_tag();
     this.get_community_sort();
+
+    this.get_user_info();
+    this.get_mobile();
+
+  },
+  // 获取用户信息
+  get_user_info() {
+    let user = {
+      htoken: 'FB13BA81F20294C5D88150CE4AD239C0'
+    }
+    wx.setStorage({
+      key: 'uuid',
+      data: 'fa802c59-d04d-4251-a9d2-dceb79ee81a7',
+    })
+    wx.setStorage({
+      key: 'user',
+      data: JSON.stringify(user),
+    })
+  },
+  // 获取手机号
+  get_mobile() {
+    let mobile = '18720061931';
+    wx.setStorage({
+      key: 'mobile',
+      data: mobile,
+    })
+  },
+  // 图片上传
+  updata_img(tempFilePaths,callback) {
+    let that = this;
+    console.log(tempFilePaths)
+    async function uploadImg(tempFilePaths) {
+      let uploadedImgs = await localImgs2webImgs(tempFilePaths);
+      // 使用上传成功之后的在线图片
+      console.log(uploadedImgs);
+
+    };
+    const localImgs2webImgs = (localImgs = tempFilePaths) => {
+      console.log(localImgs)
+      // 上传的后端url
+      const url = that.globalData.host + '/api/Common/UploadFile';
+      // 因为多张图片且数量不定，这里遍历生成一个promiseList
+      let promiseList = localImgs.map((item) => {
+        return new Promise(resolve => {
+          wx.uploadFile({
+            url,
+            filePath: item,
+            name: 'images[]',
+            success: (res) => {
+              const data = JSON.parse(res.data).data[0];
+              resolve(data);
+            }
+          });
+        });
+      });
+      // 使用Primise.all来执行promiseList
+      const result = Promise.all(promiseList).then((res) => {
+        // 返回的res是个数据，对应promiseList中请求的结果，顺序与promiseList相同
+        // 在这里也就是在线图片的url数组了
+        if (typeof callback == 'function') {
+          console.log(res)
+          callback(res)
+        }
+        console.log(res)
+
+        return res;
+      }).catch((error) => {
+        console.log(error);
+      });
+      console.log(result)
+
+      return result;
+    };
+    uploadImg()
   },
 
   // 获取活动分类
@@ -59,6 +133,7 @@ App({
   },
 
   globalData: {
+    host: 'http://47.104.176.104:806',
     userInfo: null,
     citys: ['南昌市', '景德镇市'],
     acticity_class: [],

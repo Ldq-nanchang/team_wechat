@@ -38,7 +38,10 @@ function timeTransform(time) {
   } else if (time_ >= 86400 && time_ < 2592000) {
     _time_ = (parseInt(time_ / 86400) + 1) + '天前'
   } else if (time_ >= 2592000) {
-    _time_ = parseInt(time_ / 2592000) + '个月前'
+    _time_ = parseInt(time_ / 2592000) + '个月前';
+    if (parseInt(time_ / 2592000) > 12) {
+      _time_ = time.split(' ')[0]
+    }
   }
 
   return _time_;
