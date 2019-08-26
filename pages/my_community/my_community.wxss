@@ -41,3 +41,8 @@
   color: #ff9d20;
   font-size: 30rpx;
 }
+
+.content {
+  height: calc(100vh - 84rpx);
+  overflow: scroll;
+}

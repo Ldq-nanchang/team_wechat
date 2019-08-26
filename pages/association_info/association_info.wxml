@@ -221,8 +221,9 @@
       </view>
     </view>
     <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;" 
-    bindtap="join_community" wx:if="{{!community.IsAdd}}">我要加入</view>
-    <view class="condition-item" style="background:#eee;line-height: 100rpx;color:#666" wx:if="{{community.IsAdd}}">已加入</view>
+    bindtap="join_community" wx:if="{{community.IsAdd==-1}}">我要加入</view>
+    <view class="condition-item" style="background:#eee;line-height: 100rpx;color:#666" wx:if="{{community.IsAdd==1}}">已加入</view>
+    <view class="condition-item" style="background:#eee;line-height: 100rpx;color:#666" wx:if="{{community.IsAdd==0}}">审核中</view>
   </view>
 
 </view>

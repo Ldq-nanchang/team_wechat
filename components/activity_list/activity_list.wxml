@@ -12,13 +12,13 @@
               <view>{{item.Title}}</view>
             </view>
             <view class="des">
-              <text>进行中  线上活动</text>
+              <text>{{item.StatusName}}</text>
             </view>
 
             <view class="activity-item-foot flex-row">
               <view class="activity-item-num flex-row">
-                <view>￥</view>
-                <view>{{item.Price}}</view>
+                <!-- <view></view> -->
+                <view>{{!item.Price?'免费':'￥'+item.Price}}</view>
               </view>
               <view class="activity-item-btn">
                 <wux-tag color="orange">{{item.MemberCount}}人已报名</wux-tag>

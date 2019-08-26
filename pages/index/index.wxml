@@ -23,7 +23,7 @@
 <!-- 轮播图 -->
   <view class="swiper-wrapper">
     <swiper class="swiper"
-    indicator-dots="{{false}}"
+    indicator-dots="{{true}}"
     autoplay="{{true}}"
     interval="{{5000}}"
     duration="{{1000}}"

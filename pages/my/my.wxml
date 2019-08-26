@@ -19,7 +19,7 @@
 
     <view class="condition-list flex-row">
 
-      <view class="condition-item">
+      <view class="condition-item" bindtap="to_my_community">
         <view class="condition-item-icon">
           <wux-icon type="md-person-add" color="#FE5E77"></wux-icon>
         </view>
@@ -86,7 +86,7 @@
             <!-- <wux-icon type="md-share-alt" color="#ff9d20" size="24"></wux-icon> -->
             <view class="iconfont iconfenxiangzhuanfa theme-color" style="font-size:24px;"></view>
           </view>
-          <view class="center-item-name">发分享小程序</view>
+          <view class="center-item-name">分享小程序</view>
         </view>
         <view class="center-item-btn">
           <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
