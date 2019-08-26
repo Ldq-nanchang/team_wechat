@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我的社团",
+  "usingComponents": {
+    "wux-tabs": "../../dist/tabs/index",
+    "wux-tab": "../../dist/tab/index",
+
+    "myCommunity": "../../components/my_community_/my_community_"
+  }
+}

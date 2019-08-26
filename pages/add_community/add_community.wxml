@@ -1,0 +1,55 @@
+<!--pages/add_community/add_community.wxml-->
+<view class="container">
+
+  <view class="form">
+
+    <view class="form-item flex-row">
+      <view class="title">社团封面</view>
+      <view class="icon-add">＋</view>
+    </view>
+    <view class="form-item flex-row">
+      <view class="title">社团logo</view>
+      <view class="icon-add icon-add-">＋</view>
+    </view>
+    <view class="form-item flex-row">
+      <view class="title">社团名称</view>
+      <input class="input" placeholder="请输入社团名称..."></input>
+    </view>
+
+    <view class="form-item flex-row">
+      <view class="title">选择城市</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          {{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item flex-row">
+      <view class="title">详细地址</view>
+      <input class="input" placeholder="请输入详细地址..."></input>
+    </view>
+
+    <view class="form-item flex-row">
+      <view class="title">选择学校</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item flex-row">
+      <view class="title">社团标签</view>
+      <!-- <input class="input" placeholder="请输入社团名称..."></input> -->
+    </view>
+    <view class="form-item-list flex-row">
+      <view class="title title-last">社团简介</view>
+      <textarea class="textarea" placeholder="请输入社团简介..."></textarea>
+    </view>
+
+  </view>
+
+  <view style="height: 150rpx;"></view>
+  <view class="add-community-btn">提交</view>
+</view>

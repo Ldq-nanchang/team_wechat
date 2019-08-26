@@ -1,0 +1,49 @@
+/* pages/add_community/add_community.wxss */
+.form {
+  padding: 30rpx;
+  background: #fff;
+}
+.form-item {
+  align-items: center;
+  height: 100rpx;
+  border-bottom: 1px solid #eee;
+}
+.title {
+  flex-shrink: 0;
+  line-height: 100rpx;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+}
+.icon-add {
+  margin: 20rpx 0;
+  width: 200rpx;
+  border: 1px dashed #999;
+  line-height: 60rpx;
+  text-align: center;
+  color: #999;
+  font-size: 30rpx;
+}
+.icon-add- {
+  width: 60rpx;
+  border-radius: 60rpx;
+}
+
+.title-last {
+  height: 100rpx;
+}
+.textarea {
+  padding-top: 35rpx;
+}
+
+.add-community-btn {
+  position: fixed;
+  bottom: 30rpx;
+  left: 30rpx;
+  height: 100rpx;
+  width: calc(100% - 60rpx);
+  background: #ff9d20;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+}

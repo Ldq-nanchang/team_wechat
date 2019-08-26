@@ -1,0 +1,52 @@
+<!--components/my_community_/my_community_.wxml-->
+<view>
+  <view class="base">
+
+    <view calss="base-title">
+      <text>基本信息</text>
+      <text class="theme-color">修改</text>
+    </view>
+    <view class="base-info">
+
+      <view class="item">
+        <view class="item-title">封面</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">logo</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">名称</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">地址</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">学校</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">标签</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">简介</view>
+        <view></view>
+      </view>
+      <view class="item">
+        <view class="item-title">状态</view>
+        <view></view>
+      </view>
+
+    </view>
+
+  </view>
+
+<!-- 认证信息 -->
+
+
+
+</view>

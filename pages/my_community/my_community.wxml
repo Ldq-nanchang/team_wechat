@@ -1,0 +1,32 @@
+<!--pages/my_community/my_community.wxml-->
+<view class="container">
+  <view class="top-tab">
+    <wux-tabs wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
+        <block wx:for="{{ tabs }}" wx:key="key">
+            <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+        </block>
+    </wux-tabs>
+  </view>
+  
+  <view style="height:84rpx"></view>
+
+  <swiper current="{{ index }}" bindchange="onSwiperChange" class="swiper">
+      <block wx:key="tab1">
+          <swiper-item>
+              <view class="empty-wrapper">
+                <image class="empty-pic" src="/assets/empty.png"></image>
+                <view class="empty-btn" bindtap="to_add_community">创建社团</view>
+              </view>
+          </swiper-item>
+      </block>
+
+      <block wx:key="tab2">
+          <swiper-item>
+              <view class="content">
+                <myCommunity id="myCommunity"></myCommunity>
+              </view>
+          </swiper-item>
+      </block>
+  </swiper>
+
+</view>

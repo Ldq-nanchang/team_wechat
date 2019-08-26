@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 11,
 			"list": [
 				{
 					"id": 0,
@@ -119,6 +119,19 @@
 					"name": "发布动态",
 					"pathName": "pages/post_comment/post_comment",
 					"query": "id=c271198d-b4cd-4330-b43f-a9d549445623&name=南昌大学街舞团",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的社团",
+					"pathName": "pages/my_community/my_community",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建社团",
+					"pathName": "pages/add_community/add_community",
 					"scene": null
 				}
 			]

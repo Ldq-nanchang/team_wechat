@@ -1,0 +1,43 @@
+/* pages/my_community/my_community.wxss */
+.wux-tabs__tab--balanced .wux-tabs__tab-bar {
+  background: #ff9d20!important;
+}
+.wux-tabs__tab--balanced.wux-tabs__tab--current {
+  color: #ff9d20!important;
+}
+.top-tab {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* height: 112rpx; */
+  z-index: 2000;
+  /* box-shadow: 0 3px 3px rgba(0,0,0,0.1); */
+}
+.swiper {
+  height: calc(100vh - 84rpx);
+  background: #fff;
+}
+
+.empty-wrapper {
+  position: absolute;
+  left: calc(50vw - 242rpx);
+  top: calc(50vh - 236rpx);
+  width: 485rpx;
+  height: 305rpx;
+}
+.empty-pic {
+  width: 100%;
+  height: 100%;
+}
+.empty-btn {
+  width: 60%;
+  margin: 0 auto;
+  bottom: -100rpx;
+  padding: 20rpx 30rpx;
+  border: 1px solid #ff9d20;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ff9d20;
+  font-size: 30rpx;
+}

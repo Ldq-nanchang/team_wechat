@@ -11,7 +11,9 @@
     "pages/information_info/information_info",
     "pages/activity/activity",
     "pages/comment_info/comment_info",
-    "pages/post_comment/post_comment"
+    "pages/post_comment/post_comment",
+    "pages/my_community/my_community",
+    "pages/add_community/add_community"
   ],
   "window": {
     "backgroundTextStyle": "light",
