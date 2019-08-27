@@ -13,6 +13,22 @@
   color: #1a1a1a;
   margin-right: 20rpx;
 }
+.item- {
+  padding: 30rpx;
+
+}
+.item-pic-title {
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  color: #1a1a1a;
+}
+.item-pic {
+  height: 300rpx;
+  border: 1px dashed #999;
+  line-height: 300rpx;
+  text-align: center;
+  font-size: 100rpx;
+}
 
 .btn {
   position: fixed;
