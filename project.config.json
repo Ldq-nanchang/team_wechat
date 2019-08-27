@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -132,6 +132,13 @@
 					"id": -1,
 					"name": "创建社团",
 					"pathName": "pages/add_community/add_community",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "社团认证",
+					"pathName": "pages/auth/auth",
 					"scene": null
 				}
 			]

@@ -1,0 +1,29 @@
+/* pages/auth/auth.wxss */
+.form {
+  padding: 30rpx 0;
+  background: #fff;
+}
+.item {
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+.item-title {
+  font-size: 30rpx;
+  color: #1a1a1a;
+  margin-right: 20rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 30rpx;
+  left: 30rpx;
+  width: calc(100% - 60rpx);
+  height: 100rpx;
+  border-radius: 8rpx;
+  background: #ff9d20;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 30rpx;
+}

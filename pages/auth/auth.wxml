@@ -1,0 +1,29 @@
+<!--pages/auth/auth.wxml-->
+<view class="container">
+  <view class="form">
+
+    <view class="item flex-row">
+      <view class="item-title">社团名称</view>
+      <input placeholder="请输入社团名称..."></input>
+    </view>
+    <view class="item flex-row">
+      <view class="item-title">社长姓名</view>
+      <input placeholder="请输入社长姓名..."></input>
+    </view>
+    <view class="item flex-row">
+      <view class="item-title" style="letter-spacing:15rpx;">手机号</view>
+      <input placeholder="请输入社长姓名..."></input>
+    </view>
+    <view class="item- flex-row">
+      <view class="item-pic-title">身份证正面</view>
+      <view class="tiem-pic"></view>
+    </view>
+    <view class="item- flex-row">
+      <view class="item-pic-title">身份证反面</view>
+      <view class="tiem-pic"></view>
+    </view>
+
+    <view class="btn">提交</view>
+
+  </view>
+</view>
