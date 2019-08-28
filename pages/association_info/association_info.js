@@ -1,6 +1,7 @@
 // pages/association_info/association_info.js
 var $http = require("../../utils/request.js");
-var util = require("../../utils/util")
+var util = require("../../utils/util");
+var app = getApp();
 
 Page({
 
@@ -44,6 +45,14 @@ Page({
       this.get_community_activity(this.data.community.Id)
     }
     this.setData({ information_activity_active: e.detail.current });
+  },
+  // 关注
+  follow() {
+    let community = this.data.community;
+    app.follow(community.Id, '01', (res)=>{
+      community.IsFollow = res.data;
+      this.setData({ community})
+    })
   },
   // 请求数据
   // 获取社团详情

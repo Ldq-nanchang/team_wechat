@@ -1,6 +1,7 @@
 // components/reply_list/reply_list.js
 var util = require('../../utils/util.js');
 const $http = require('../../utils/request.js');
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -18,6 +19,10 @@ Component({
     visible: false,
     comment: '',
     style: '',
+
+    fixed_top: false,
+    is_prize: 0,
+    prizes_num: 0,
 
     total_count: 0,
     list: [],
@@ -42,12 +47,25 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    action_prize() {
-      $http.request(true,'/api/Common/SavePrize',{
-        Id: this.properties.comment_id
-      },(res)=>{
+    // action_prize() {
+    //   $http.request(true,'/api/Common/SavePrize',{
+    //     Id: this.properties.comment_id
+    //   },(res)=>{
         
+    //   })
+    // },
+    fixed_top(state) {
+      this.setData({fixed_top: state});
+    },
+    updata_prize() {
+      let that = this;
+      app.prize(that.properties.comment_id,(res)=>{
+        that.setData({
+          is_prize: res.data,
+          prizes_num: res.data ? that.data.prizes_num + 1 : that.data.prizes_num - 1
+        })
       })
+      this.setData({is_prize, prizes_num});
     },
     get_list() {
       $http.request(this.data.page!=1,'/api/Common/GetCommentList',{

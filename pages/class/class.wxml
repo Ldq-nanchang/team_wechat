@@ -15,7 +15,7 @@
                 <scroll-view bindscrolltolower="follow_down"
                 scroll-y style="height: calc(100vh - 112rpx);" >
                   <view class="content">
-                    <followList id="followList"/>
+                    <followList id="followList" list_type="follow"/>
                   </view>
                 </scroll-view>
 
@@ -26,7 +26,17 @@
                 <scroll-view bindscrolltolower="remmber_down"
                 scroll-y style="height: calc(100vh - 112rpx);" >
                 <view class="content">
-                  <peopleList id="peopleList"/>
+                  <followList id="fansList" list_type="fans"/>
+                </view>
+                </scroll-view>
+            </swiper-item>
+        </block>
+        <block>
+            <swiper-item>
+                <scroll-view bindscrolltolower="remmber_down"
+                scroll-y style="height: calc(100vh - 112rpx);" >
+                <view class="content">
+                  <peopleList id="peopleList" is_follow="{{true}}"/>
                 </view>
                 </scroll-view>
             </swiper-item>

@@ -30,7 +30,8 @@
           <text style="padding-left:15rpx;font-size:26rpx">{{item.CommentsNum}}</text>
         </view>
         <view style="width:30rpx"></view>
-        <view class="iconfont icondianzan">
+        <view class="iconfont icondianzan" bindtap="prize" data-id="{{item.Id}}" 
+        style="{{item.IsPrize?'color:#FF8600':''}}">
           <text style="padding-left:15rpx;font-size:26rpx">{{item.PrizesNum}}</text>
         </view>
       </view>

@@ -55,6 +55,7 @@
   margin-top: 15rpx;
   color: #34C3CB;
 }
+
 .people-item-address-text {
   width: calc(100% - 32rpx);
   overflow: hidden;/*超出部分隐藏*/
@@ -69,17 +70,14 @@
   width: 100%;
 }
 .people-item-num {
+  margin: 10rpx 0;
   color: #e0a03c;
 }
-.people-item-btn {
+/* .people-item-btn {
   position: absolute;
   right: 0;
   bottom: 0;
-  /* padding:5rpx;
-  border: 1px solid #ed9c4b;
-  border-radius: 6px;
-  color: #e8b272; */
-}
+} */
 
 .actions-item-name {
   height: 65rpx;

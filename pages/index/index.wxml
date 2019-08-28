@@ -50,7 +50,7 @@
     </view>
     <view class="actions-content flex-row">
 
-      <view class="actions-item flex-row" style="background:#ffa808" bindtap="to_acctivity" data-type="02">
+      <view class="actions-item flex-row" style="background:#ffa808" bindtap="to_acctivity" data-type="01">
         <view class="actions-item-icon">
           <view class="iconfont iconweb__jiangli" style="font-size: 80rpx;"></view>
         </view>
@@ -59,7 +59,7 @@
           <view>参与活动赢大奖</view>
         </view>
       </view>
-      <view class="actions-item flex-row" style="background:#fe7678" bindtap="to_acctivity" data-type="01">
+      <view class="actions-item flex-row" style="background:#fe7678" bindtap="to_acctivity" data-type="02">
         <view class="actions-item-icon">
           <view class="iconfont iconzuanshi" style="font-size: 80rpx;"></view>
         </view>
@@ -100,8 +100,10 @@
               <view>{{item.FullName}}</view>
             </view>
             <view class="people-item-stars flex-row">
-              <view wx:for="{{stars}}" wx:key="{{index}}"
+              <view wx:for="{{item.stars}}" wx:key="{{index}}"
               class="people-item-star iconfont iconxingxing" style="color:#ff9d20"></view>
+              <view wx:for="{{item.stars_}}" wx:key="{{index}}"
+              class="people-item-star iconfont iconxingxing" style="color:#B3B3B3"></view>
             </view>
 
             <view class="people-item-address flex-row">
@@ -110,16 +112,17 @@
               
             </view>
 
-            <view class="people-item-foot flex-row">
-              <view class="people-item-num flex-row">
-                <wux-icon type="md-contacts" size="16"></wux-icon>
-                <view style="margin-left:16rpx;">{{item.MemberCount}}</view>
-              </view>
-              <view class="people-item-btn">
-                <!-- <text>{{item.TagName}}</text> -->
-                <wux-tag color="gold">{{item.TagName}}</wux-tag>
-              </view>
+
+            <view class="people-item-num flex-row">
+              <wux-icon type="md-contacts" size="16"></wux-icon>
+              <view style="margin-left:16rpx;">{{item.MemberCount}}</view>
             </view>
+            <view class="people-item-btn">
+              <wux-tag color="gold" wx:for="{{item.tags}}" wx:for-item="item_" wx:for-index="index_" wx:key="index_"
+              style="margin-right:10rpx">{{item_}}</wux-tag>
+            </view>
+
+
           </view>
         </view>
 

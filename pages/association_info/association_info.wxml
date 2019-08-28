@@ -20,8 +20,8 @@
           <view class="association-hot-line"></view>
           <view>{{community.FollowsNum}}粉丝</view>
         </view>
-        <view class="association-btn" wx:if="{{community.IsFollow==0}}">＋关注</view>
-        <view class="association-btn disable-btn" wx:if="{{community.IsFollow!=0}}">已关注</view>
+        <view class="association-btn" wx:if="{{community.IsFollow==0}}" bindtap="follow">＋关注</view>
+        <view class="association-btn disable-btn" wx:if="{{community.IsFollow!=0}}" bindtap="follow">已关注</view>
       </view>
 
     </view>

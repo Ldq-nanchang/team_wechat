@@ -14,7 +14,10 @@
         <wux-icon type="md-star" color="#9DABB2" size="17" 
         style="margin: 0 15rpx 0 30rpx"></wux-icon>{{activity.StoresNum}}
       </view>
-      <view class="activity-head-btn">＋收藏</view>
+      <view class="{{!activity.IsStore?'activity-head-btn':'activity-head-btn disable'}}" bindtap="store">
+        <text wx:if="{{!activity.IsStore}}">＋收藏</text>
+        <text wx:if="{{activity.IsStore}}">已收藏</text>
+      </view>
       
     </view>
 
@@ -44,7 +47,7 @@
       <view class="activity-action-item- flex-row theme-color">
         <wux-icon type="logo-usd" color="#9DABB2" size="17" 
         style="margin-right:30rpx"></wux-icon>
-        免费
+        {{activity.Price?activity.Price:'免费'}}
       </view>
       <wux-icon type="md-arrow-forward" color="#9DABB2" size="17"></wux-icon>
     </view>
@@ -68,8 +71,8 @@
     </view>
     <view class="assocation-des">{{comunity.CoverPic}}</view>
     <view class="assocation-btns flex-row">
-       <view class="assocation-btn" style="background:#ff9d20" wx:if="{{community.IsFollow==0}}">+关注</view>
-       <view class="assocation-btn" style="background:#eee;color:#fff" wx:if="{{community.IsFollow==1}}">已关注</view>
+       <view class="assocation-btn" style="background:#ff9d20" wx:if="{{community.IsFollow==0}}" bindtap="follow">+关注</view>
+       <view class="assocation-btn" style="background:#BFBFBFFF;color:#fff" wx:if="{{community.IsFollow==1}}" bindtap="follow">已关注</view>
        <view style="width:30rpx;"></view>
        <view class="assocation-btn" style="background:#eee;color:#ff9d20">联系Ta</view> 
     </view>
@@ -94,7 +97,7 @@
         
       </view>
     </view>
-    <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;">我要报名</view>
+    <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;" bindtap="">我要报名</view>
   </view>
 
 </view>

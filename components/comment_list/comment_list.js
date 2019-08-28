@@ -1,5 +1,6 @@
 // components/component_list/comment_list.js
-const $http = require('../../utils/request.js')
+const $http = require('../../utils/request.js');
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -26,6 +27,19 @@ Component({
     to_info(e) {
       wx:wx.navigateTo({
         url: '/pages/comment_info/comment_info?id='+e.currentTarget.dataset.id,
+      })
+    },
+    prize(e) {
+      app.prize(e.currentTarget.dataset.id,(res)=>{
+        console.log(res);
+        let list = this.data.list;
+        for(let item of list) {
+          if (item.Id == e.currentTarget.dataset.id) {
+            item.IsPrize = res.data;
+            item.PrizesNum = res.data ? item.PrizesNum + 1 : item.PrizesNum - 1
+          }
+        }
+        this.setData({list});
       })
     },
     // 获取图片实际长宽

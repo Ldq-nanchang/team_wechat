@@ -99,7 +99,19 @@ Page({
    */
   onLoad: function (options) {
     if (options.type) {
+      let nav_title = '';
       this.setData({ type_: options.type})
+      switch (options.type) {
+        case '01':
+          nav_title = '有奖活动';
+          break;
+        case '02':
+          nav_title = '积分活动';
+          break;
+      }
+      wx.setNavigationBarTitle({
+        title: nav_title
+      })
     }
     this.init_condition()
     this.get_list();
@@ -139,7 +151,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log('sss')
   },
 
   /**

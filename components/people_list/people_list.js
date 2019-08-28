@@ -5,7 +5,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    is_follow: {type: Boolean}
   },
 
   /**
@@ -52,14 +52,26 @@ Component({
         data.Tag = condition.Tag;
         data.SortCode = condition.SortCode;
       }
-
-      $http.request(true,'/api/community/GetCommunityList',data,(res)=>{
+      let url = '/api/community/GetCommunityList';
+      if (this.properties.is_follow) {
+        url = '/api/my/MyFollowList';
+        data = {
+          CurrentPage: that.data.page,
+          PageSize: that.data.page_size,
+          Type: '01'
+        }
+      }
+      $http.request(true,url,data,(res)=>{
         console.log(res.data)
-
-          that.setData({
-            community_list: init!='init'?[...that.data.community_list, ...res.data]:res.data,
-            page: that.data.page++
-          })
+        for(let item of res.data) {
+          item.stars = new Array(item.Star);
+          item.stars_ = new Array(5 - item.Star);
+          item.tags = item.TagName.split(',');
+        }
+        that.setData({
+          community_list: init!='init'?[...that.data.community_list, ...res.data]:res.data,
+          page: that.data.page++
+        })
         
 
         if (res.data.length < that.data.page_size) {

@@ -4,15 +4,22 @@
   display: flex;
 }
 .list {
+  position: relative;
   margin: 30rpx 0;
 }
 .item-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 60rpx);
   justify-content: space-between;
   padding: 30rpx;
   background: #fff;
   border-bottom: 1px solid #E6E6E6;
 }
-
+.fixed {
+  position: fixed;
+}
 /* 评论列表 */
 .item {
   padding: 30rpx;

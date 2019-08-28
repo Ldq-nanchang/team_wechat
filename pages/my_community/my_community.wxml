@@ -13,9 +13,13 @@
   <swiper current="{{ index }}" bindchange="onSwiperChange" class="swiper">
       <block wx:key="tab1">
           <swiper-item>
-              <view class="empty-wrapper">
+
+              <!-- <view class="empty-wrapper">
                 <image class="empty-pic" src="/assets/empty.png"></image>
                 <view class="empty-btn" bindtap="to_add_community">创建社团</view>
+              </view> -->
+              <view class="content">
+                <myCommunity id="myCommunity"></myCommunity>
               </view>
           </swiper-item>
       </block>

@@ -60,11 +60,17 @@ Page({
   // 获取首页顶部信息
   get_index: function() {
     $http.request(true, '/api/index/GetIndexTopList',{},(res)=>{
+      for (let item of res.data.communityList) {
+        item.stars = new Array(item.Star);
+        item.stars_ = new Array(5 - item.Star);
+        item.tags = item.TagName.split(',');
+      }
       this.setData({
         banners: res.data.advList,
         community_list: res.data.communityList,
         news: res.data.informList
       });
+      wx.stopPullDownRefresh();
     })
   },
   /**
@@ -78,6 +84,14 @@ Page({
       citys: app.globalData.citys,
     });
     this.get_index();
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+    this.get_index();
+    this.selectComponent("#activityList").init_list();
   },
   /**
     * 页面上拉触底事件的处理函数

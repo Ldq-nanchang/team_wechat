@@ -17,10 +17,12 @@
     "pages/auth/auth"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f5",
+    "onReachBottomDistance": 100
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
@@ -52,5 +54,8 @@
     ],
     "color": "#333333",
     "selectedColor": "#ff9d20"
+  },
+  "networkTimeout": {
+    "request": 20000
   }
 }

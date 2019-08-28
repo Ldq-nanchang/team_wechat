@@ -25,11 +25,20 @@
   color: #808080FF;
 }
 .follow-item-btn {
-  width: 100rpx;
+  padding: 0 18rpx;
   height: 50rpx;
   text-align: center;
   line-height: 50rpx;
   background: #BFBFBFFF;
+  border-radius: 4px;
+  color: #fff;
+}
+.follow-item-btn- {
+  padding: 0 18rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  background: #ff9d20;
   border-radius: 4px;
   color: #fff;
 }

@@ -6,10 +6,15 @@
         <view class="follow-item-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
         <view class="follow-item-info">
           <view class="follow-item-name">{{item.NickName}}</view>
-          <view class="follow-time">{{item.FollowDate}} 关注了Ta</view>
+          <view class="follow-time" wx:if="{{list_type=='follow'}}">{{item.FollowDate}} 关注了Ta</view>
+          <view class="follow-time" wx:if="{{list_type=='fans'}}">{{item.FollowDate}}</view>
         </view>
       </view>
-      <view class="follow-item-btn">已关注</view>
+      <view wx:if="{{list_type=='follow'}}">
+        <view class="follow-item-btn" wx:if="{{item.is_follow}}" bindtap="follow" data-item="{{item}}">已关注</view>
+        <view class="follow-item-btn-" wx:if="{{!item.is_follow}}" bindtap="follow" data-item="{{item}}">＋关注</view>
+      </view>
+      
 
     </view>
 

@@ -1,5 +1,6 @@
 // pages/activity_info/activity_i.js
 var $http = require("../../utils/request.js");
+var app = getApp();
 Page({
 
   /**
@@ -9,7 +10,20 @@ Page({
     activity: {},
     community: {}
   },
-
+  store() {
+    let activity = this.data.activity;
+    app.store(this.data.activity.Id, '02',(res)=>{
+      activity.IsStore = res.data;
+      this.setData({activity});
+    })
+  },
+  follow() {
+    let community = this.data.community;
+    app.follow(this.data.community.Id,'01',(res)=>{
+      community.IsFollow = res.data;
+      this.setData({community});
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

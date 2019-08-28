@@ -17,20 +17,26 @@ Page({
       },
       {
         key: 'tab2',
-        title: '社团',
+        title: '粉丝',
         content: 'Content of tab 2',
         active: false
       },
       {
         key: 'tab3',
-        title: '收藏',
+        title: '社团',
         content: 'Content of tab 3',
+        active: false
+      },
+      {
+        key: 'tab4',
+        title: '收藏',
+        content: 'Content of tab 4',
         active: false
       },
     ]
   },
   onTabsChange(e) {
-    this.updata_height();
+    // this.updata_height();
 
     const { key } = e.detail
    
@@ -50,7 +56,7 @@ Page({
     
   },
   onSwiperChange(e) {
-    this.updata_height();
+    // this.updata_height();
     console.log( e)
     const { current: index, source } = e.detail
     const { key } = this.data.tabs[index]
@@ -78,9 +84,12 @@ Page({
         active = "#followList";
         break;
       case 1:
-        active = "#peopleList";
+        active = "#fansList";
         break;
       case 2:
+        active = "#peopleList";
+        break;
+      case 3:
         active = "#storeList";
         break;
     }

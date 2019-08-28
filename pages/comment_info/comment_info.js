@@ -1,5 +1,7 @@
 // pages/comment_info/comment_info.js
-const $http = require('../../utils/request')
+const $http = require('../../utils/request');
+var util = require('../../utils/util');
+var app = getApp();
 Page({
 
   /**
@@ -7,7 +9,8 @@ Page({
    */
   data: {
     item: {},
-    comment_id: ''
+    comment_id: '',
+    comment_item_h: 0
   },
 
   // 获取图片实际长宽
@@ -29,28 +32,48 @@ Page({
     })
   },
   get_comment(id) {
+    let that = this;
     $http.request(true,'/api/community/GetCommunityCycleDetails',{
       Id: id
     },(res)=>{
       let item = res.data;
-      console.log(item);
       item.imgs = [];
       item.img_style = '';
       if (item.FileUrl) {
         item.imgs = item.FileUrl.split(',');
       }
       this.setData({item: res.data});
+
+      wx.nextTick(() => {
+        console.log('sss')
+        util.domH('.comment-item', (rect) => {
+          that.setData({
+            comment_item_h: rect.height
+          })
+        })
+      })
+
     })
   },
-  post_comment() {
-    this.selectComponent('#replyList').post_comment_before()
+  // post_comment() {
+  //   this.selectComponent('#replyList').post_comment_before()
+  // },
+  // prize() {
+  //   app.prize(this.data.comment_id,(res)=>{
+
+  //   })
+  // },
+  fixed_top(state) {
+    this.selectComponent('#replyList').fixed_top(state);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({comment_id: options.id})
+    
+    this.setData({comment_id: options.id});
+
     if(options.id) {
       this.get_comment(options.id);
       this.selectComponent('#replyList').get_list()
@@ -83,6 +106,16 @@ Page({
    */
   onUnload: function () {
 
+  },
+  // 监听页面滚动事件
+  onPageScroll: function(e) {
+    console.log(this.data.comment_item_h)
+    if (this.data.comment_item_h > 0 && e.scrollTop >= this.data.comment_item_h) {
+      this.fixed_top(true);
+    }else {
+      this.fixed_top(false);
+    }
+    
   },
 
   /**

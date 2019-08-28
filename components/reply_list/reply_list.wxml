@@ -1,15 +1,16 @@
 <!--components/reply_list/reply_list.wxml-->
 <view class="list">
   
-  <view class="item-title flex-row">
+  <view class="{{fixed_top?'item-title flex-row fixed':'item-title flex-row'}}">
     <view></view>
     <view class="iconfont iconpinglunxiao" bindtap="post_comment_before">
       <text style="padding-left:15rpx;font-size:26rpx">{{total_count}}</text>
     </view>
-    <view class="iconfont icondianzan">
+    <view class="iconfont icondianzan" style="{{is_prize?'color:#FF8600':''}}" bindtap="updata_prize">
       <text style="padding-left:15rpx;font-size:26rpx">{{prizes_num}}</text>
     </view>
   </view>
+  <view style="height:92rpx;"></view>
 
   <view class="item flex-row" wx:for="{{list}}" wx:key="{{item.Id}}">
 

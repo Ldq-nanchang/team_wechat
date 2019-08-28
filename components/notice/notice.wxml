@@ -13,7 +13,8 @@
         <block wx:for="{{news}}" wx:key="{{item.Id}}">
           <swiper-item>
             <view class="news-info-text">
-                <text style="font-size:28rpx;">【{{item.TypeName}}】{{item.Title}}</text>
+              <text wx:if="{{item.TypeName}}">【{{item.TypeName}}】</text>
+              <text style="font-size:28rpx;">{{item.Title}}</text>
             </view>
             <view class="new-date">{{item.PublishDate}}</view>
             

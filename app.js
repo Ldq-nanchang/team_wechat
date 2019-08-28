@@ -83,6 +83,31 @@ App({
     };
     uploadImg()
   },
+  // 点赞
+  prize(id,callback) {
+    $http.request(true,'/api/Common/SavePrize',{Id: id},(res)=>{
+      if(typeof callback == 'function') {
+        callback(res);
+      }
+    })
+  },
+  // 关注
+  follow(id, type_id, callback) {
+    $http.request(true, '/api/Common/SaveFollow', { Id: id, ObjectCode: type_id }, (res) => {
+      if (typeof callback == 'function') {
+        callback(res);
+      }
+    })
+  },
+
+  // 收藏
+  store(id, type_id, callback) {
+    $http.request(true, '/api/Common/SaveStore', { Id: id, ObjectCode: type_id }, (res) => {
+      if (typeof callback == 'function') {
+        callback(res);
+      }
+    })
+  },
 
   // 获取活动分类
   // "TypeCode": "01",
@@ -98,6 +123,10 @@ App({
   // "StatusName": "未开始"
   get_activity_status() {
     $http.request(false, '/api/Activity/GetActivityStatusList', {}, (res) => {
+      res.data.unshift({
+        StatusCode: '',
+        StatusName: '全部'
+      })
       this.globalData.activity_status = res.data;
 
     });
@@ -108,8 +137,11 @@ App({
   // "NearByName": "全城"
   get_near_list() {
     $http.request(false, '/api/common/GetNearByList', {}, (res) => {
+      // res.data.unshift({
+      //   NearByCode: '',
+      //   NearByName: '全部'
+      // })
       this.globalData.near_list = res.data;
-
     });
   },
 
@@ -118,8 +150,11 @@ App({
   // "TagName": "音乐"
   get_community_tag() {
     $http.request(false, '/api/Community/GetCommunityTagList', {}, (res) => {
+      res.data.unshift({
+        TagCode: '',
+        TagName: '全部'
+      })
       this.globalData.community_tag = res.data;
-
     });
   },
   // 获取社团排序
@@ -127,8 +162,11 @@ App({
   // "SortName": "离我最近"
   get_community_sort() {
     $http.request(false, '/api/community/GetCommunitySortList', {}, (res) => {
+      res.data.unshift({
+        SortCode: '',
+        SortName: '全部'
+      })
       this.globalData.community_sort = res.data;
-
     });
   },
 
