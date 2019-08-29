@@ -1,11 +1,14 @@
 // pages/my_community/my_community.js
+const NAMES = ['Aaron', 'A啊', 'Austin', 'Baldwin', 'Braden', 'Carl', 'Chandler', 'Clyde', 'David', 'Edgar', 'Elton', 'Floyd', 'Freeman', 'Gavin', 'Hector', 'Henry', 'Ian', 'Jason', 'Joshua', 'Kane', 'Lambert', 'Matthew', 'Morgan', 'Neville', 'Oliver', 'Oscar', 'Perry', 'Quinn', 'Ramsey', 'Scott', 'Seth', 'Spencer', 'Timothy', 'Todd', 'Trevor', 'Udolf', 'Victor', 'Vincent', 'Walton', 'Willis', 'Xavier', 'Yvonne', 'Zack', 'Zane'];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    alphabet: [],
     tabs: [
+      
       {
         key: 'tab1',
         title: '我创建的',
@@ -39,15 +42,27 @@ Page({
       })
     }
   },
-  to_add_community() {
-    wx.navigateTo({
-      url: '/pages/add_community/add_community',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.selectComponent('#myCommunity').get_my_community();
+
+    const alphabet = []
+
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((initial) => {
+      const cells = NAMES.filter((name) => name.charAt(0) === initial)
+
+      alphabet.push({
+        initial,
+        cells
+      })
+    })
+
+    this.setData({
+      alphabet,
+    })
 
   },
 

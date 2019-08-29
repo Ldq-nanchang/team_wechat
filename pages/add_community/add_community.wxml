@@ -2,41 +2,40 @@
 <view class="container">
 
   <view class="form">
-
+ 
     <view class="form-item flex-row">
       <view class="title">社团封面</view>
-      <view class="icon-add">＋</view>
+      <view class="icon-add" wx:if="{{!community.CoverPic}}">＋</view>
+      <view wx:if="{{community.CoverPic}}" class="cover-pic" style="background:url({{community.CoverPic}}) center center /cover"></view>
     </view>
     <view class="form-item flex-row">
       <view class="title">社团logo</view>
-      <view class="icon-add icon-add-">＋</view>
+      <view wx:if="{{!community.Logo}}" class="icon-add icon-add-">＋</view>
+      <view wx:if="{{community.Logo}}" class="icon-add-" style="background:url({{community.Logo}}) center center /cover"></view>
     </view>
     <view class="form-item flex-row">
       <view class="title">社团名称</view>
-      <input class="input" placeholder="请输入社团名称..."></input>
+      <input class="input" placeholder="请输入社团名称..." value="{{community.FullName}}"></input>
     </view>
 
     <view class="form-item flex-row">
       <view class="title">选择城市</view>
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <picker mode="multiSelector" range-key="FullName" bindcancel="bindMultiPickercancel"
+      bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
         <view class="picker">
-          {{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+          {{multiArray[0][multiIndex[0]].FullName}} {{multiArray[1][multiIndex[1]].FullName}}
         </view>
       </picker>
-    </view>
+    </view>  
 
     <view class="form-item flex-row">
       <view class="title">详细地址</view>
-      <input class="input" placeholder="请输入详细地址..."></input>
+      <input class="input" placeholder="请输入详细地址..." value="{{community.Address}}"></input>
     </view>
-
-    <view class="form-item flex-row">
+ 
+    <view class="form-item flex-row" bindtap="show_school">
       <view class="title">选择学校</view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view class="picker">
-          {{array[index]}}
-        </view>
-      </picker>
+      <view>{{community.SchoolName}}</view>
     </view>
 
     <view class="form-item flex-row">
@@ -45,11 +44,36 @@
     </view>
     <view class="form-item-list flex-row">
       <view class="title title-last">社团简介</view>
-      <textarea class="textarea" placeholder="请输入社团简介..."></textarea>
+      <textarea class="textarea" placeholder="请输入社团简介..." value="{{community.Description}}"></textarea>
     </view>
 
   </view>
 
   <view style="height: 150rpx;"></view>
+
+  <view class="school-wrapper" wx:if="{{show_school}}">
+    <view class="close-shcool" bindtap="close_school"></view>
+    <view class="school-title flex-row">
+      <view>选择学校</view>
+      <form bindsubmit="show_school">
+      <view class="school-search flex-row">
+        <view style="margin-right:30rpx;">
+          <button form-type="submit" class="submit">搜索</button>
+        </view>
+        <view class="school-search-input">
+          
+            <input class="input" name="search_word" style="height:100%;"></input>
+          
+        </view>
+      </view>
+      </form>
+
+      
+    </view>
+    <view class="school-list">
+      <view class="school-item" wx:for="{{school_list}}" wx:key="{{item.Id}}">{{item.FullName}}</view>
+    </view>
+  </view>
+
   <view class="add-community-btn">提交</view>
 </view>

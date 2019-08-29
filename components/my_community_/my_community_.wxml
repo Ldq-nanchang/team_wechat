@@ -1,40 +1,42 @@
 <!--components/my_community_/my_community_.wxml-->
 <view>
+
+<view wx:if="{{hive_community==1}}">
   <view class="base-wrapper">
     <view class="base">
 
-      <view class="title flex-row">
+      <view class="title flex-row" bindtap="to_add_community">
         <text>基本信息</text>
         <text class="theme-color">修改</text>
       </view>
       <view class="base-info">
 
         <view class="head flex-row">
-          <view class="icon" style="background:url('http://47.104.176.104:808/Uploads/image/20190603/thumb_20190603080616_3729.png') center center /cover"></view>
+          <view class="icon" style="background:url('{{community.Logo}}') center center /cover"></view>
           <view class="head-content">
-            <view class="name">南昌大学街舞团</view>
-            <view class="theme-color" style="margin-top：10rpx;">外语外贸职业技术学院</view>
+            <view class="name">{{community.FullName}}</view>
+            <view class="theme-color" style="margin-top：10rpx;">{{community.SchoolName}}</view>
             <view class="flex-row" style="margin-top:10rpx">
-              <view class="state">未认证</view>
+              <view class="state">{{community.StatusName}}</view>
             </view>
           </view>
         </view>
         <view class="body">
-          <view class="date">2019-08-26(创建) ~ 2020-08-26(失效)</view>
+          <view class="date">{{community.CreatorTime}}(创建) ~ {{community.ValidityTime}}(失效)</view>
           <view class="iconfont iconaddress address">
-            <text style="padding-left:20rpx">世贸APM 3-3-204</text>
+            <text style="padding-left:20rpx;font-size: 28rpx;">{{community.FullAddress}}</text>
           </view>
           <view class="des">
             <text class="des-title">简介:</text>
-            <text>新东方创办于1993年，25年专注教育培训，累积学员超过2000万，从早教到成人，业务涵盖早教、学前、中小学、大学考试、留学咨询、国际游学、网络课堂等，旨在为学员..</text>
+            <text>{{community.Description}}</text>
           </view>
           <view class="tags flex-row">
-            <wux-tag color="gold">街舞</wux-tag>
-            <wux-tag color="gold">书法</wux-tag>
+            <wux-tag color="gold" wx:for="{{community.tags}}" wx:key="{{index}}">{{item}}</wux-tag>
           </view>
+          <view style="height:20rpx;"></view>
           <view class="cover">
             <view class="cover-title">封面图</view>
-            <view class="coverpic" style="background:url('http://47.104.176.104:808/Uploads/image/20190603/thumb_20190603080616_3729.png') center center /cover"></view>
+            <view class="coverpic" style="background:url('{{community.CoverPic}}') center center /cover"></view>
 
           </view>
 
@@ -49,7 +51,7 @@
   <view class="auth-wrapper">
     <view class="auth">
 
-      <view class="title flex-row">
+      <view class="title flex-row" bindtap="to_authorize">
         <text>认证信息</text>
         <text class="theme-color">认证</text>
       </view>
@@ -58,23 +60,23 @@
           <image src="/assets/king.png" style="width:100%;height:100%"></image>
         </view>
         <view class="head-content">
-          <view class="name">王小明(社长)</view>
-          <view class="theme-color" style="margin-top：10rpx;">15170236959</view>
+          <view class="name">{{authorize.PresidentName}}(社长)</view>
+          <view class="theme-color" style="margin-top：10rpx;">{{authorize.PresidentPhone}}</view>
           <view class="flex-row" style="margin-top:10rpx">
-            <view class="state">未认证</view>
+            <view class="state">{{authorize.AuditName}}</view>
           </view>
         </view>
       </view>
       <view class="body">
-        <view class="date">审核日期: 2019-08-26</view>
+        <view class="date">审核日期: {{authorize.AuditDate}}</view>
         <view class="cover">
           <view class="cover-title">身份证正面</view>
-          <view class="coverpic" style="background:url('http://47.104.176.104:808/Uploads/image/20190603/thumb_20190603080616_3729.png') center center /cover"></view>
+          <view class="coverpic" style="background:url('{{authorize.FrontIdCard}}') center center /cover"></view>
 
         </view>
         <view class="cover">
           <view class="cover-title">身份证反面</view>
-          <view class="coverpic" style="background:url('http://47.104.176.104:808/Uploads/image/20190603/thumb_20190603080616_3729.png') center center /cover"></view>
+          <view class="coverpic" style="background:url('{{authorize.BackIdCard}}') center center /cover"></view>
 
         </view>
       </view>
@@ -93,4 +95,11 @@
     </view>
     <view class="btn-item btn-item-active">社员管理</view>
   </view>
+</view>
+
+  <view class="empty-wrapper" wx:if="{{hive_community==-1}}">
+    <image class="empty-pic" src="/assets/empty.png"></image>
+    <view class="empty-btn" bindtap="to_add_community">创建社团</view>
+  </view>
+
 </view>

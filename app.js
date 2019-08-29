@@ -173,11 +173,15 @@ App({
   globalData: {
     host: 'http://47.104.176.104:806',
     userInfo: null,
+
     citys: ['南昌市', '景德镇市'],
     acticity_class: [],
     activity_status: [],
     near_list: [],
     community_tag: [],
-    community_sort: []
+    community_sort: [],
+
+    community: {},
+    province: []
   }
 })

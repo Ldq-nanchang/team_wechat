@@ -23,11 +23,19 @@
   color: #999;
   font-size: 30rpx;
 }
+.cover-pic {
+  margin: 20rpx 0;
+  width: 200rpx;
+  height: 60rpx;
+}
 .icon-add- {
   width: 60rpx;
+  height: 60rpx;
   border-radius: 60rpx;
 }
-
+.input {
+  width: 100%;
+}
 .title-last {
   height: 100rpx;
 }
@@ -46,4 +54,61 @@
   text-align: center;
   line-height: 100rpx;
   color: #fff;
+}
+
+.school-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+  z-index: 1000;
+}
+.school-list {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  width: 100%;
+  height: 30vh;
+  background: #fff;
+  padding: 30rpx 0;
+}
+.school-title {
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: calc(30vh + 60rpx);
+  left: 0;
+  background: #f6f6f6;
+  width: calc(100% - 60rpx);
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #ff9d20;
+  font-weight: bold; 
+}
+.school-item {
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+  color: #1a1a1a;
+  font-size: 28rpx;
+}
+.close-shcool {
+  height: 100%;
+}
+.school-search {
+  padding: 10rpx;
+  border-radius: 10rpx;
+  border: 1px solid #ff9d20;
+}
+
+.submit::after {
+  border: none;
+}
+.submit {
+  background-color: transparent;
+  font-size: 26rpx;
+  border-radius:0;
+  color: #ff9d20;
 }

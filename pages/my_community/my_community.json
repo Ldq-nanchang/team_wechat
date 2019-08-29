@@ -6,6 +6,9 @@
     "wux-tabs": "../../dist/tabs/index",
     "wux-tab": "../../dist/tab/index",
 
-    "myCommunity": "../../components/my_community_/my_community_"
+    "myCommunity": "../../components/my_community_/my_community_",
+
+            "wux-index": "../../dist/index/index",
+            "wux-index-item": "../../dist/index-item/index"
   }
 }

@@ -25,6 +25,24 @@
 .base-info {
   /* padding: 0 30rpx 30rpx 30rpx; */
 }
+
+
+.empty-pic {
+  width: 100%;
+  height: 100%;
+}
+.empty-btn {
+  width: 60%;
+  margin: 0 auto;
+  bottom: -100rpx;
+  padding: 20rpx 30rpx;
+  border: 1px solid #ff9d20;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ff9d20;
+  font-size: 30rpx;
+}
+
 /* 头部 */
 .head {
   align-items: cener;
