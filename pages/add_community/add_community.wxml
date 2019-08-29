@@ -1,21 +1,26 @@
 <!--pages/add_community/add_community.wxml-->
 <view class="container">
-
+  <form bindsubmit="post_form">
   <view class="form">
  
     <view class="form-item flex-row">
       <view class="title">社团封面</view>
-      <view class="icon-add" wx:if="{{!community.CoverPic}}">＋</view>
-      <view wx:if="{{community.CoverPic}}" class="cover-pic" style="background:url({{community.CoverPic}}) center center /cover"></view>
+      <view bindtap="updata_img" data-keyword="cover">
+        <view class="icon-add" wx:if="{{!community.CoverPic}}">＋</view>
+        <view wx:if="{{community.CoverPic}}" class="cover-pic" style="background:url({{community.CoverPic}}) center center /cover"></view>
+      </view>
+
     </view>
     <view class="form-item flex-row">
       <view class="title">社团logo</view>
-      <view wx:if="{{!community.Logo}}" class="icon-add icon-add-">＋</view>
-      <view wx:if="{{community.Logo}}" class="icon-add-" style="background:url({{community.Logo}}) center center /cover"></view>
+      <view bindtap="updata_img" data-keyword="logo">
+        <view wx:if="{{!community.Logo}}" class="icon-add icon-add-">＋</view>
+        <view wx:if="{{community.Logo}}" class="icon-add-" style="background:url({{community.Logo}}) center center /cover"></view>
+      </view>
     </view>
     <view class="form-item flex-row">
       <view class="title">社团名称</view>
-      <input class="input" placeholder="请输入社团名称..." value="{{community.FullName}}"></input>
+      <input class="input" placeholder="请输入社团名称..." value="{{community.FullName}}" name="community_name"></input>
     </view>
 
     <view class="form-item flex-row">
@@ -30,7 +35,7 @@
 
     <view class="form-item flex-row">
       <view class="title">详细地址</view>
-      <input class="input" placeholder="请输入详细地址..." value="{{community.Address}}"></input>
+      <input class="input" placeholder="请输入详细地址..." value="{{community.Address}}" name="address"></input>
     </view>
  
     <view class="form-item flex-row" bindtap="show_school">
@@ -38,19 +43,19 @@
       <view>{{community.SchoolName}}</view>
     </view>
 
-    <view class="form-item flex-row">
+    <view class="form-item flex-row" bindtap="show_targs">
       <view class="title">社团标签</view>
-      <!-- <input class="input" placeholder="请输入社团名称..."></input> -->
+      <view>{{community.TagName}}</view>
     </view>
     <view class="form-item-list flex-row">
       <view class="title title-last">社团简介</view>
-      <textarea class="textarea" placeholder="请输入社团简介..." value="{{community.Description}}"></textarea>
+      <textarea class="textarea" placeholder="请输入社团简介..." value="{{community.Description}}" name="des"></textarea>
     </view>
 
   </view>
 
   <view style="height: 150rpx;"></view>
-
+  <!-- 选择学校弹窗 -->
   <view class="school-wrapper" wx:if="{{show_school}}">
     <view class="close-shcool" bindtap="close_school"></view>
     <view class="school-title flex-row">
@@ -61,19 +66,49 @@
           <button form-type="submit" class="submit">搜索</button>
         </view>
         <view class="school-search-input">
-          
             <input class="input" name="search_word" style="height:100%;"></input>
-          
         </view>
       </view>
       </form>
-
       
     </view>
     <view class="school-list">
-      <view class="school-item" wx:for="{{school_list}}" wx:key="{{item.Id}}">{{item.FullName}}</view>
+      <view class="school-item" bindtap="select_school" data-item="{{item}}"
+      wx:for="{{school_list}}" wx:key="{{item.Id}}">{{item.FullName}}</view>
+
+      <view style="padding: 30rpx;text-align:center">没有更多数据了~ </view>
     </view>
   </view>
 
-  <view class="add-community-btn">提交</view>
+  <!-- 选择标签弹窗 -->
+  <view class="school-wrapper" wx:if="{{show_targs}}">
+    <view class="close-shcool" bindtap="close_targs"></view>
+    <view class="school-title flex-row">
+      <view>选择标签</view>
+    </view>
+    <view class="school-list">
+
+      <wux-form id="wux-form">
+        <wux-field name="checkbox" initialValue="{{ checkbox }}">
+          <wux-checkbox-group bind:change="onChange">
+            
+            <wux-checkbox wx:for="{{targs}}" wx:key="{{item.TagCode}}"
+            title="{{item.TagName}}" value="{{item.TagCode}}" 
+            disabled="{{item.disable}}"/>
+            
+          </wux-checkbox-group>
+        </wux-field>
+      </wux-form>
+
+
+      <view style="padding: 30rpx;text-align:center">没有更多数据了~ </view>
+    </view>
+  </view>
+
+
+  <!-- 底部按钮 -->
+    <view class="add-community-btn flex-row">
+      <button form-type="submit" class="submit" style="color:#fff">提交</button>
+    </view>
+  </form>
 </view>

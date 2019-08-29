@@ -2,5 +2,9 @@
   "navigationBarBackgroundColor": "#ff9d20",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "创建社团",
-  "usingComponents": {}
+  "usingComponents": {
+    "wux-checkbox": "../../dist/checkbox/index",
+    "wux-checkbox-group": "../../dist/checkbox-group/index",
+    "wux-field": "../../dist/field/index"
+  }
 }

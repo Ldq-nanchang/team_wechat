@@ -69,7 +69,7 @@ Component({
           SchoolName: community_.SchoolName,
           Tag: community_.Tag,
           TagName: community_.TagName,
-          IsAudit: community_.IsAudit ? community_.IsAudit:''
+          IsAudit: community_.IsAudit
         }
       }
 

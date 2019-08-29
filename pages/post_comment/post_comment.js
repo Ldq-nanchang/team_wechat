@@ -26,13 +26,13 @@ Page({
         const tempFilePaths = res.tempFilePaths.splice(0, 9 - that.data.img_list.length);
 
         app.updata_img(tempFilePaths,(res_)=>{
-          
           if(!item.Id) {
             that.add_img(res_);
           }else {
             that.change_img(res_,item);
           }
-        })
+        });
+        
       }
     })
   },
