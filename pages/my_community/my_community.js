@@ -1,5 +1,5 @@
 // pages/my_community/my_community.js
-const NAMES = ['Aaron', 'A啊', 'Austin', 'Baldwin', 'Braden', 'Carl', 'Chandler', 'Clyde', 'David', 'Edgar', 'Elton', 'Floyd', 'Freeman', 'Gavin', 'Hector', 'Henry', 'Ian', 'Jason', 'Joshua', 'Kane', 'Lambert', 'Matthew', 'Morgan', 'Neville', 'Oliver', 'Oscar', 'Perry', 'Quinn', 'Ramsey', 'Scott', 'Seth', 'Spencer', 'Timothy', 'Todd', 'Trevor', 'Udolf', 'Victor', 'Vincent', 'Walton', 'Willis', 'Xavier', 'Yvonne', 'Zack', 'Zane'];
+var app = getApp();
 Page({
 
   /**
@@ -42,27 +42,12 @@ Page({
       })
     }
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.selectComponent('#myCommunity').get_my_community();
-
-    const alphabet = []
-
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((initial) => {
-      const cells = NAMES.filter((name) => name.charAt(0) === initial)
-
-      alphabet.push({
-        initial,
-        cells
-      })
-    })
-
-    this.setData({
-      alphabet,
-    })
 
   },
 
@@ -77,7 +62,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(app.globalData.status.init_my_community) {
+      this.selectComponent('#myCommunity').get_my_community();
+    }
+    
   },
 
   /**

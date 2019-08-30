@@ -180,8 +180,16 @@ App({
     near_list: [],
     community_tag: [],
     community_sort: [],
-
+    // 新增或编辑我的社团
     community: {},
-    province: []
+    // province: [],
+
+    // 认证社长
+    authoriza: {},
+
+    status: {
+      // 创建编辑社团后刷新 我的社团数据
+      init_my_community: false,
+    }
   }
 })

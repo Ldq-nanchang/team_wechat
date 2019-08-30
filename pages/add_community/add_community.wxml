@@ -43,6 +43,13 @@
       <view>{{community.SchoolName}}</view>
     </view>
 
+    <view class="form-item flex-row">
+      <view class="title">团员审核</view>
+      <view>
+        <switch checked="{{community.IsAudit}}" bindchange="switch_change"/>
+      </view>
+    </view>
+
     <view class="form-item flex-row" bindtap="show_targs">
       <view class="title">社团标签</view>
       <view>{{community.TagName}}</view>
@@ -107,8 +114,8 @@
 
 
   <!-- 底部按钮 -->
-    <view class="add-community-btn flex-row">
-      <button form-type="submit" class="submit" style="color:#fff">提交</button>
+    <view class="add-community-btn">
+      <button form-type="submit" class="submit" style="height:100rpx;line-height:100rpx;color:#fff">提交</button>
     </view>
   </form>
 </view>

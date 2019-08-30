@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "浏览记录",
+  "usingComponents": {},
+  "enablePullDownRefresh": true
+}

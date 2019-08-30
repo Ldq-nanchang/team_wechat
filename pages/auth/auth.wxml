@@ -1,29 +1,40 @@
 <!--pages/auth/auth.wxml-->
 <view class="container">
+  <form bindsubmit="post_form">
   <view class="form">
 
     <view class="item flex-row">
-      <view class="item-title">社团名称</view>
-      <input placeholder="请输入社团名称..."></input>
+      <!-- <view class="item-title">社团名称</view> -->
+      <view>{{authorize.CommunityName}}</view>
     </view>
     <view class="item flex-row">
       <view class="item-title">社长姓名</view>
-      <input placeholder="请输入社长姓名..."></input>
+      <input placeholder="请输入社长姓名..." value="{{authorize.PresidentName}}" name="authorize_name"></input>
     </view>
     <view class="item flex-row">
       <view class="item-title" style="letter-spacing:10rpx;">手机号</view>
-      <input placeholder="请输入社长姓名..."></input>
+      <input placeholder="请输入社长手机号..." value="{{authorize.Mobile}}" name="mobile"></input>
     </view>
     <view class="item-">
       <view class="item-pic-title">身份证正面</view>
-      <view class="item-pic">＋</view>
+      <view bindtap="updata_img" data-keyword="front">
+        <view class="item-pic" wx:if="{{!authorize.FrontIdCard}}">＋</view>
+        <view class="item-pic-" wx:if="{{authorize.FrontIdCard}}" style="background:url({{authorize.FrontIdCard}}) center center /cover"></view>
+      </view>
+
     </view>
     <view class="item-">
       <view class="item-pic-title">身份证反面</view>
-      <view class="item-pic">＋</view>
+      <view bindtap="updata_img" data-keyword="back">
+        <view class="item-pic" wx:if="{{!authorize.BackIdCard}}">＋</view>
+        <view class="item-pic-" wx:if="{{authorize.BackIdCard}}" style="background:url({{authorize.BackIdCard}}) center center /cover"></view>
+      </view>
     </view>
     <view style="height: 150rpx;"></view>
-    <view class="btn">提交</view>
+    <view class="btn">
+      <button form-type="submit" class="submit">提交</button>
+    </view>
 
   </view>
+  </form>
 </view>

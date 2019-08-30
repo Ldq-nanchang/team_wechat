@@ -1,27 +1,37 @@
-// pages/my/my.js
+// pages/browse/browse.js
+var $http = require('../../utils/request');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    list: [],
+    loading_state: true,
 
+    page_size: 10,
+    page: 1
   },
-  to_my_community() {
-    wx.navigateTo({
-      url: '/pages/my_community/my_community',
-    })
-  },
-  to_browse() {
-    wx.navigateTo({
-      url: '/pages/browse/browse',
+  get_list() {
+    if (!this.data.loading_state) {
+      return false;
+    }
+    $http.request(true,'/api/my/MyBrowseList',{
+      CurrentPage: this.data.page,
+      PageSize: this.data.page_size
+    },(res)=>{
+      let list = this.data.list;
+      this.setData({list: [...list,...res.data],page: this.data.page++});
+      if(res.data.length < this.data.page_size) {
+        this.setData({ loading_state: false})
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.get_list();
   },
 
   /**
@@ -63,7 +73,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.get_list();
   },
 
   /**

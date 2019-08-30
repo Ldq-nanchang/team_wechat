@@ -14,7 +14,8 @@
     "pages/post_comment/post_comment",
     "pages/my_community/my_community",
     "pages/add_community/add_community",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/browse/browse"
   ],
   "window": {
     "backgroundTextStyle": "dark",

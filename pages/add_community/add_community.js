@@ -162,6 +162,8 @@ Page({
     community.FullName = e.detail.value.community_name;
     community.Address = e.detail.value.address;
     community.Description = e.detail.value.des;
+
+
     this.setData({community});
     if (!community.CoverPic) {
       wx.showToast({
@@ -205,12 +207,22 @@ Page({
       });
       return false;
     }
+
     console.log(that.data.community)
-    return;
+
     $http.request(true,'/api/Community/SaveCommunity',that.data.community,(res)=>{
+      app.globalData.status.init_my_community = true;
       wx.navigateBack();
     });
 
+  },
+  switch_change(e) {
+    let community = this.data.community;
+    if (e.detail.value) {
+      community.IsAudit = 1;
+    }else {
+      community.IsAudit = 0;
+    }
   },
 
   /**
@@ -218,7 +230,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({community: app.globalData.community});
-
+    console.log(app.globalData.community)
     let multiIndex = this.data.multiIndex;
 
     if (this.data.community.Province && this.data.community.City) {
@@ -251,6 +263,7 @@ Page({
       });
     }
   },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

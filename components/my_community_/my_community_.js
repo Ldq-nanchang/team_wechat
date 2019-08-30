@@ -79,12 +79,22 @@ Component({
       })
     },
     to_authorize() {
+      let authorize = this.data.authorize;
+      let community = this.data.community;
       if (!this.data.authorize.IsAudit) {
           wx.showToast({
             title: '审核中...',
             icon: 'none'
           })
           return false;
+      }
+      app.globalData.authorize = {
+        Mobile: authorize.PresidentPhone,
+        PresidentName: authorize.PresidentName,
+        CommunityId: community.Id,
+        CommunityName: community.FullName,
+        FrontIdCard: authorize.FrontIdCard,
+        BackIdCard: authorize.BackIdCard
       }
       wx.navigateTo({
         url: '/pages/auth/auth',
@@ -112,6 +122,7 @@ Component({
         }else {
           this.setData({hive_community: -1});
         }
+        app.globalData.status.init_my_community = false;
       })
     }
   }

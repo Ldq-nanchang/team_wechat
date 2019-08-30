@@ -1,0 +1,24 @@
+<!--pages/browse/browse.wxml-->
+<view class="container">
+  <view class="list">
+
+    <view class="item-wrapper" wx:for="{{list}}" wx:key="{{item.Id}}">
+      <view class="date">{{item.CommentDate}}</view>
+
+      <view class="item flex-row">
+        <view class="item-icon" style="background:url({{item.CoverPic}}) center center /cover"></view>
+        <view class="item-content">
+          <view class="name">{{item.Name}}</view>
+          <view class="des">{{item.ObjectName}}</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+    </view>
+    
+  </view>
+</view>

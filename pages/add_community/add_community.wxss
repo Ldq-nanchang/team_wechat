@@ -44,7 +44,6 @@
 }
 
 .add-community-btn {
-  align-items: center;
   position: fixed;
   bottom: 30rpx;
   left: 30rpx;

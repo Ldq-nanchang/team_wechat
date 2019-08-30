@@ -70,7 +70,7 @@
         </view>
       </view>
       <view class="center-item flex-row">
-        <view class="flex-row" style="align-items: center;">
+        <view class="flex-row" style="align-items: center;" bindtap="to_browse">
           <view class="center-item-cion">
             <wux-icon type="md-clock" color="#ff9d20" size="24"></wux-icon>
           </view>

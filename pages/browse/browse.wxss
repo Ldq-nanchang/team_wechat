@@ -1,0 +1,59 @@
+/* pages/browse/browse.wxss */
+.list {
+  padding: 50rpx 30rpx;
+}
+.item-wrapper {
+  margin-bottom: 50rpx;
+}
+.date {
+  margin-bottom: 15rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #808080;
+}
+.item {
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.item-icon {
+  flex-shrink: 0;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 120rpx;
+  margin-right: 20rpx;
+}
+.item-content {
+  width: calc(100% - 140rpx);
+}
+.name {
+  font-size: 34rpx;
+  color: #1A1A1A;
+  width: 100%;
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分文字以...显示*/
+}
+.des {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #808080;
+
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+}
+
+
+.loading-wrapper {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #777;
+}
