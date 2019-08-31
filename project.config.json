@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -147,6 +147,20 @@
 					"name": "浏览记",
 					"pathName": "pages/browse/browse",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "负责的活动",
+					"pathName": "pages/reponsible_activity/reponsible_activity",
+					"query": "id=137d702b-9c14-44aa-bd86-bb907495232a",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "参加的活动",
+					"pathName": "pages/join_activity/join_activity",
+					"query": "id=137d702b-9c14-44aa-bd86-bb907495232a",
 					"scene": null
 				}
 			]

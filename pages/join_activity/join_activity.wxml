@@ -1,0 +1,49 @@
+<!--pages/join_activity/join_activity.wxml-->
+<view class="container">
+  <view class="list">
+
+    <view class="item-wrapper" wx:for="{{list}}" wx:key="{{item.Id}}">
+
+      <view class="item">
+
+        <view class="item-title flex-row">
+          <text>青少年发展团</text>
+          <text class="theme-color">{{item.StatusName}}</text>
+        </view>
+        <view class="item-body flex-row">
+
+          <view class="headpic" style="background:url({{item.CoverPic}}) center center /cover"></view>
+          <view class="content">
+            <view class="name">{{item.Title}}</view>
+            <view class="date">{{item.StartTime}}  开始</view>
+            <view class="address">{{item.Address}}</view>
+          </view>
+
+        </view>
+        <view class="price flex-row">
+          <view>价格</view>
+          <view style="text-decoration:line-through">￥100</view>
+          <view>￥50</view>
+        </view>
+        
+
+      </view>
+      <view class="item-foot flex-row">
+        <view class="member theme-color">{{item.MemberCount}}人 参加</view>
+        <view class="flex-row">
+          <view class="btn-empty">取消参加</view>
+          <view class="btn">查看电子票</view>
+        </view>
+        
+      </view>
+
+    </view>
+
+  </view>
+
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+      
+    </view>
+</view>

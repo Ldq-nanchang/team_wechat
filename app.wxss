@@ -85,3 +85,9 @@
 .margin-top-10 {
   margin-top: 10rpx;
 }
+.loading-wrapper {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #777;
+}

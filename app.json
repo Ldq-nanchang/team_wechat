@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/people/people",
     "pages/class/class",
     "pages/my/my",
@@ -15,7 +14,9 @@
     "pages/my_community/my_community",
     "pages/add_community/add_community",
     "pages/auth/auth",
-    "pages/browse/browse"
+    "pages/browse/browse",
+    "pages/join_activity/join_activity",
+    "pages/reponsible_activity/reponsible_activity"
   ],
   "window": {
     "backgroundTextStyle": "dark",

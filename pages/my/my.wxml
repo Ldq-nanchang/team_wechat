@@ -47,7 +47,7 @@
 
     <view class="center-list">
 
-      <view class="center-item flex-row">
+      <view class="center-item flex-row" bindtap="to_reponsible_activity">
         <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
             <wux-icon type="md-contacts" color="#ff9d20" size="24"></wux-icon>
@@ -58,7 +58,7 @@
           <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
-      <view class="center-item flex-row">
+      <view class="center-item flex-row" bindtap="to_join_activity">
         <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
             <wux-icon type="md-pricetags" color="#ff9d20" size="24"></wux-icon>
