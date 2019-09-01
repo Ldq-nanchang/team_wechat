@@ -10,7 +10,7 @@
           <text>青少年发展团</text>
           <text class="theme-color">{{item.StatusName}}</text>
         </view>
-        <view class="item-body flex-row">
+        <view class="item-body flex-row" bindtap="to_activity_info" data-id="{{item.Id}}">
 
           <view class="headpic" style="background:url({{item.CoverPic}}) center center /cover"></view>
           <view class="content">
@@ -25,7 +25,7 @@
       </view>
       <view class="item-foot flex-row">
         <view class="member theme-color">{{item.MemberCount}}人 参加</view>
-        <view class="btn">查看名单</view>
+        <view class="btn" bindtap="to_search_member" data-id="{{item.Id}}">查看名单</view>
       </view>
 
     </view>

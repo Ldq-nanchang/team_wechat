@@ -13,18 +13,21 @@ Page({
         key: 'tab1',
         title: '我创建的',
         content: 'Content of tab 1',
+        show: true
       },
       {
         key: 'tab2',
         title: '我加入的',
         content: 'Content of tab 2',
+        show: false
       }
     ],
   },
   onTabsChange(e) {
-    console.log('onTabsChange', e)
-    const { key } = e.detail
-    const index = this.data.tabs.map((n) => n.key).indexOf(key)
+    console.log('onTabsChange', e);
+    
+    const { key } = e.detail;
+    const index = this.data.tabs.map((n) => n.key).indexOf(key);
 
     this.setData({
       key,
@@ -32,7 +35,8 @@ Page({
     })
   },
   onSwiperChange(e) {
-    console.log('onSwiperChange', e)
+    console.log('onSwiperChange', e);
+
     const { current: index, source } = e.detail
     const { key } = this.data.tabs[index];
     if (!!source) {
@@ -41,6 +45,9 @@ Page({
         index,
       })
     }
+  },
+  lower() {
+    console.log('ss')
   },
  
   /**

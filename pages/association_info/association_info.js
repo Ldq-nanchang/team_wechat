@@ -149,13 +149,21 @@ Page({
     })
   },
   get_comment() {
-    console.log('sss')
     this.selectComponent('#commentList').get_list(this.data.community.Id);
   },
   // 交互事件
   to_information_info(e) {
     wx.navigateTo({
       url: '/pages/information_info/information_info?id=' + e.currentTarget.dataset.id+'&type=is_community'
+    })
+  },
+  to_search_member(e) {
+    let keywords = '';
+    if(e.currentTarget.dataset.keywords=='leader') {
+      keywords = '&leader=1';
+    }
+    wx.navigateTo({
+      url: '/pages/search_member/search_member?community_id=' + this.data.community.Id + keywords,
     })
   },
   to_activity_info(e) {

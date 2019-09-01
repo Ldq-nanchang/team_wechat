@@ -6,10 +6,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [''],
+    list: [],
     page: 1,
     page_size: 10,
     loading_state: true
+  },
+  to_activity_info(e) {
+    wx.navigateTo({
+      url: '/pages/activity_info/activity_info?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  to_join_info(e) {
+    wx.navigateTo({
+      url: '/pages/join_info/join_info?id='+e.currentTarget.dataset.id,
+    })
   },
   get_list() {
     if (!this.data.loading_state) {
@@ -27,7 +37,6 @@ Page({
       if (res.data.length < this.data.page_size) {
         this.setData({ loading_state: false });
       }
-      console.log()
     })
   },
   /**

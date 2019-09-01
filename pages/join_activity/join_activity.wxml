@@ -7,10 +7,10 @@
       <view class="item">
 
         <view class="item-title flex-row">
-          <text>青少年发展团</text>
+          <text>{{item.CommunityName}}</text>
           <text class="theme-color">{{item.StatusName}}</text>
         </view>
-        <view class="item-body flex-row">
+        <view class="item-body flex-row" bindtap="to_activity_info" data-id="{{item.Id}}">
 
           <view class="headpic" style="background:url({{item.CoverPic}}) center center /cover"></view>
           <view class="content">
@@ -22,8 +22,8 @@
         </view>
         <view class="price flex-row">
           <view>价格</view>
-          <view style="text-decoration:line-through">￥100</view>
-          <view>￥50</view>
+          <view style="text-decoration:line-through">￥{{item.Price}}</view>
+          <view>￥{{item.DiscountPrice}}</view>
         </view>
         
 
@@ -31,8 +31,8 @@
       <view class="item-foot flex-row">
         <view class="member theme-color">{{item.MemberCount}}人 参加</view>
         <view class="flex-row">
-          <view class="btn-empty">取消参加</view>
-          <view class="btn">查看电子票</view>
+          <view class="btn-empty" wx:if="{{item.Status=='01'}}">取消参加</view>
+          <view class="btn" bindtap="to_join_info" data-id="{{item.Id}}">查看电子票</view>
         </view>
         
       </view>

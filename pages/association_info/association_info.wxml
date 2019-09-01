@@ -81,7 +81,8 @@
                       </view>
                     </view>
 
-                    <view class="people-list-more theme-color">更多>></view>
+                    <view class="people-list-more theme-color"
+                    bindtap="to_search_member" data-keywords="leader">更多>></view>
                   </view>
               </swiper-item>
           </block>
@@ -113,7 +114,7 @@
                         <view class="people-item-des-"></view>
                       </view>
                     </view>
-                    <view class="people-list-more theme-color">更多>></view>
+                    <view class="people-list-more theme-color" bindtap="to_search_member">更多>></view>
                   </view>
               </swiper-item>
           </block>

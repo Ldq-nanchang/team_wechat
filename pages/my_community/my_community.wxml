@@ -13,8 +13,6 @@
   <swiper current="{{ index }}" bindchange="onSwiperChange" class="swiper">
       <block wx:key="tab1">
           <swiper-item>
-
-
               <view class="content">
                 <myCommunity id="myCommunity"></myCommunity>
               </view>
@@ -24,8 +22,9 @@
       <block wx:key="tab2">
           <swiper-item>
               <view class="content">
-                <!-- <myCommunity id="myCommunity"></myCommunity> -->
-
+                <scroll-view scroll-y style="height: 100%;" bindscrolltolower="lower">
+                  <communityList id="communityList"></communityList>
+                </scroll-view>
               </view>
           </swiper-item>
       </block>

@@ -1,0 +1,39 @@
+<!--pages/join_info/join_info.wxml-->
+<view class="container">
+
+
+    <view class="head">
+      <view class="head-title">{{ticket.NickName}}(ticket.Mobile)</view>
+      <view class="head-content flex-col">
+        <view class="qrcode-string">{{ticket.SignInCode}}</view>
+        <view class="qrcode">
+        <wux-qrcode id="qrcode" wux-class="qrcode" data="{{ticket.SignInCode}}" width="120" height="120"/>
+        </view>
+        <view class="state theme-color">{{ticket.StatusName}}</view>
+      </view>
+    </view>
+
+    <view class="center flex-row">
+      <view class="center-icon center-lf"></view>
+      <view class="center-line"></view>
+      <view class="center-icon center-rt"></view>
+    </view>
+
+    <view class="list">
+      <view class="item">{{ticket.Title}}</view>
+      <view class="item flex-row">
+        <view class="item-title">时间:</view>
+        <view class="item-text">{{ticket.StartTime}}</view>
+      </view>
+      <view class="item flex-row">
+        <view class="item-title">地点:</view>
+        <view class="item-text">{{ticket.Address}}</view>
+      </view>
+      <view class="item flex-row item-last">
+        <view class="item-title">主办方:</view>
+        <view class="item-text">青少年体育智教联盟</view>
+      </view>
+    </view>
+
+
+</view>

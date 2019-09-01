@@ -11,6 +11,16 @@ Page({
     page_size: 10,
     loading_state: true
   },
+  to_activity_info(e) {
+    wx.navigateTo({
+      url: '/pages/activity_info/activity_info?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  to_search_member(e) {
+    wx.navigateTo({
+      url: '/pages/search_member/search_member?activity_id='+e.currentTarget.dataset.id,
+    })
+  },
   get_list() {
     if (!this.data.loading_state) {
       return false;

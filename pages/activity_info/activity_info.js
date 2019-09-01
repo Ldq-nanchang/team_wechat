@@ -24,6 +24,11 @@ Page({
       this.setData({community});
     })
   },
+  to_index() {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

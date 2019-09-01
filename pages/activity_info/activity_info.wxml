@@ -86,7 +86,7 @@
 
   <view class="condition flex-row">
     <view class="condition-item flex-row">
-      <view class="condition-btn">
+      <view class="condition-btn" bindtap="to_index">
         <wux-icon type="md-home" color="" size="17"></wux-icon>
         <view>首页</view>
         

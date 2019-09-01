@@ -1,0 +1,66 @@
+/* pages/join_info/join_info.wxss */
+.container {
+  padding: 30rpx;
+}
+.head {
+  border-top-left-radius: 8rpx;
+  border-top-right-radius: 8rpx;
+  background: #fff;
+  padding: 30rpx;
+}
+.head-title {
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #E6E6E6;
+  color: #4D4D4D;
+  font-size: 30rpx;
+}
+.head-content {
+  align-items: center;
+}
+.qrcode-string, .state {
+  padding-top: 30rpx;
+  font-size: 30rpx;
+}
+
+.center {
+  justify-content: space-between;
+  align-items: center;
+  height: 50rpx;
+  background: #fff;
+}
+.center-icon {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  background: #f6f6f6;
+}
+.center-line {
+  width: calc(100% - 100rpx);
+  border-bottom: 1px dotted #999;
+  margin: 0 20rpx;
+}
+.center-lf {
+  margin-left: -30rpx;
+}
+.center-rt {
+  margin-right: -30rpx;
+}
+
+.list {
+  padding: 0 30rpx;
+  background: #fff;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx; 
+}
+.item {
+  padding: 30rpx 0;
+  border-bottom: 1px solid #eee;
+  font-size: 30rpx;
+}
+.item-last{
+  border-bottom: 1xp solid #fff;
+}
+.item-title {
+  flex-shrink: 0;
+  width: 120rpx;
+}
