@@ -1,4 +1,4 @@
-// pages/personal/personal.js
+// pages/my_info/my_info.js
 var $http = require('../../utils/request')
 Page({
 
@@ -9,32 +9,18 @@ Page({
     personal: {}
   },
   get_personal() {
-    $http.request(true,'/api/my/MyInfo',{
+    $http.request(true, '/api/my/MyInfo', {
       UserId: wx.getStorageSync('uuid')
-    },(res)=>{
+    }, (res) => {
       console.log(res.data)
-      this.setData({personal: res.data});
-    })
-  },
-  get_comment() {
-    this.selectComponent('#commentList').get_list(wx.getStorageSync('uuid'), 'personal');
-  },
-  to_my_info() {
-    wx.navigateTo({
-      url: '/pages/my_info/my_info',
-    })
-  },
-  to_post_comment() {
-    wx.navigateTo({
-      url: '/pages/post_comment/post_comment',
+      this.setData({ personal: res.data });
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.get_personal();
-    this.get_comment(wx.getStorageSync('uuid'),'personal')
+    this.get_personal()
   },
 
   /**
@@ -76,7 +62,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.get_comment(wx.getStorageSync('uuid'), 'personal')
+
   },
 
   /**

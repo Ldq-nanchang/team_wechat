@@ -32,7 +32,7 @@ Component({
       this.setData({ loading_state: true, page: 1});
       this.get_list(condition,'init')
     },
-    get_list(condition,init) {
+    get_list(condition,init,callback) {
       if (!this.data.loading_state) {
         return false;
       }
@@ -62,7 +62,9 @@ Component({
         }
       }
       $http.request(true,url,data,(res)=>{
-        console.log(res.data)
+        if(typeof callback == 'function') {
+          callback();
+        }
         for(let item of res.data) {
           item.stars = new Array(item.Star);
           item.stars_ = new Array(5 - item.Star);

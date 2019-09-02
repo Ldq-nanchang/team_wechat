@@ -2,11 +2,9 @@
 <view class="container">
 
   <view class="head flex-row">
-    <view class="head-icon">
-      <image class="head-icon-img" src="/assets/evaluate_icon.jpg"></image>
-    </view>
+    <view class="head-icon" bindtap="to_peronsal" style="background:url({{personal.HeadPic}}) center center /cover"></view>
     <view class="head-info">
-      <view class="head-info-name">王小明</view>
+      <view class="head-info-name">{{personal.NickName}}</view>
       <view class="theme-color margin-top-10">会员等级</view>
       <view class="theme-color margin-top-10">积分：888</view>
     </view>

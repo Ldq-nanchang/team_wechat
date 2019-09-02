@@ -1,11 +1,24 @@
 // pages/my/my.js
+var $http = require('../../utils/request')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    personal: {}
+  },
+  get_personal() {
+    $http.request(true, '/api/my/MyInfo', {
+      UserId: wx.getStorageSync('uuid')
+    }, (res) => {
+      this.setData({ personal: res.data });
+    })
+  },
+  to_peronsal() {
+    wx.navigateTo({
+      url: '/pages/personal/personal',
+    })
   },
   to_my_community() {
     wx.navigateTo({
@@ -31,7 +44,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.get_personal()
   },
 
   /**

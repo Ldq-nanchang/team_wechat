@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -175,6 +175,26 @@
 					"name": "搜索成员",
 					"pathName": "pages/search_member/search_member",
 					"query": "id=2ab9f075-1cf8-4a0c-825a-60383f0a3f63",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "主页",
+					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的信息",
+					"pathName": "pages/my_info/my_info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成员管理",
+					"pathName": "pages/manage_member/manage_member",
 					"scene": null
 				}
 			]

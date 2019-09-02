@@ -1,0 +1,55 @@
+/* pages/my_info/my_info.wxss */
+.head {
+  justify-content: space-between;
+  padding-top: 68rpx;
+  height: 300rpx;
+}
+.icon-wrapper {
+  justify-content: center;
+}
+.icon {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 160rpx;
+  background: red;
+}
+.head-foot {
+  padding: 30rpx;
+  color: #666666;
+  font-size: 30rpx;
+}
+.list {
+  background: #fff;
+}
+.item {
+  padding: 0 30rpx;
+  justify-content: space-between;
+  border-bottom: 1px solid #E6E6E6;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.title {
+  color: #1A1A1A;
+  font-size: 30rpx;
+}
+.item-input {
+  align-items: center;
+}
+.input {
+  text-align: right;
+  color: #666;
+}
+
+.btn {
+  position: fixed;
+  bottom: 30rpx;
+  left: 30rpx;
+  width: calc(100% - 60rpx);
+  background: #ff9d20;
+  border-radius: 4rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+}

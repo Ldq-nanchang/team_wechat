@@ -1,2 +1,38 @@
 <!--pages/personal/personal.wxml-->
-<text>pages/personal/personal.wxml</text>
+<view class="container">
+  <view class="banner"></view>
+
+  <view class="head">
+    <view class="flex-row" style="justify-content:flex-end;position: relative">
+      <view class="icon" style="background:url({{personal.HeadPic}}) center center /cover"></view>
+      <view class="btn" bindtap="to_my_info">编辑个人资料</view>
+    </view>
+    <view class="name">{{personal.NickName}}</view>
+    <view class="hot flex-row">
+      <view>
+        <text class="hot-title" style="margin-right:20rpx;">关注</text>
+        <text class="hot-num">{{personal.FollowsNum}}</text>
+      </view>
+      <view>
+        <text class="hot-title" style="margin-right:20rpx;">粉丝</text>
+        <text class="hot-num">{{personal.CyclesNum}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="list-title-wrapper" bindtap="to_post_comment">
+    <view class="list-title flex-row">
+      <text>动态</text>
+      <text class="theme-color">发布</text>
+    </view>
+  </view>
+  <view class="list">
+    <commentList id="commentList"></commentList>
+  </view>
+
+
+
+</view>
+
+
+
+

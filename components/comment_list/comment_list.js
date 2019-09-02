@@ -79,16 +79,26 @@ Component({
     }, 
 
     // 获取动态列表
-    get_list(id) {
+    get_list(id,get_type) {
       if(!this.data.loading_state) {
         return false;
       }
       let that = this;
-      $http.request(that.data.page != 1,'/api/community/GetCommunityCycleList',{
+      let url = '/api/community/GetCommunityCycleList';
+      let data = {
         CurrentPage: that.data.page,
         PageSize: that.data.page_size,
         CommunityId: id
-      },(res)=>{
+      }
+      if ( get_type=='personal') {
+        url = '/api/my/MyCycleList';
+        data = {
+          CurrentPage: that.data.page,
+          PageSize: that.data.page_size,
+          UserId: id
+        }
+      }
+      $http.request(that.data.page != 1,url,data,(res)=>{
         // res.data[0].FileUrl = res.data[0].HeadPic;
         for(let item of res.data) {
           item.is_del = false;

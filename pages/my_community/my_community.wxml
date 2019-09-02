@@ -21,7 +21,7 @@
 
       <block wx:key="tab2">
           <swiper-item>
-              <view class="content">
+              <view class="content" style="background:#f6f6f6">
                 <scroll-view scroll-y style="height: 100%;" bindscrolltolower="lower">
                   <communityList id="communityList"></communityList>
                 </scroll-view>

@@ -20,7 +20,8 @@
     "pages/join_info/join_info",
     "pages/search_member/search_member",
     "pages/personal/personal",
-    "pages/manage_member/manage_member"
+    "pages/manage_member/manage_member",
+    "pages/my_info/my_info"
   ],
   "window": {
     "backgroundTextStyle": "dark",

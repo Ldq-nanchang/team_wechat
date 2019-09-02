@@ -25,14 +25,14 @@ Page({
   },
   onTabsChange(e) {
     console.log('onTabsChange', e);
-    
     const { key } = e.detail;
     const index = this.data.tabs.map((n) => n.key).indexOf(key);
 
     this.setData({
       key,
       index,
-    })
+    });
+
   },
   onSwiperChange(e) {
     console.log('onSwiperChange', e);
@@ -45,9 +45,21 @@ Page({
         index,
       })
     }
+    if (!this.data.tabs[1].show) {
+      console.log('ss')
+      this.get_list();
+    }
   },
   lower() {
     console.log('ss')
+  },
+  get_list() {
+    let that = this;
+    let tabs = this.data.tabs;
+    this.selectComponent('#communityList').get_list({},'init',()=>{
+      tabs[1].show = true;
+      that.setData({ tabs});
+    })
   },
  
   /**

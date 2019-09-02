@@ -1,1 +1,61 @@
 /* pages/personal/personal.wxss */
+.banner {
+  height: 500rpx;
+  background: red;
+}
+.head {
+  
+  padding: 30rpx;
+  background: #fff;
+  border-top-left-radius: 26rpx;
+  border-top-right-radius: 26rpx;
+  margin-top: -120rpx;
+}
+.btn {
+  
+  padding: 0 30rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  border-radius: 66rpx;
+  border: 1px solid #ff9d20;
+  color: #ff9d20;
+}
+.icon {
+  position: absolute;
+  left: 30rpx;
+  top: -110rpx; 
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 160rpx;
+  background: #fff;
+}
+.name {
+  padding: 20rpx;
+  font-size: 38rpx;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+.hot {
+  justify-content: space-around;
+}
+.hot-title {
+  color: #4D4D4D;
+}
+.hot-num {
+  font-size: 30rpx;
+  color: #1a1a1a;
+}
+.list-title-wrapper {
+  margin-top: 30rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+.list-title {
+  padding-left: 30rpx; 
+  border-left: 8rpx solid #ff9d20;
+  justify-content: space-between;
+  
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #1a1a1a;
+}

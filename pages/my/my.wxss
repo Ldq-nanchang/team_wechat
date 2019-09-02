@@ -4,9 +4,10 @@
   align-items: center;
   background: #fff;
 }
-.head-icon-img {
+.head-icon {
   width: 156rpx;
   height: 156rpx;
+  border-radius: 156rpx;
 }
 .head-info {
   width: calc(100% - 331rpx);
