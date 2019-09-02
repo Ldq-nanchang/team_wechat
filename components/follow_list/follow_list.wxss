@@ -22,7 +22,7 @@
 .follow-time {
   margin-top: 14rpx;
   font-size: 24rpx;
-  color: #808080FF;
+  color: #BFBFBF;
 }
 .follow-item-btn {
   padding: 0 18rpx;

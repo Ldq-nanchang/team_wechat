@@ -6,7 +6,7 @@
           <view class="people-item-headpic" 
           bindtap="perview" data-item="{{item.CoverPic}}"
           style="background:url({{item.CoverPic}}) center center /cover"></view>
-          <view class="people-item-content" bindtap="to_info" data-id="{{item.Id}}">
+          <view class="people-item-content" bindtap="to_info" data-item="{{item}}">
             <view class="people-item-name flex-row">
               <view class="iconfont iconremenx" style="color:#ff9d20;margin-right:10rpx;"></view>
               <view>{{item.FullName}}</view>

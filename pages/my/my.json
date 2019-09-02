@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "个人中心",
   "usingComponents": {
     "wux-icon": "../../dist/icon/index"
   }

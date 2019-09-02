@@ -47,12 +47,12 @@ Page({
       index,
     })
     console.log(this.data.tabs[index].active)
-    if(!this.data.tabs[index].active) {
-      let tabs = this.data.tabs;
-      tabs[index].active = true;
-      this.setData({tabs});
-      this.get_list();
-    }
+    // if(!this.data.tabs[index].active) {
+    //   let tabs = this.data.tabs;
+    //   tabs[index].active = true;
+    //   this.setData({tabs});
+    //   this.get_list();
+    // }
     
   },
   onSwiperChange(e) {
@@ -68,12 +68,12 @@ Page({
       })
     }
     console.log(this.data.key, this.data.index)
-    if (!this.data.tabs[index].active) {
+    // if (!this.data.tabs[index].active) {
       let tabs = this.data.tabs;
       tabs[index].active = true;
       this.setData({ tabs });
       this.get_list();
-    }
+    // }
   },
   get_list() {
     let that = this;
@@ -132,10 +132,10 @@ Page({
    */
   onLoad: function (options) {
     
-    this.get_list();
+    // this.get_list();
   },
   follow_down() {
-    console.log('sss');
+   
     this.get_list();
   },
   remmber_down() {
@@ -157,7 +157,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('sss')
+    this.get_list();
   },
 
   /**

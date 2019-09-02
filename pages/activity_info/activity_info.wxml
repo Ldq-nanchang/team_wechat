@@ -72,7 +72,7 @@
     <view class="assocation-des">{{comunity.CoverPic}}</view>
     <view class="assocation-btns flex-row">
        <view class="assocation-btn" style="background:#ff9d20" wx:if="{{community.IsFollow==0}}" bindtap="follow">+关注</view>
-       <view class="assocation-btn" style="background:#BFBFBFFF;color:#fff" wx:if="{{community.IsFollow==1}}" bindtap="follow">已关注</view>
+       <view class="assocation-btn" style="background:#BFBFBF;color:#fff" wx:if="{{community.IsFollow==1}}" bindtap="follow">已关注</view>
        <view style="width:30rpx;"></view>
        <view class="assocation-btn" style="background:#eee;color:#ff9d20">联系Ta</view> 
     </view>

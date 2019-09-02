@@ -5,8 +5,8 @@
     <view class="head-icon" bindtap="to_peronsal" style="background:url({{personal.HeadPic}}) center center /cover"></view>
     <view class="head-info">
       <view class="head-info-name">{{personal.NickName}}</view>
-      <view class="theme-color margin-top-10">会员等级</view>
-      <view class="theme-color margin-top-10">积分：888</view>
+      <view class="theme-color margin-top-10">{{personal.Level}}  级</view>
+      <view class="theme-color margin-top-10">积分:  {{personal.Score}}</view>
     </view>
     <view class="head-info-btn">
       <text>签到</text>
@@ -67,8 +67,8 @@
           <wux-icon type="md-play" color="#9DABB2" size="16"></wux-icon>
         </view>
       </view>
-      <view class="center-item flex-row">
-        <view class="flex-row" style="align-items: center;" bindtap="to_browse">
+      <view class="center-item flex-row" bindtap="to_browse">
+        <view class="flex-row" style="align-items: center;">
           <view class="center-item-cion">
             <wux-icon type="md-clock" color="#ff9d20" size="24"></wux-icon>
           </view>

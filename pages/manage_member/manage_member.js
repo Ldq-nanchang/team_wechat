@@ -5,9 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    page: 1,
+    page_size: 10,
+    loading_state: true
   },
-
+  search(e) {
+    this.setData({
+      page: 1,
+      loading_state: true
+    });
+    this.get_list(e.detail.value.keywords, 'is_init');
+  },
+  get_list() {
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -11,7 +11,6 @@
   width: 160rpx;
   height: 160rpx;
   border-radius: 160rpx;
-  background: red;
 }
 .head-foot {
   padding: 30rpx;
@@ -36,6 +35,7 @@
   align-items: center;
 }
 .input {
+  height: 100%;
   text-align: right;
   color: #666;
 }
@@ -52,4 +52,13 @@
   text-align: center;
   font-size: 30rpx;
   color: #fff;
+}
+.submit::after {
+  border: none;
+}
+.submit {
+  background-color: transparent;
+  font-size: 26rpx;
+  border-radius:8rpx;
+  color: #ff9d20;
 }

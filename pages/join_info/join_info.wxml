@@ -3,7 +3,7 @@
 
 
     <view class="head">
-      <view class="head-title">{{ticket.NickName}}(ticket.Mobile)</view>
+      <view class="head-title">{{ticket.NickName}}({{ticket.Mobile}})</view>
       <view class="head-content flex-col">
         <view class="qrcode-string">{{ticket.SignInCode}}</view>
         <view class="qrcode">
@@ -31,7 +31,7 @@
       </view>
       <view class="item flex-row item-last">
         <view class="item-title">主办方:</view>
-        <view class="item-text">青少年体育智教联盟</view>
+        <view class="item-text">{{ticket.CommunityName}}</view>
       </view>
     </view>
 

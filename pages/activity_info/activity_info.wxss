@@ -53,7 +53,7 @@
 
 }
 .disable {
-  background: #BFBFBFFF;
+  background: #BFBFBF;
   color: #fff;
 }
 

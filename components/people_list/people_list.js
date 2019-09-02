@@ -24,8 +24,14 @@ Component({
    */
   methods: {
     to_info(e) {
+      let id = '';
+      if (this.properties.is_follow) {
+        id = e.currentTarget.dataset.item.CommunityId;
+      }else {
+        id = e.currentTarget.dataset.item.Id;
+      }
       wx.navigateTo({
-        url: '/pages/association_info/association_info?id='+e.currentTarget.dataset.id,
+        url: '/pages/association_info/association_info?id='+id,
       })
     },
     init_list(condition) {

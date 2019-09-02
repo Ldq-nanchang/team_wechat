@@ -7,7 +7,7 @@
       <view class="item">
 
         <view class="item-title flex-row">
-          <text>青少年发展团</text>
+          <text>{{item.CommunityName}}</text>
           <text class="theme-color">{{item.StatusName}}</text>
         </view>
         <view class="item-body flex-row" bindtap="to_activity_info" data-id="{{item.Id}}">

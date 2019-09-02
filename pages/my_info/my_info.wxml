@@ -1,40 +1,61 @@
 <!--pages/my_info/my_info.wxml-->
 <view class="container">
+  <form bindsubmit="save_my_info">
+    <view class="head flx-col">
+      <view class="icon-wrapper flex-row">
+        <view class="icon" style="background:url({{personal.HeadPic}}) center center /cover" bindtap="updata_img"></view>
+      </view>
+      
+    </view>
+    <view class="head-foot">基本信息</view>
+    <view class="list">
 
-  <view class="head flx-col">
-    <view class="icon-wrapper flex-row">
-      <view class="icon"></view>
-    </view>
-    
-  </view>
-  <view class="head-foot">基本信息</view>
-  <view class="list">
+      <view class="item flex-row">
+        <view class="title">昵称</view>
+        <view class="item-input flex-row">
+          <input class="input" placeholder="请输入姓名" value="{{personal.NickName}}" name="nick_name"></input>
+        </view>
+      </view>
+      <view class="item flex-row">
+        <view class="title">用户名</view>
+        <view class="item-input flex-row">
+          <input class="input" placeholder="请输入姓名" value="{{personal.TrueName}}" name="user_name"></input>
+        </view>
+      </view>
+      <view class="item flex-row">
+        <view class="title">性别</view>
+        <view class="item-input">
+          <radio-group class="radio-group" bindchange="sex_change">
+            <label class="radio" style="margin-right:30rpx">
+              <radio value="男" checked="{{sex=='男'}}" color="#ff9d20"/>男
+            </label>
 
-    <view class="item flex-row">
-      <view class="title">用户名</view>
-      <view class="item-input flex-row">
-        <input class="input" placeholder="请输入姓名" value="王小明"></input>
+            <label class="radio">
+              <radio value="女" checked="{{sex=='女'}}" color="#ff9d20"/>女
+            </label>
+          </radio-group>
+        </view>
       </view>
-    </view>
-    <view class="item flex-row">
-      <view class="title">性别</view>
-      <view class="item-input">
-        <!-- <input placeholder="请输入姓名" value="王小明"></input> -->
+      <view class="item flex-row">
+        <view class="title">生日</view>
+        <view class="item-input">
+          <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="picker">{{date}}
+            </view>
+          </picker>
+        </view>
       </view>
-    </view>
-    <view class="item flex-row">
-      <view class="title">生日</view>
-      <view class="item-input">
-        <!-- <input placeholder="请输入姓名" value="王小明"></input> -->
+      <view class="item flex-row">
+        <view class="title">手机号</view>
+        <view class="item-input flex-row">
+          <input class="input" placeholder="请输入手机" value="{{personal.Mobile}}" name="mobile"></input>
+        </view>
       </view>
-    </view>
-    <view class="item flex-row">
-      <view class="title">手机号</view>
-      <view class="item-input flex-row">
-        <input class="input" placeholder="请输入手机" value="15170236999"></input>
-      </view>
-    </view>
 
-  </view>
-  <view class="btn">保存</view>
+    </view>
+    <view class="btn">
+      <button form-type="submit" class="submit" style="height:100rpx;line-height:100rpx;color:#fff">保存</button>
+    </view>
+  </form>
+  
 </view>

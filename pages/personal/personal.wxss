@@ -1,7 +1,6 @@
 /* pages/personal/personal.wxss */
 .banner {
   height: 500rpx;
-  background: red;
 }
 .head {
   

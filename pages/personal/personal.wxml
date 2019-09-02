@@ -1,6 +1,6 @@
 <!--pages/personal/personal.wxml-->
 <view class="container">
-  <view class="banner"></view>
+  <view class="banner" style="background:url({{personal.CoverPic}}) center center /cover"></view>
 
   <view class="head">
     <view class="flex-row" style="justify-content:flex-end;position: relative">

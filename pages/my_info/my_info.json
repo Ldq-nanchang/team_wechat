@@ -2,5 +2,8 @@
   "navigationBarBackgroundColor": "#ff9d20",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "我的信息",
-  "usingComponents": {}
+  "usingComponents": {
+    "wux-checkbox": "../../dist/checkbox/index",
+    "wux-checkbox-group": "../../dist/checkbox-group/index"
+  }
 }
