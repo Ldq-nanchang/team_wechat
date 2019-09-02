@@ -227,4 +227,29 @@
     <view class="condition-item" style="background:#eee;line-height: 100rpx;color:#666" wx:if="{{community.IsAdd==0}}">审核中</view>
   </view>
 
+  <view class="get-mobile-wrapper flex-col" wx:if="{{show_window}}">
+    <view style="height:67%" bindtap="close_get_mobile"></view>
+    <view class="get-mobile">
+
+      <view class="get-mobile-title flex-row">
+        <view></view>
+        <view>填写手机号</view>
+        <view></view>
+      </view>
+      <form bindsubmit="geted_mobile">
+        <view class="get-mobile-body">
+          <view class="get-mobile-form flex-row">
+            <input class="get-mobile-input" type="number" placeholder="请输入手机号..." name="mobile" ></input>
+            <button class="get-mobile-btn" 
+            open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键获取</button>
+          </view>
+        </view>
+
+        <view class="get-mobile-foot">
+          <button class="get-mobile-btn submit" form-type="submit">下一步</button>
+        </view>
+      </form>
+    </view>
+  </view>
+
 </view>

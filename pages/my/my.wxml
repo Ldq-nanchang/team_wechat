@@ -1,7 +1,7 @@
 <!--pages/my/my.wxml-->
 <view class="container">
 
-  <view class="head flex-row">
+  <view class="head flex-row" wx:if="{{personal.UserId}}">
     <view class="head-icon" bindtap="to_peronsal" style="background:url({{personal.HeadPic}}) center center /cover"></view>
     <view class="head-info">
       <view class="head-info-name">{{personal.NickName}}</view>
@@ -13,7 +13,7 @@
     </view>
   </view>
   <!-- 菜单按钮 -->
-  <view class="condition">
+  <view class="condition" wx:if="{{personal.UserId}}">
 
     <view class="condition-list flex-row">
 
@@ -41,7 +41,7 @@
 
   </view>
   <!-- 个人中心列表 -->
-  <view class="center">
+  <view class="center" wx:if="{{personal.UserId}}">
 
     <view class="center-list">
 
@@ -94,6 +94,12 @@
 
     </view>
 
+  </view>
+
+
+  <view class="get-user flex-row" wx:if="{{!personal.UserId}}">
+    <button class="get-user-btn" 
+    type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">微信登陆</button>
   </view>
 
 </view>

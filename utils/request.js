@@ -2,26 +2,13 @@
  * 后台接口请求封装
  */
 // var app = getApp();
-let uuid = 'fa802c59-d04d-4251-a9d2-dceb79ee81a7';
-let mobile = '';
-let htoken = 'FB13BA81F20294C5D88150CE4AD239C0';
+let uuid = wx.getStorageSync('uuid');
+let mobile = wx.getStorageSync('mobile');
+let htoken = wx.getStorageSync('htoken');
 
 function initHtoken(callback) {
-  wx.getStorage({
-    key: 'user',
-    success(res) {
-      if(res.data) {
-        mobile = res.data.split('|')[0];
-        htoken = res.data.split('|')[1];
-      }
-      if(typeof callback == 'function') {
-        callback()
-      }
-    },
-    fail(err) {
-      console.log(err)
-    }
-  })
+  uuid = wx.getStorageSync('uuid');
+  htoken = wx.getStorageSync('htoken');
 }
 // initHtoken();
 

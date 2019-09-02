@@ -3,15 +3,27 @@ var util = require("/utils/util.js");
 const $http = require("/utils/request.js");
 App({
   onLaunch: function () {
+    this.get_code();
+
     this.get_acticity_class();
     this.get_activity_status();
     this.get_near_list();
     this.get_community_tag();
     this.get_community_sort();
 
-    this.get_user_info();
+    // this.get_user_info();
     this.get_mobile();
 
+  },
+  get_code() {
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log(res.code)
+          wx.setStorageSync('code', res.code)
+        }
+      }
+    })
   },
   // 获取用户信息
   get_user_info() {
@@ -19,8 +31,14 @@ App({
       htoken: 'FB13BA81F20294C5D88150CE4AD239C0'
     }
     wx.setStorage({
+      key: 'htoken',
+      // data: 'fa802c59-d04d-4251-a9d2-dceb79ee81a7',
+      data: ''
+    })
+    wx.setStorage({
       key: 'uuid',
-      data: 'fa802c59-d04d-4251-a9d2-dceb79ee81a7',
+      // data: 'fa802c59-d04d-4251-a9d2-dceb79ee81a7',
+      data:''
     })
     wx.setStorage({
       key: 'user',

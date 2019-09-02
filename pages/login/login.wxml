@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="get-user flex-row" wx:if="{{!personal.UserId}}">
+    <button class="get-user-btn" 
+    type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">微信登陆</button>
+
+
+    
+  </view>
+  <!-- <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+</view>

@@ -8,7 +8,8 @@ Page({
    */
   data: {
     activity: {},
-    community: {}
+    community: {},
+    show_window: false
   },
   store() {
     let activity = this.data.activity;
@@ -48,6 +49,58 @@ Page({
       
     })
   },
+
+  //获取手机号
+  close_get_mobile() {
+    this.setData({ window_show: false });
+  },
+  getPhoneNumber(e) {
+    $http.request(true, '/api/user/GetWechatMobile', {
+      Code: wx.getStorageSync('code'),
+      IV: e.detail.iv,
+      EN: e.detail.encryptedData
+    }, (res) => {
+      wx.setStorageSync('mobile', res.data.phoneNumber);
+      this.enroll(res.data.phoneNumber)
+    })
+  },
+  geted_mobile(e) {
+    if (!(/^1\d{10}$/.test(Number(e.detail.value.mobile)))) {
+      wx.showToast({
+        title: '请输入真确的手机号',
+        icon: 'none'
+      });
+      return false;
+    }
+    wx.setStorageSync('mobile', e.detail.value.mobile);
+    this.enroll(e.detail.value.mobile)
+  },
+  to_enroll() {
+    if (!wx.getStorageSync('uuid')) {
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return false;
+    }
+    let mobile = wx.getStorageSync('mobile');
+    if (!mobile) {
+      this.setData({ show_window: true });
+      return false;
+    }
+    this.enroll(mobile);
+  },
+  enroll(mobile) {
+    $http.request(true, '/api/activity/ActivityEnroll', {
+      Mobile: mobile,
+      ActivityId: this.data.activity.Id
+    }, (res) => {
+      let activity = this.data.activity;
+      activity.IsEnroll = 1;
+      this.setData({ activity, show_window: false });
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

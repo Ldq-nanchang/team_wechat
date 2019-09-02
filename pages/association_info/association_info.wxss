@@ -238,3 +238,10 @@
   width: 50%;
   color: #1a1a1a;
 }
+
+
+.submit {
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+}

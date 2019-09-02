@@ -66,3 +66,12 @@
   font-size: 30rpx;
   color: #1A1A1AFF;
 }
+
+.get-user {
+  padding: 0 30rpx;
+  height: calc(100vh - 100rpx);
+  align-items: center;
+}
+.get-user-btn {
+  width: 100%;
+}

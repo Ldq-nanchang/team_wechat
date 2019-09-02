@@ -1,68 +1,34 @@
-// pages/my/my.js
-var $http = require('../../utils/request')
+// pages/login/login.js
+var $http = require('../../utils/request');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    personal: {}
+
   },
+
   onGotUserInfo(e) {
 
-    $http.request(true,'/api/user/WechatLogin',{
+    $http.request(true, '/api/user/WechatLogin', {
       Code: wx.getStorageSync('code'),
       AvatarUrl: e.detail.userInfo.avatarUrl,
       NickName: e.detail.userInfo.nickName,
       Gender: e.detail.userInfo.gender
-    },(res)=>{
+    }, (res) => {
       wx.setStorageSync('uuid', res.uuid);
       wx.setStorageSync('htoken', res.htoken);
-      wx.setStorageSync('mobile', res.data.userInfo.Mobile);
+      // wx.setStorageSync('mobile', res.data.userInfo.Mobile);
       $http.initHtoken();
-      this.get_personal();
-    })
-  },
-  get_personal() {
-    $http.request(true, '/api/my/MyInfo', {
-      UserId: wx.getStorageSync('uuid')
-    }, (res) => {
-      this.setData({ personal: res.data });
-    })
-  },
-  to_peronsal() {
-    wx.navigateTo({
-      url: '/pages/personal/personal',
-    })
-  },
-  to_my_community() {
-    wx.navigateTo({
-      url: '/pages/my_community/my_community',
-    })
-  },
-  to_browse() {
-    wx.navigateTo({
-      url: '/pages/browse/browse',
-    })
-  },
-  to_reponsible_activity() {
-    wx.navigateTo({
-      url: '/pages/reponsible_activity/reponsible_activity',
-    })
-  },
-  to_join_activity() {
-    wx.navigateTo({
-      url: '/pages/join_activity/join_activity',
+      wx.navigateBack();
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(wx.getStorageSync('uuid')) {
-      this.get_personal()
-    }
-    
+
   },
 
   /**

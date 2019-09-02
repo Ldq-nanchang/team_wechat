@@ -24,8 +24,11 @@ Page({
     information_activity_active: 0,
     information: ['','',''],
     information_swiper_h: '846rpx',
-    activity: []
+    activity: [],
+
+    show_window: false,
   },
+
   onSwiperChange(e) {
     if (!this.data.people_nav[e.detail.current].show) {
       this.get_community_member(this.data.community.Id)
@@ -60,7 +63,6 @@ Page({
     $http.request(true,'/api/community/GetCommunityDetails',{
       Id: id
     },(res)=>{
-      console.log(res.data);
       this.setData({
         community: res.data
       });
@@ -189,24 +191,58 @@ Page({
     })
   },
   share() {},
+  //获取手机号
+  close_get_mobile() {
+    this.setData({window_show: false});
+  },
+  getPhoneNumber(e) {
+    $http.request(true, '/api/user/GetWechatMobile', {
+      Code: wx.getStorageSync('code'),
+      IV: e.detail.iv,
+      EN: e.detail.encryptedData
+    }, (res) => {
+      wx.setStorageSync('mobile', res.data.phoneNumber);
+      this.join(res.data.phoneNumber)
+    })
+  },
+  geted_mobile(e) {
+    if (!(/^1\d{10}$/.test(Number(e.detail.value.mobile)))) {
+      wx.showToast({
+        title: '请输入真确的手机号',
+        icon: 'none'
+      });
+      return false;
+    }
+    wx.setStorageSync('mobile', e.detail.value.mobile);
+    this.join(e.detail.value.mobile)
+  },
+
+
+
   // 加入社团
   join_community() {
-    let mobile = wx.getStorageSync('mobile');
-    if(!mobile) {
-      wx.showToast({
-        title: '请先完善手机号',
-        icon: 'none',
+    if (!wx.getStorageSync('uuid')) {
+      wx.navigateTo({
+        url: '/pages/login/login',
       })
       return false;
     }
+    let mobile = wx.getStorageSync('mobile');
+    if(!mobile) {
+      this.setData({show_window: true});
+      return false;
+    }
+    this.join(mobile);
 
-    $http.request(true,'/api/Community/ApplyInCommunity',{
+  },
+  join(mobile) {
+    $http.request(true, '/api/Community/ApplyInCommunity', {
       Mobile: mobile,
       CommunityId: this.data.community.Id
-    },(res)=>{
+    }, (res) => {
       let community = this.data.community;
       community.IsAdd = 1;
-      this.setData({community});
+      this.setData({ community, show_window: false});
     })
   },
   /**

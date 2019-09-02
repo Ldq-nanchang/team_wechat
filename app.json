@@ -21,7 +21,8 @@
     "pages/search_member/search_member",
     "pages/personal/personal",
     "pages/manage_member/manage_member",
-    "pages/my_info/my_info"
+    "pages/my_info/my_info",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "dark",
