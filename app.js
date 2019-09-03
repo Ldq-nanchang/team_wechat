@@ -3,56 +3,25 @@ var util = require("/utils/util.js");
 const $http = require("/utils/request.js");
 App({
   onLaunch: function () {
-    this.get_code();
-
     this.get_acticity_class();
     this.get_activity_status();
     this.get_near_list();
     this.get_community_tag();
     this.get_community_sort();
-
-    // this.get_user_info();
-    this.get_mobile();
-
   },
-  get_code() {
+  get_code(callback) {
     wx.login({
       success(res) {
         if (res.code) {
-          console.log(res.code)
-          wx.setStorageSync('code', res.code)
+          if(typeof callback == 'function') {
+            callback(res.code)
+          }
+          // wx.setStorageSync('code', res.code)
         }
       }
     })
   },
-  // 获取用户信息
-  get_user_info() {
-    let user = {
-      htoken: 'FB13BA81F20294C5D88150CE4AD239C0'
-    }
-    wx.setStorage({
-      key: 'htoken',
-      // data: 'fa802c59-d04d-4251-a9d2-dceb79ee81a7',
-      data: ''
-    })
-    wx.setStorage({
-      key: 'uuid',
-      // data: 'fa802c59-d04d-4251-a9d2-dceb79ee81a7',
-      data:''
-    })
-    wx.setStorage({
-      key: 'user',
-      data: JSON.stringify(user),
-    })
-  },
-  // 获取手机号
-  get_mobile() {
-    let mobile = '18720061931';
-    wx.setStorage({
-      key: 'mobile',
-      data: mobile,
-    })
-  },
+
   // 图片上传
   updata_img(tempFilePaths,callback) {
     let that = this;
@@ -208,6 +177,8 @@ App({
     status: {
       // 创建编辑社团后刷新 我的社团数据
       init_my_community: false,
+      // 登录后回退更新界面
+      after_login: false
     }
   }
 })

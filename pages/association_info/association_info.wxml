@@ -46,17 +46,17 @@
   <view class="people-wrapper">
     
     <view class="title-nav flex-row">
-      <view wx:for="{{people_nav}}" wx:key="{{index}}"
+      <view wx:for="{{people_nav}}" wx:key="{{index}}" bindtap=""
        class="{{people_active==index?'title-item-active':'title-item'}}">
        {{item.title}}</view>
     </view>
     <view class="people-content">
-      <swiper current="{{ index }}" bindchange="onSwiperChange" style="height:580rpx">
+      <swiper current="{{ people_active }}" bindchange="onSwiperChange" style="height:{{member_list_h}}">
           <block>
               <swiper-item>
-                  <view class="people-block">
+                  <view class="people-block member-list-0" >
                     <view class="people-item flex-row"
-                    style="{{index==3?'border-bottom:none':''}}" 
+                    style="{{item.last?'border-bottom:none':''}}" 
                     wx:for="{{leader_list}}" wx:key="{{item.Id}}">
                       <view class="people-item-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
                       <view class="people-item-content">
@@ -71,16 +71,16 @@
                       </view>
                     </view>
 
-                    <view class="people-item flex-row"
-                    style="{{index==leader_list_.length-1?'border-bottom:none':''}}" 
+                    <!-- <view class="people-item flex-row"
+                    style="{{index==member_list.lenght-1?'border-bottom:none':''}}" 
                     wx:for="{{leader_list_}}" wx:key="{{index}}">
                       <view class="people-item-icon" style="background:#eee"></view>
                       <view class="people-item-content">
                         <view class="people-item-name-"></view>
                         <view class="people-item-des-"></view>
                       </view>
-                    </view>
-
+                    </view> -->
+                    <view style="height:60rpx"></view>
                     <view class="people-list-more theme-color"
                     bindtap="to_search_member" data-keywords="leader">更多>></view>
                   </view>
@@ -88,9 +88,9 @@
           </block>
           <block>
               <swiper-item>
-                  <view class="people-block">
+                  <view class="people-block member-list-1">
                     <view class="people-item flex-row" 
-                    style="{{index==3?'border-bottom:none':''}}"
+                    style="{{item.last?'border-bottom:none':''}}"
                     wx:for="{{member_list}}" wx:key="{{index}}">
                       <view class="people-item-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
                       <view class="people-item-content">
@@ -101,11 +101,11 @@
                           <wux-icon type="md-male" 
                           color="#29AEFF" size="16" wx:if="{{item.Sex=='男'}}">></wux-icon>
                         </view>
-                        <view class="people-item-des">15170236956</view>
+                        <view class="people-item-des">{{item.Mobile}}</view>
                       </view>
                     </view>
 
-                    <view class="people-item flex-row"
+                    <!-- <view class="people-item flex-row"
                     style="{{index==member_list_.length-1?'border-bottom:none':''}}" 
                     wx:for="{{member_list_}}" wx:key="{{index}}">
                       <view class="people-item-icon" style="background:#eee"></view>
@@ -113,7 +113,8 @@
                         <view class="people-item-name-"></view>
                         <view class="people-item-des-"></view>
                       </view>
-                    </view>
+                    </view> -->
+                    <view style="height:60rpx"></view>
                     <view class="people-list-more theme-color" bindtap="to_search_member">更多>></view>
                   </view>
               </swiper-item>
@@ -130,7 +131,7 @@
        class="{{information_activity_active==index?'title-item-active':'title-item'}}">
        {{item.title}}</view>
     </view>
-    <swiper current="{{ index }}" bindchange="onSwiperChangeA" style="height:{{information_swiper_h}}">
+    <swiper current="{{ information_activity_active }}" bindchange="onSwiperChangeA" style="height:{{information_swiper_h}}">
         <block>
             <swiper-item>
                

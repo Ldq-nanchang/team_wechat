@@ -1,5 +1,6 @@
 // pages/my/my.js
-var $http = require('../../utils/request')
+var $http = require('../../utils/request');
+var app = getApp();
 Page({
 
   /**
@@ -9,18 +10,19 @@ Page({
     personal: {}
   },
   onGotUserInfo(e) {
-
-    $http.request(true,'/api/user/WechatLogin',{
-      Code: wx.getStorageSync('code'),
-      AvatarUrl: e.detail.userInfo.avatarUrl,
-      NickName: e.detail.userInfo.nickName,
-      Gender: e.detail.userInfo.gender
-    },(res)=>{
-      wx.setStorageSync('uuid', res.uuid);
-      wx.setStorageSync('htoken', res.htoken);
-      wx.setStorageSync('mobile', res.data.userInfo.Mobile);
-      $http.initHtoken();
-      this.get_personal();
+    app.get_code((code)=>{
+      $http.request(true, '/api/user/WechatLogin', {
+        Code: code,
+        AvatarUrl: e.detail.userInfo.avatarUrl,
+        NickName: e.detail.userInfo.nickName,
+        Gender: e.detail.userInfo.gender
+      }, (res) => {
+        wx.setStorageSync('uuid', res.uuid);
+        wx.setStorageSync('htoken', res.htoken);
+        // wx.setStorageSync('mobile', res.data.userInfo.Mobile);
+        $http.initHtoken();
+        this.get_personal();
+      })
     })
   },
   get_personal() {
@@ -54,7 +56,7 @@ Page({
     wx.navigateTo({
       url: '/pages/join_activity/join_activity',
     })
-  },
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */

@@ -32,6 +32,7 @@ Page({
     })
   },
   get_city(id,callback) {
+
     $http.request(false, '/api/common/GetSelectAreaList', {
       ParentId: id
     }, (res) => {
@@ -39,11 +40,35 @@ Page({
       multiArray[1] = res.data;
       let multiIndex = this.data.multiIndex;
       multiIndex[1] = 0;
+
+      let province = {};
+      let city = {};
+      let community = this.data.community;      
+
+      province = multiArray[0][multiIndex[0]];
+      city = multiArray[1][multiIndex[1]];
+      community.Province = province.Id;
+      community.ProvinceName = province.FullName;
+      community.City = city.Id;
+      community.CityName = city.FullName;
+      this.setData({community})
+
+
       this.setData({ multiArray, multiIndex });
       if (typeof callback == 'function') {
         callback(res.data);
       }
     })
+  },
+  blur_name(e) {
+    let community = this.data.community;
+    community.FullName = e.detail.value;
+    this.setData({ community });
+  },
+  blur_address(e) {
+    let community = this.data.community;
+    community.Address = e.detail.value;
+    this.setData({ community });
   },
 
   bindMultiPickercancel(e) {
@@ -53,20 +78,35 @@ Page({
     console.log(e, this.data.multiIndex);
   },
   bindMultiPickerColumnChange(e) {
-    console.log(e.detail.column);
+    let that = this;
+    let community = this.data.community;
+    let province = {};
+    let city = {};
 
     let multiArray = this.data.multiArray;
     let multiIndex = this.data.multiIndex;
     
+    function updata_city() {
+      province = multiArray[0][multiIndex[0]];
+      city = multiArray[1][multiIndex[1]];
+      community.Province = province.Id;
+      community.ProvinceName = province.FullName;
+      community.City = city.Id;
+      community.CityName = city.FullName;
+      that.setData({ community });
+    }
     switch (e.detail.column) {
       case 0:
         multiIndex[0] = e.detail.value;
-        this.get_city(multiArray[0][e.detail.value].Id);
+        this.get_city(multiArray[0][e.detail.value].Id,()=>{
+          updata_city();
+        });
         break;
       case 1:
         multiIndex[1] = e.detail.value;
-
+        updata_city();
         break;
+
     }
   },
   show_school(e) {
@@ -230,7 +270,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({community: app.globalData.community});
-    console.log(app.globalData.community)
+
     let multiIndex = this.data.multiIndex;
 
     if (this.data.community.Province && this.data.community.City) {

@@ -15,12 +15,18 @@ Component({
   data: {
     hive_community: 1,
     community: {},
-    authorize: {}
+    authorize: {},
+    get_mobile_btn: false
   },
   pageLifetimes: {
     // 组件所在页面的生命周期函数
     show() {
       // this.get_my_community();
+      if (wx.getStorageSync('mobile')) {
+        this.setData({ get_mobile_btn: false });
+      } else {
+        this.setData({ get_mobile_btn: true });
+      }
     },
     hide() { },
     resize() { },
@@ -29,6 +35,18 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    getPhoneNumber(e) {
+      app.get_code((code) => {
+        $http.request(true, '/api/user/GetWechatMobile', {
+          Code: code,
+          IV: e.detail.iv,
+          EN: e.detail.encryptedData
+        }, (res) => {
+          wx.setStorageSync('mobile', res.data.phoneNumber);
+          this.to_add_community();
+        })
+      })
+    },
     to_add_community() {
       let community = {};
       let community_ = this.data.community;
@@ -40,7 +58,7 @@ Component({
           CoverPic: '',
           FullName: '',
           Description: '',
-          Mobile: '',
+          Mobile: wx.getStorageSync('mobile'),
           Province: '',
           ProvinceName: '',
           City: '',
@@ -50,7 +68,7 @@ Component({
           SchoolName: '',
           Tag: '',
           TagName: '',
-          IsAudit: ''
+          IsAudit: 0
         }
       } else if (this.data.hive_community == 1) {
         community = {
@@ -81,7 +99,7 @@ Component({
     to_authorize() {
       let authorize = this.data.authorize;
       let community = this.data.community;
-      if (!this.data.authorize.IsAudit) {
+      if (this.data.authorize.Id&&!this.data.authorize.IsAudit) {
           wx.showToast({
             title: '审核中...',
             icon: 'none'
@@ -123,6 +141,31 @@ Component({
           this.setData({hive_community: -1});
         }
         app.globalData.status.init_my_community = false;
+      })
+    },
+    to_cancel_community() {
+      let that = this;
+      wx.showModal({
+        title: '温馨提示',
+        content: '确定解散该社团吗？',
+        confirmColor: '#ff9d20',
+        success(res) {
+          if (res.confirm) {
+            that.cancel_community()
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    },
+    cancel_community() {
+      console.log('解散');
+      $http.request(true,'/api/Community/DeleteCommunity',{
+        CommunityId: this.data.community.Id
+      },()=>{
+        wx.switchTab({
+          url: '/pages/my/my',
+        });
       })
     }
   }

@@ -5,7 +5,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    is_follow: {type: Boolean}
+    is_follow: {type: Boolean},
+    is_my: { type: Boolean }
   },
 
   /**
@@ -65,6 +66,13 @@ Component({
           CurrentPage: that.data.page,
           PageSize: that.data.page_size,
           Type: '01'
+        }
+      }
+      if (this.properties.is_my) {
+        url = '/api/my/MyAttendCommunityList';
+        data = {
+          CurrentPage: that.data.page,
+          PageSize: that.data.page_size,
         }
       }
       $http.request(true,url,data,(res)=>{

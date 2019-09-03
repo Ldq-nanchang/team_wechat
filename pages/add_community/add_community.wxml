@@ -20,7 +20,7 @@
     </view>
     <view class="form-item flex-row">
       <view class="title">社团名称</view>
-      <input class="input" placeholder="请输入社团名称..." value="{{community.FullName}}" name="community_name"></input>
+      <input class="input" placeholder="请输入社团名称..." value="{{community.FullName}}" name="community_name" bindblur="blur_name"></input>
     </view>
 
     <view class="form-item flex-row">
@@ -35,7 +35,7 @@
 
     <view class="form-item flex-row">
       <view class="title">详细地址</view>
-      <input class="input" placeholder="请输入详细地址..." value="{{community.Address}}" name="address"></input>
+      <input class="input" placeholder="请输入详细地址..." value="{{community.Address}}" name="address" bindblur="blur_address"></input>
     </view>
  
     <view class="form-item flex-row" bindtap="show_school">

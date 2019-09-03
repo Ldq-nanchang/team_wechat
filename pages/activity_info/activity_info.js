@@ -55,13 +55,15 @@ Page({
     this.setData({ window_show: false });
   },
   getPhoneNumber(e) {
-    $http.request(true, '/api/user/GetWechatMobile', {
-      Code: wx.getStorageSync('code'),
-      IV: e.detail.iv,
-      EN: e.detail.encryptedData
-    }, (res) => {
-      wx.setStorageSync('mobile', res.data.phoneNumber);
-      this.enroll(res.data.phoneNumber)
+    app.get_code((code)=>{
+      $http.request(true, '/api/user/GetWechatMobile', {
+        Code: code,
+        IV: e.detail.iv,
+        EN: e.detail.encryptedData
+      }, (res) => {
+        wx.setStorageSync('mobile', res.data.phoneNumber);
+        this.enroll(res.data.phoneNumber)
+      })
     })
   },
   geted_mobile(e) {
@@ -93,9 +95,13 @@ Page({
     $http.request(true, '/api/activity/ActivityEnroll', {
       Mobile: mobile,
       ActivityId: this.data.activity.Id
-    }, (res) => {
+    }, (res,status) => {
       let activity = this.data.activity;
-      activity.IsEnroll = 1;
+      switch (status) {
+        case '0002':
+          activity.IsEnroll = 1;
+          break;
+      }
       this.setData({ activity, show_window: false });
     })
   },
@@ -112,7 +118,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(app.globalData.status.after_login) {
+      this.get_activity(activity.Id)
+    }
   },
 
   /**

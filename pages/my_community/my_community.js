@@ -84,6 +84,7 @@ Page({
     if(app.globalData.status.init_my_community) {
       this.selectComponent('#myCommunity').get_my_community();
     }
+
     
   },
 

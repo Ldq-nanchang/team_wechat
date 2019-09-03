@@ -16,9 +16,10 @@ Page({
     people_active: 0,
 
     leader_list: [],
-    leader_list_: [],
+    // leader_list_: [],
     member_list: [],
-    member_list_: [],
+    // member_list_: [],
+    member_list_h: '646rpx',
 
     information_activity_nav: [{title:'资讯',show:true},{title:'活动',show:false}],
     information_activity_active: 0,
@@ -27,19 +28,33 @@ Page({
     activity: [],
 
     show_window: false,
-  },
 
+  },
+// 名人馆、社团成员切换
+  change_swiper(e) {},
   onSwiperChange(e) {
+    this.setData({ people_active: e.detail.current});
+    if (this.data.people_nav[0].show && this.data.people_nav[1].show) {
+      util.domH('.member-list-' + this.data.people_active, (rect) => {
+        console.log('.member-list-' + this.data.people_active)
+        this.setData({
+          member_list_h: rect.height + 'px'
+        })
+      });
+    }
+
     if (!this.data.people_nav[e.detail.current].show) {
       this.get_community_member(this.data.community.Id)
     }
-    this.setData({ people_active: e.detail.current});
   },
+  // 资讯、活动切换
+  change_swiper_a(e) { },
   onSwiperChangeA(e) {
     let that = this;
+    this.setData({ information_activity_active: e.detail.current });
     if (this.data.information_activity_nav[0].show && this.data.information_activity_nav[1].show) {
-      util.domH('.information-activity-h-' + that.data.information_activity_active, (rect) => {
-        that.setData({
+      util.domH('.information-activity-h-' + this.data.information_activity_active, (rect) => {
+        this.setData({
           information_swiper_h: rect.height + 'px'
         })
       })
@@ -47,13 +62,25 @@ Page({
     if (!this.data.information_activity_nav[e.detail.current].show) {
       this.get_community_activity(this.data.community.Id)
     }
-    this.setData({ information_activity_active: e.detail.current });
+    
   },
   // 关注
   follow() {
+    if (!wx.getStorageSync('uuid')) {
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return false;
+    }
     let community = this.data.community;
     app.follow(community.Id, '01', (res)=>{
       community.IsFollow = res.data;
+      if (res.data) {
+        community.FollowsNum++;
+      }else {
+        community.FollowsNum--;
+      }
+      
       this.setData({ community})
     })
   },
@@ -85,10 +112,17 @@ Page({
       PageSize: 4,
       CommunityId: id
     },(res)=>{
-      if (res.data.length<4) {
-        this.setData({ leader_list_: new Array(4 - res.data.length)})
+      if (res.data.length>0) {
+        res.data[res.data.length - 1].last = true;
       }
-      this.setData({leader_list: res.data})
+      
+      this.setData({leader_list: res.data});
+      util.domH('.member-list-' + this.data.people_active, (rect) => {
+        console.log('.member-list-' + this.data.people_active)
+        this.setData({
+          member_list_h: rect.height + 'px'
+        })
+      });
     });
   },
   //获取社团详情成员列表
@@ -100,12 +134,17 @@ Page({
       CommunityId: id,
       KeyWords: ''
     }, (res) => {
-      if (res.data.length < 4) {
-        this.setData({ member_list_: new Array(4 - res.data.length) })
-      }
-      let nav = this.data.people_nav;
-      nav[1].show = false;
-      this.setData({ member_list: res.data, people_nav: nav})
+        if (res.data.length>0) {
+          res.data[res.data.length - 1].last = true;
+        }
+        let nav = this.data.people_nav;
+        nav[1].show = true;
+        this.setData({ member_list: res.data, people_nav: nav});
+        util.domH('.member-list-' + this.data.people_active, (rect) => {
+          this.setData({
+            member_list_h: rect.height + 'px'
+          })
+        });
     });
   },
   // 获取社团详情资讯
@@ -137,6 +176,7 @@ Page({
       CurrentPage: 1,
       PageSize: 3
     },(res)=>{
+
       let nav = this.data.information_activity_nav;
       nav[1].show = true;
       this.setData({
@@ -193,16 +233,18 @@ Page({
   share() {},
   //获取手机号
   close_get_mobile() {
-    this.setData({window_show: false});
+    this.setData({show_window: false});
   },
   getPhoneNumber(e) {
-    $http.request(true, '/api/user/GetWechatMobile', {
-      Code: wx.getStorageSync('code'),
-      IV: e.detail.iv,
-      EN: e.detail.encryptedData
-    }, (res) => {
-      wx.setStorageSync('mobile', res.data.phoneNumber);
-      this.join(res.data.phoneNumber)
+    app.get_code((code)=>{
+      $http.request(true, '/api/user/GetWechatMobile', {
+        Code: code,
+        IV: e.detail.iv,
+        EN: e.detail.encryptedData
+      }, (res) => {
+        wx.setStorageSync('mobile', res.data.phoneNumber);
+        this.join(res.data.phoneNumber)
+      })
     })
   },
   geted_mobile(e) {
@@ -227,6 +269,7 @@ Page({
       })
       return false;
     }
+
     let mobile = wx.getStorageSync('mobile');
     if(!mobile) {
       this.setData({show_window: true});
@@ -239,9 +282,20 @@ Page({
     $http.request(true, '/api/Community/ApplyInCommunity', {
       Mobile: mobile,
       CommunityId: this.data.community.Id
-    }, (res) => {
+    }, (res,status) => {
       let community = this.data.community;
-      community.IsAdd = 1;
+      switch(status) {
+        case '0001':
+          community.IsAdd = 0;
+          break;
+        case '0002':
+          community.IsAdd = 1;
+          break;
+        case '0003':
+          community.IsAdd = 1;
+          break;
+      }
+      
       this.setData({ community, show_window: false});
     })
   },
@@ -249,11 +303,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     if (options.id) {
       this.get_community(options.id)
       this.get_community_notice(options.id);
       this.get_community_leader(options.id);
-      this.get_community_information(options.id)
+      this.get_community_information(options.id);
     }
     
   },
@@ -269,7 +324,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (app.globalData.status.after_login) {
+      let community = this.data.community;
+      
+      this.get_community(community.Id)
+      this.get_community_notice(community.Id);
+      this.get_community_leader(community.id);
+      this.get_community_information(community.Id)
+    }
   },
 
   /**

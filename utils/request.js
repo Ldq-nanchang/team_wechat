@@ -63,8 +63,8 @@ function request(loading, url, postData, doSuccess, doFail) {
       wx.hideLoading();
       wx.stopPullDownRefresh();
       isOutTime = false;
-      if (res.data.status=='0000'&&typeof doSuccess == 'function') {
-        doSuccess(res.data);
+      if (res.data.status!=='-1'&&typeof doSuccess == 'function') {
+        doSuccess(res.data, res.data.status);
       }else if (res.data.status=='-1') {
         prompt(res.data.message,'none',2000)
       } else if (res.data.status == '1003' || res.data.status == '1002' || res.data.status == '1001') {

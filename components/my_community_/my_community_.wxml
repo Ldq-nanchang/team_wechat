@@ -67,8 +67,8 @@
           </view>
         </view>
       </view>
-      <view class="body">
-        <view class="date">审核日期: {{authorize.AuditDate}}</view>
+      <view class="body" wx:if="{{authorize.Id}}">
+        <view class="date" wx:if="{{authorize.IsAudit==-1||authorize.IsAudit==1}}">审核日期: {{authorize.AuditDate}}</view>
         <view class="cover">
           <view class="cover-title">身份证正面</view>
           <view class="coverpic" style="background:url('{{authorize.FrontIdCard}}') center center /cover"></view>
@@ -90,7 +90,7 @@
   <view class="btns flex-row">
 
     <view class="btn-item flex-row">
-      <view class="btn">解散</view>
+      <view class="btn" bindtap="to_cancel_community">解散</view>
       <view class="btn">转移</view>
     </view>
     <view class="btn-item btn-item-active">社员管理</view>
@@ -99,7 +99,15 @@
 
   <view class="empty-wrapper" wx:if="{{hive_community==-1}}">
     <image class="empty-pic" src="/assets/empty.png"></image>
-    <view class="empty-btn" bindtap="to_add_community">创建社团</view>
+
+    <view class="empty-btn" bindtap="to_add_community" wx:if="{{!get_mobile_btn}}">
+      <text>创建社团</text>
+    </view>
+
+    <view class="empty-btn"  wx:if="{{get_mobile_btn}}">
+      <button class="get-mobile-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">创建社团</button>
+    </view>
+
   </view>
 
 </view>
