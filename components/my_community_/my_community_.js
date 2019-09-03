@@ -167,6 +167,11 @@ Component({
           url: '/pages/my/my',
         });
       })
+    },
+    to_manage_member() {
+      wx.navigateTo({
+        url: '/pages/manage_member/manage_member',
+      })
     }
   }
 })

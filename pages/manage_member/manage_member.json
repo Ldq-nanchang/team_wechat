@@ -2,5 +2,7 @@
   "navigationBarBackgroundColor": "#ff9d20",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "成员管理",
-  "usingComponents": {}
+  "usingComponents": {
+    "manageMember": "../../components/manage_member/manage_member"
+  }
 }

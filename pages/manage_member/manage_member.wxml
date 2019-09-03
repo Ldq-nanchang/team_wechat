@@ -2,18 +2,45 @@
 <view class="container">
   <!-- 搜索框 -->
   <form bindsubmit="search">
-    <view class="{{search_shadow&&!tab_fixed?'top top-shadow flex-row':'top flex-row'}}">
 
-      <view class="search flex-row" bindtap="goSearch">
-        <icon type="search" size="18" />
-        <input class="search-input" placeholder="请输入关键字查询" name="keywords"></input>
+    <view class="{{search_shadow&&!tab_fixed?'top top-shadow':'top'}}">
+
+      <view class="flex-row" style="align-items:center;">
+        <view class="search flex-row" bindtap="goSearch">
+          <icon type="search" size="18" />
+          <input class="search-input" placeholder="请输入关键字查询" name="keywords"></input>
+        </view>
+        <view>
+          <button form-type="submit" class="search-btn">搜索</button>
+        </view>
       </view>
-      <view>
-        <button form-type="submit" class="search-btn">搜索</button>
+
+      <view class="tabs flex-row">
+        <view class="{{tab_index==index?'tab-item tab-item-active':'tab-item'}}"
+        wx:for="{{tabs}}" wx:key="{{index}}">{{item.title}}</view>
       </view>
+
     </view>
-  </form>
-  <view style="height:134rpx;"></view>
 
+  </form>
+
+  <view style="height:214rpx;"></view>
+
+
+  <swiper current="{{ tab_index }}" bindchange="onSwiperChange" style="height:{{member_list_h}}">
+
+    <block>
+      <swiper-item>
+        <manageMember/>
+      </swiper-item>
+    </block>
+
+    <block>
+      <swiper-item>
+        <manageMember/>
+      </swiper-item>
+    </block>
+
+  </swiper>
 
 </view>

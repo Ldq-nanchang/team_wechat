@@ -5,10 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [],
-    page: 1,
-    page_size: 10,
-    loading_state: true
+
+
+    tabs: [{ title: '未审核', show: true }, { title: '已审核', show: false }],
+    tab_index: 0,
+    member_list_h: '668px'
+
+  },
+
+  tabs_change(e) {
+
+  },
+  onSwiperChange(e) {
+
   },
   search(e) {
     this.setData({

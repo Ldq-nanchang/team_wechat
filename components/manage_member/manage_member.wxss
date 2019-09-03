@@ -1,0 +1,43 @@
+/* components/manage_member/manage_member.wxss */
+.flex-row {
+  display: flex;
+}
+.list {
+  background: #fff;
+}
+.item {
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+.icon {
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.content {
+  flex-grow: 1;
+}
+.name {
+  font-size: 30rpx;
+}
+.des {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #808080;
+}
+.btn {
+  padding: 0 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+.btn-ok {
+  background: #ff9d20;
+  color: #fff;
+}
+.btn-cancel {
+  border: 1px solid #666;
+  color: #1a1a1a;
+}

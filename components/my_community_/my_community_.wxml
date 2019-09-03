@@ -93,7 +93,7 @@
       <view class="btn" bindtap="to_cancel_community">解散</view>
       <view class="btn">转移</view>
     </view>
-    <view class="btn-item btn-item-active">社员管理</view>
+    <view class="btn-item btn-item-active" bindtap="to_manage_member">社员管理</view>
   </view>
 </view>
 
