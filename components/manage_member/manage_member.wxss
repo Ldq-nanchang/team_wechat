@@ -13,6 +13,7 @@
   align-items: center;
   width: 100rpx;
   height: 100rpx;
+  border-radius: 100rpx;
   margin-right: 20rpx;
 }
 .content {
@@ -40,4 +41,10 @@
 .btn-cancel {
   border: 1px solid #666;
   color: #1a1a1a;
+}
+.loading-wrapper {
+  padding: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #777;
 }

@@ -1,21 +1,27 @@
 <!--components/manage_member/manage_member.wxml-->
   <view class="list">
-    <view class="item flex-row">
-      <view class="icon"></view>
+    <view class="item flex-row" wx:for="{{list}}" wx:key="{{item.UserId}}">
+      <view class="icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
       <view class="content">
-        <view class="name">家长A</view>
-        <view class="des">2019-04-25 20:25 申请加入</view>
+        <view class="name">{{item.NickName}}</view>
+        <view class="des">{{item.AddTime}} 申请加入</view>
       </view>
-      <view class="btns">
-        <view class="btn btn-ok">同意</view>
+      <view class="btns" wx:if="{{check==-1}}">
+        <view class="btn btn-ok" bindtap="agree">同意</view>
         <view style="height:20rpx;"></view>
-        <view class="btn btn-cancel">拒绝</view>
+        <view class="btn btn-cancel" bindtap="refuse">拒绝</view>
       </view>
-      <!-- <view class="btns">
+      <view class="btns" wx:if="{{check==1}}">
         <view class="btn btn-ok">禁言</view>
         <view style="height:20rpx;"></view>
         <view class="btn btn-cancel">退团</view>
-      </view> -->
+      </view>
 
+    </view>
+
+    <view class="loading-wrapper">
+      <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+      <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+      
     </view>
   </view>

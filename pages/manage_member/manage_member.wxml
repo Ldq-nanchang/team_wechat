@@ -16,7 +16,7 @@
       </view>
 
       <view class="tabs flex-row">
-        <view class="{{tab_index==index?'tab-item tab-item-active':'tab-item'}}"
+        <view class="{{tab_index==index?'tab-item tab-item-active':'tab-item'}}" bindtap="tabs_change" data-index="{{index}}"
         wx:for="{{tabs}}" wx:key="{{index}}">{{item.title}}</view>
       </view>
 
@@ -31,13 +31,13 @@
 
     <block>
       <swiper-item>
-        <manageMember/>
+        <manageMember id="manageList0" check="{{-1}}"/>
       </swiper-item>
     </block>
 
     <block>
       <swiper-item>
-        <manageMember/>
+        <manageMember id="manageList1" check="{{1}}"/>
       </swiper-item>
     </block>
 

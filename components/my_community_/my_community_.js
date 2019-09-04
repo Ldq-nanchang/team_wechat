@@ -170,7 +170,7 @@ Component({
     },
     to_manage_member() {
       wx.navigateTo({
-        url: '/pages/manage_member/manage_member',
+        url: '/pages/manage_member/manage_member?id='+this.data.community.Id,
       })
     }
   }

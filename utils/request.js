@@ -63,11 +63,13 @@ function request(loading, url, postData, doSuccess, doFail) {
       wx.hideLoading();
       wx.stopPullDownRefresh();
       isOutTime = false;
-      if (res.data.status!=='-1'&&typeof doSuccess == 'function') {
+      console.log(res.data)
+      if (res.data.status=='0000'&&typeof doSuccess == 'function') {
         doSuccess(res.data, res.data.status);
       }else if (res.data.status=='-1') {
         prompt(res.data.message,'none',2000)
       } else if (res.data.status == '1003' || res.data.status == '1002' || res.data.status == '1001') {
+        console.log('1003')
         let msg = mobile ? res.data.message : '该功能需要登录!';
         prompt(msg, 'none', 1000, () => {
           // 长时间未使用Htoken过期，更新用户信息
