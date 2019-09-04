@@ -22,7 +22,9 @@
     "pages/personal/personal",
     "pages/manage_member/manage_member",
     "pages/my_info/my_info",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/test/test",
+    "pages/canvas/canvas"
   ],
   "window": {
     "backgroundTextStyle": "dark",

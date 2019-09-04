@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 23,
 			"list": [
 				{
 					"id": 0,
@@ -202,6 +202,20 @@
 					"id": -1,
 					"name": "登录",
 					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "share测试",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "canvas",
+					"pathName": "pages/canvas/canvas",
 					"scene": null
 				}
 			]

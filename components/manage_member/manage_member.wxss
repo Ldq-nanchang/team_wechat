@@ -31,7 +31,9 @@
   padding: 0 20rpx;
   height: 50rpx;
   line-height: 50rpx;
+  width: 120rpx;
   border-radius: 8rpx;
+  text-align: center;
   font-size: 28rpx;
 }
 .btn-ok {

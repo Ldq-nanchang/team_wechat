@@ -63,7 +63,6 @@ function request(loading, url, postData, doSuccess, doFail) {
       wx.hideLoading();
       wx.stopPullDownRefresh();
       isOutTime = false;
-      console.log(res.data)
       if (res.data.status=='0000'&&typeof doSuccess == 'function') {
         doSuccess(res.data, res.data.status);
       }else if (res.data.status=='-1') {
@@ -197,7 +196,7 @@ function getUserInfo(url, doSuccess, doFail) {
     },
     method: 'POST',
     success: function(res) {
-      console.log(res,'request205')
+
       isOutTime = false;
       if (res.data.status == '0000' && typeof doSuccess == 'function') {
         doSuccess(res)

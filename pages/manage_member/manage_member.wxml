@@ -31,13 +31,13 @@
 
     <block>
       <swiper-item>
-        <manageMember id="manageList0" check="{{-1}}"/>
+        <manageMember id="manageList0" check="{{-1}}" community_id="{{community_id}}"/>
       </swiper-item>
     </block>
 
     <block>
       <swiper-item>
-        <manageMember id="manageList1" check="{{1}}"/>
+        <manageMember id="manageList1" check="{{1}}" community_id="{{community_id}}"/>
       </swiper-item>
     </block>
 

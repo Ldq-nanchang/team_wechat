@@ -7,14 +7,17 @@
         <view class="des">{{item.AddTime}} 申请加入</view>
       </view>
       <view class="btns" wx:if="{{check==-1}}">
-        <view class="btn btn-ok" bindtap="agree">同意</view>
+        <view class="btn btn-ok" bindtap="agree" data-userid="{{item.UserId}}">同意</view>
         <view style="height:20rpx;"></view>
-        <view class="btn btn-cancel" bindtap="refuse">拒绝</view>
+        <view class="btn btn-cancel" bindtap="refuse" data-userid="{{item.UserId}}">拒绝</view>
       </view>
       <view class="btns" wx:if="{{check==1}}">
-        <view class="btn btn-ok">禁言</view>
+        <view class="btn btn-ok" bindtap="forbidden" data-item="{{item}}">
+          <text wx:if="{{!item.IsClose}}">禁言</text>
+          <text wx:if="{{item.IsClose}}">解除禁言</text>
+        </view>
         <view style="height:20rpx;"></view>
-        <view class="btn btn-cancel">退团</view>
+        <view class="btn btn-cancel" bindtap="getout_before" data-userid="{{item.UserId}}">退团</view>
       </view>
 
     </view>
