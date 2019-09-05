@@ -144,102 +144,10 @@
   line-height: 100rpx;
   color: #fff;
 }
-.share-warpper {
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  width: 100vh;
-  height: 100vh;
-  z-index: 3000;
-}
 
-/* 选择分享方式弹窗 */
-.select-share-wrapper {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 3000;
-}
-.select-share {
-  position: absolute;
-  bottom: 30rpx;
-  left: 30rpx;
-  padding: 30rpx;
-  width: calc(100% - 120rpx);
-  background: #fff;
-  border-radius: 8rpx;
-  text-align: center;
-}
-.select-share-title {
-  font-size: 30rpx; 
-  color: #1a1a1a;
-  padding-bottom: 30rpx;
-  border-bottom: 1px solid #eee;
-}
-.select-share-btns {
-  padding-top: 30rpx;
-}
-.select-share-btn {
-  align-items: center;
-  width: 50%;
-  font-size: 26rpx;
-}
-.share-icon {
-  width: 50rpx;
-  height: 50rpx;
-  margin-bottom: 20rpx;
-}
-.select-share-close {
-  margin-top: 30rpx;
-  width: 100%;
-  height: 80rpx;
-  background: #EBF0F2;
-  line-height: 80rpx;
-  text-align: center;
-  border-radius: 8rpx;
-}
-/* canvas绘图 */
-.card {
-  position: fixed;
-  top: 120rpx;
-  left: 60rpx;
-  /* padding: 20rpx; */
-  width: calc(100% - 160rpx);
-  height: calc(100vh - 300rpx);
-  background: #fff;
-  border-radius: 8rpx;
-}
-.canvas-wrapper {
-  position: relative;
-  width: 100%;
-  height: calc(100% - 120rpx);
 
-}
-.card-btn {
-  margin-top: 20rpx;
-  height: 80rpx;
-  background: #ff9d20;
-  border-radius: 8rpx;
-  line-height: 80rpx;
-  text-align: center;
-  font-size: 30rpx;
-  color: #fff;
-}
-.close-card {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 80rpx;
-  width: 100%;
-}
-.close-card-icon {
-  width: 40rpx;
-  height: 40rpx;
-}
+
+
+
+
 

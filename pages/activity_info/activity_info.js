@@ -19,11 +19,12 @@ Page({
     dataImg: "",   //内容缩略图
     ewrImg: "",  //小程序二维码图片
     systemInfo: null,  //系统类型
-    canvasWidth: '100%',   //canvas的宽
-    canvasHeight: '100%',   //canvas的高
+    // canvasWidth: 0,   //canvas的宽
+    canvasHeight: 0,   //canvas的高
     title: '',
     time: '',
-    address: ''
+    address: '',
+    top: 0
   },
   store() {
     let activity = this.data.activity;
@@ -69,6 +70,7 @@ Page({
         time: activity.SignStartTime,
         address: activity.Address
       });
+
 
     })
   },
@@ -141,14 +143,7 @@ Page({
     
     let show_share = this.data.show_share;
     this.setData({ show_share: !show_share});
-    util.domH('.canvas-wrapper', (rect) => {
-      this.setData({
-        canvasWidth: rect.width,
-        canvasHeight: rect.height
-      })
-      this.downloadImages()
-      // this.convas(this.data.bgImg, this.data.dataImg, this.data.ewrImg);
-    })
+    this.downloadImages()
   },
 
   /**
@@ -199,7 +194,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '活动详情',
+      desc: this.data.activity.Title,
+      path: '/pages/activity_info/activity_info?id=' + this.data.activity.Id
+    }
   },
   downloadImages: function () {
     
@@ -229,6 +228,41 @@ Page({
       },
     })
   },
+  roundRect(ctx, x, y, w, h, r) {
+    // 开始绘制
+    ctx.beginPath()
+    // 因为边缘描边存在锯齿，最好指定使用 transparent 填充
+    // 这里是使用 fill 还是 stroke都可以，二选一即可
+    ctx.setFillStyle('transparent')
+    // ctx.setStrokeStyle('transparent')
+    // 左上角
+    ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5)
+    // border-top
+    ctx.moveTo(x + r, y)
+    ctx.lineTo(x + w - r, y)
+    ctx.lineTo(x + w, y + r)
+    // 右上角
+    ctx.arc(x + w - r, y + r, r, Math.PI * 1.5, Math.PI * 2)
+    // border-right
+    ctx.lineTo(x + w, y + h - r)
+    ctx.lineTo(x + w - r, y + h)
+    // 右下角
+    ctx.arc(x + w - r, y + h - r, r, 0, Math.PI * 0.5)
+    // border-bottom
+    ctx.lineTo(x + r, y + h)
+    ctx.lineTo(x, y + h - r)
+    // 左下角
+    ctx.arc(x + r, y + h - r, r, Math.PI * 0.5, Math.PI)
+    // border-left
+    ctx.lineTo(x, y + r)
+    ctx.lineTo(x + r, y)
+    // 这里是使用 fill 还是 stroke都可以，二选一即可，但是需要与上面对应
+    ctx.fill()
+    // ctx.stroke()
+    ctx.closePath()
+    // 剪切
+    ctx.clip()
+  },
   convas: function (bgImg, dataImg, ewrImg) {
 
     let that = this;
@@ -236,38 +270,52 @@ Page({
     let community = this.data.community;
     wx.getSystemInfo({
       success(res) {
-        that.setData({ systemInfo: res })
+        that.setData({ 
+          systemInfo: {
+            windowWidth: res.windowWidth,
+            windowHeight: res.windowHeight,
+            screenHeight: res.screenHeight
+          } 
+        })
       }
     })
 
     var ctx = wx.createCanvasContext('myCanvas');
 
-    var scWidth = that.data.systemInfo.windowWidth;
-    var scHeight = that.data.systemInfo.screenHeight;
+    var scWidth = that.data.systemInfo.windowWidth - 40;
+    var scHeight = that.data.systemInfo.windowHeight - 100;
     var defaultHeight = 0.020 * that.data.systemInfo.screenHeight;
-    // ctx.save()
-    // ctx.arc(20, 20, 20, 0,Math.PI * 2, false);
-    // ctx.clip()
-    ctx.drawImage(bgImg, 20, 0, 40, 40);
-    // ctx.restore();
+    var imgHeight = (scWidth - 20) * 0.618;
+
+    that.setData({ canvasHeight: imgHeight + 235 + defaultHeight });
+    that.roundRect(ctx, 0, 0, scWidth, scHeight, 6)
+
+    ctx.setFillStyle('white');
+    ctx.fillRect(0, 0, scWidth, scHeight);
+
+    ctx.save()
+    ctx.arc(30, 30, 20, 0,Math.PI * 2, false);
+    ctx.clip()
+    ctx.drawImage(bgImg, 10, 10, 40, 40);
+    ctx.restore();
 
     ctx.setFontSize(0.04 * scWidth)
     ctx.setFillStyle('#ff9d20')
     ctx.setTextAlign('left')
-    ctx.fillText(community.FullName, 50, 15)
+    ctx.fillText(community.FullName, 60, 25)
     ctx.setFontSize(0.03 * scWidth)
     ctx.setFillStyle('#1a1a1a')
     ctx.setTextAlign('left')
-    ctx.fillText("邀请你一起来参加活动，快来报名吧~", 50, 35)
+    ctx.fillText("邀请你一起来参加活动，快来报名吧~", 60, 45)
     //第一步：刻画背景图
     //  ctx.drawImage(bgImg, 0, 0, scWidth, scHeight);
     //第二步：刻画背景色
-     ctx.setFillStyle('white');
-     ctx.fillRect(0, 0, scWidth - 40, scHeight - 60);
+    //  ctx.setFillStyle('white');
+    //  ctx.fillRect(0, 0, scWidth - 40, scHeight - 60);
     //第三步：刻画内容缩略图
     //  var imgHeight = parseInt(this.imageProportion());
-    var imgHeight = 150;
-    ctx.drawImage(dataImg, 20, 50, scWidth - 40, imgHeight);
+    // var imgHeight = (scWidth - 20)*0.618;
+    ctx.drawImage(dataImg, 10, 60, scWidth-20, imgHeight);
     //第三步：刻画标题
     //  ctx.setFontSize(0.056 * scWidth);
     //  ctx.setFillStyle('#333333');
@@ -277,27 +325,34 @@ Page({
     ctx.setFontSize(0.044 * scWidth)
     ctx.setFillStyle('#1a1a1a');
     ctx.setTextAlign('left');
-    ctx.fillText(that.data.title, 0, imgHeight + 70 + defaultHeight);
+    ctx.fillText(that.data.title, 10, imgHeight + 70 + defaultHeight);
     ctx.setFontSize(0.04 * scWidth)
     ctx.setFillStyle('#333333');
     ctx.setTextAlign('left');
-    ctx.fillText(that.data.time, 28, imgHeight + 95 + defaultHeight);
-    ctx.fillText(that.data.address, 28, imgHeight + 120 + defaultHeight);
+    ctx.fillText(that.data.time, 32, imgHeight + 95 + defaultHeight);
+    ctx.fillText(that.data.address, 32, imgHeight + 120 + defaultHeight);
 
-    ctx.drawImage('../../assets/time.png', 0, imgHeight + 83 + defaultHeight, 16, 16)
-    ctx.drawImage('../../assets/address.png', 0, imgHeight + 108 + defaultHeight, 16, 16)
+    ctx.drawImage('../../assets/time.png', 10, imgHeight + 83 + defaultHeight, 16, 16)
+    ctx.drawImage('../../assets/address.png', 10, imgHeight + 108 + defaultHeight, 16, 16)
 
 
 
     //  ctx.fillText("，抗衰老工程也正式展开。", 35, imgHeight + 175 + defaultHeight);
     //  第五步：刻画小程序码
 
-    ctx.drawImage(ewrImg, (that.data.canvasWidth / 2) - 40, imgHeight + 130 + defaultHeight, 80, 80);
+    ctx.drawImage(ewrImg, (scWidth / 2) - 40, imgHeight + 130 + defaultHeight, 80, 80);
     //第六步：提示用户，长按图片下载或分享
     ctx.setFontSize(0.03 * scWidth)
     ctx.setFillStyle('#999999')
     ctx.setTextAlign('center');
-    ctx.fillText('长按码查看详情', that.data.canvasWidth / 2, imgHeight + 225 + defaultHeight);
+    ctx.fillText('长按码查看详情', scWidth / 2, imgHeight + 225 + defaultHeight);
+    
+
+    util.domH('.card',(rect)=>{
+      that.setData({
+        top: (that.data.systemInfo.windowHeight-rect.height)/2,
+      })
+    })
     //  ctx.fillText('小程序名字', 165, imgHeight + 280 + defaultHeight);
     //第七步将之前在绘图上下文中的描述（路径、变形、样式）画到 canvas 中
     ctx.draw(false, function (e) {
@@ -311,10 +366,10 @@ Page({
     let that = this;
     //把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径
     wx.canvasToTempFilePath({
-      width: this.data.systemInfo.windowWidth,
-      height: this.data.systemInfo.screenHeight,
-      destWidth: this.data.systemInfo.windowWidth * 3,
-      destHeight: this.data.systemInfo.screenHeight * 3,
+      width: this.data.windowWidth,
+      height: this.data.screenHeight,
+      destWidth: (this.data.systemInfo.windowWidth - 20)*3,
+      destHeight: this.data.canvasHeight*3,
       canvasId: 'myCanvas',
       success: function (res) {
         console.log(res)
