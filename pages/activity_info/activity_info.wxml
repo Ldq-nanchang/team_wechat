@@ -15,8 +15,8 @@
         style="margin: 0 15rpx 0 30rpx"></wux-icon>{{activity.StoresNum}}
       </view>
       <view class="{{!activity.IsStore?'activity-head-btn':'activity-head-btn disable'}}" bindtap="store">
-        <text wx:if="{{!activity.IsStore}}">＋收藏</text>
-        <text wx:if="{{activity.IsStore}}">已收藏</text>
+        <text hidden="{{activity.IsStore}}">＋收藏</text>
+        <text hidden="{{!activity.IsStore}}">已收藏</text>
       </view>
       
     </view>
@@ -71,8 +71,8 @@
     </view>
     <view class="assocation-des">{{comunity.CoverPic}}</view>
     <view class="assocation-btns flex-row">
-       <view class="assocation-btn" style="background:#ff9d20" wx:if="{{community.IsFollow==0}}" bindtap="follow">+关注</view>
-       <view class="assocation-btn" style="background:#BFBFBF;color:#fff" wx:if="{{community.IsFollow==1}}" bindtap="follow">已关注</view>
+       <view class="assocation-btn" style="background:#ff9d20" hidden="{{community.IsFollow!=0}}" bindtap="follow">+关注</view>
+       <view class="assocation-btn" style="background:#BFBFBF;color:#fff" hidden="{{community.IsFollow!=1}}" bindtap="follow">已关注</view>
        <view style="width:30rpx;"></view>
        <view class="assocation-btn" style="background:#eee;color:#ff9d20">联系Ta</view> 
     </view>
@@ -91,19 +91,19 @@
         <view>首页</view>
         
       </view>
-      <view class="condition-btn">
+      <view class="condition-btn" bindtap="select_share">
         <view class="iconfont iconfenxiang"></view>
         <view>分享</view>
         
       </view>
     </view>
     <view class="condition-item" style="background:#BFBFBF;color:#fff;line-height: 100rpx;"
-     wx:if="{{activity.IsEnroll}}">已报名</view>
-    <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;" wx:if="{{!activity.IsEnroll}}"
+     hidden="{{!activity.IsEnroll}}">已报名</view>
+    <view class="condition-item" style="background:#ff9d20;line-height: 100rpx;" hidden="{{activity.IsEnroll}}"
     bindtap="to_enroll">我要报名</view>
   </view>
-
-  <view class="get-mobile-wrapper flex-col" wx:if="{{show_window}}">
+  <!-- 填写、获取手机号 -->
+  <view class="get-mobile-wrapper flex-col" hidden="{{!show_window}}">
     <view style="height:67%" bindtap="close_get_mobile"></view>
     <view class="get-mobile">
 
@@ -128,5 +128,39 @@
     </view>
   </view>
 
+  <!-- 分享选择按钮 -->
+  <view class="select-share-wrapper" hidden="{{!show_select_share}}">
+      <view class="select-share">
+        <view class="select-share-title">通过以下方式邀请好友</view>
+        <view class="select-share-btns flex-row">
+          <view class="select-share-btn flex-col" bindtap="share-friend">
+            <image class="share-icon" src="../../assets/weixin.png"></image>
+            <view>微信好友</view>
+          </view>
+          <view class="select-share-btn flex-col" bindtap="share_circle">
+            <image class="share-icon" src="../../assets/firend_circle.png"></image>
+            <view>生成分享大图</view>
+          </view>
+        </view>
+
+        <view class="select-share-close" bindtap="select_share">取消</view>
+      </view>
+  </view>
+  <!-- 分享到朋友圈 -->
+  <view class="share-warpper" hidden="{{!show_share}}" catchtouchmove="ture">
+    <view class="share-window" style="background:rgba(0,0,0,.7);height:100vh;width:100vh">
+      <view class="card">
+        <view class="canvas-wrapper">
+          <canvas style="width:100%;height:100%" canvas-id="myCanvas"></canvas>
+        </view>
+        <view class="card-btn" bindtap="imageGeneratePreview">保存图片,分享到你的圈子</view>
+      </view>
+      <view class="close-card" bindtap="switch_share">
+        <image src="../../assets/close.png" class="close-card-icon"></image>
+      </view>
+      
+    </view>
+  </view>
+  
 
 </view>

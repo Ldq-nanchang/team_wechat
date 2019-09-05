@@ -15,7 +15,9 @@ const formatNumber = n => {
 }
 
 function domH(dom, callback) {
+  
   var query = wx.createSelectorQuery();
+
   query.select(dom).boundingClientRect(function (rect) {
     if (typeof callback == 'function') {
       callback(rect)
