@@ -24,7 +24,8 @@
     "pages/my_info/my_info",
     "pages/login/login",
     "pages/test/test",
-    "pages/canvas/canvas"
+    "pages/canvas/canvas",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "dark",

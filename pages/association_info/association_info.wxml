@@ -282,9 +282,9 @@
         <view class="canvas-wrapper">
           <canvas style="width:{{systemInfo.windowWidth-40}}px;height:{{canvasHeight}}px" canvas-id="myCanvas"></canvas>
         </view>
-        <view class="card-btn" bindtap="imageGeneratePreview">保存图片,分享到你的圈子</view>
+        <view class="card-btn" bindtap="imageGeneratePreview" hidden="{{!top}}">保存图片,分享到你的圈子</view>
 
-        <view class="close-card" bindtap="switch_share">
+        <view class="close-card" bindtap="switch_share" hidden="{{!top}}">
           <image src="../../assets/close.png" class="close-card-icon"></image>
         </view>
 

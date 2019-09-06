@@ -95,6 +95,26 @@ App({
       }
     })
   },
+  // 分享
+  share(id, title, content, url, objectcode, sharetype) {
+    if(!wx.getStorageSync('uuid')) {
+      return false;
+    }
+    $http.request(true,'/api/Common/SaveShare',{
+      Id: id,
+      Title: title,
+      Content:content,
+      Url: url,
+      ObjectCode: objectcode,
+      ShareType: sharetype
+    });
+  },
+  // 跳转百度地图
+  tomap(x,y) {
+    wx.navigateTo({
+      url: '/pages/map/map?x=' + x + '&y=' + y,
+    })
+  },
 
   // 获取活动分类
   // "TypeCode": "01",

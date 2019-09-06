@@ -190,10 +190,15 @@ Page({
 
   },
 
+  share(sharetype) {
+    let activity = this.data.activity;
+    app.share(activity.Id, activity.Title, '', '/pages/activity_info/activity_info?id=' + activity.Id, '02', sharetype);
+  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    this.share('Wechat');
     return {
       title: '活动详情',
       desc: this.data.activity.Title,
@@ -227,6 +232,7 @@ Page({
         });
       },
     })
+    
   },
   roundRect(ctx, x, y, w, h, r) {
     // 开始绘制
@@ -346,13 +352,10 @@ Page({
     ctx.setFillStyle('#999999')
     ctx.setTextAlign('center');
     ctx.fillText('长按码查看详情', scWidth / 2, imgHeight + 225 + defaultHeight);
-    
-
-    util.domH('.card',(rect)=>{
-      that.setData({
-        top: (that.data.systemInfo.windowHeight-rect.height)/2,
-      })
+    that.setData({
+      top: (that.data.systemInfo.windowHeight - (imgHeight + 225 + defaultHeight)) / 2,
     })
+
     //  ctx.fillText('小程序名字', 165, imgHeight + 280 + defaultHeight);
     //第七步将之前在绘图上下文中的描述（路径、变形、样式）画到 canvas 中
     ctx.draw(false, function (e) {
@@ -360,6 +363,7 @@ Page({
       //  that.imageGeneratePreview();
 
     });
+
 
   },
   imageGeneratePreview: function () {
@@ -391,5 +395,6 @@ Page({
 
       }
     })
+    this.share('WechatMoments');
   },
 })

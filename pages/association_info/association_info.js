@@ -544,11 +544,8 @@ Page({
     ctx.setTextAlign('center');
     ctx.fillText('长按码查看详情', scWidth / 2, imgHeight + 225 + defaultHeight);
 
-
-    util.domH('.card', (rect) => {
-      that.setData({
-        top: (that.data.systemInfo.windowHeight - rect.height) / 2,
-      })
+    that.setData({
+      top: (that.data.systemInfo.windowHeight - (imgHeight + 225 + defaultHeight)) / 2,
     })
     //  ctx.fillText('小程序名字', 165, imgHeight + 280 + defaultHeight);
     //第七步将之前在绘图上下文中的描述（路径、变形、样式）画到 canvas 中
@@ -578,7 +575,7 @@ Page({
 
           }
         })
-
+        
       },
       fail: function (res) {
         console.log("出错了:" + JSON.stringify(res));
@@ -588,15 +585,22 @@ Page({
 
       }
     })
+    this.share('WechatMoments');
+  },
+  share(sharetype) {
+    let community = this.data.community;
+    app.share(community.Id, community.FullName, community.Description, '/pages/association_info/association_info?id=' + community.Id,'01',sharetype)
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    
+    this.share('Wechat');
     return {
       title: '社团详情',
       desc: this.data.community.FullName,
-      path: '/pages/association_info/association_info?id=' + this.data.activity.Id
+      path: '/pages/association_info/association_info?id=' + this.data.community.Id
     }
   }
 })
