@@ -23,9 +23,8 @@
     "pages/manage_member/manage_member",
     "pages/my_info/my_info",
     "pages/login/login",
-    "pages/test/test",
-    "pages/canvas/canvas",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/citys/citys"
   ],
   "window": {
     "backgroundTextStyle": "dark",

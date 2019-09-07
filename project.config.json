@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -223,7 +223,14 @@
 					"id": 24,
 					"name": "地图",
 					"pathName": "pages/map/map",
-					"query": "lng=115.882289&lat=28.71423",
+					"query": "lng=115.915302022238&lat=28.668297388952",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "城市搜索",
+					"pathName": "pages/citys/citys",
+					"query": "",
 					"scene": null
 				}
 			]

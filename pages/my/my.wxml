@@ -29,13 +29,17 @@
         </view>
         <view class="condition-item-name">积分商城</view>
       </view>
+      
       <view class="condition-item">
+        <button bindtap="sanCode" class="sancode"></button>
         <view class="condition-item-icon">
           <!-- <wux-icon type="md-barcode" color="#3BCEC3"></wux-icon> -->
           <view class="iconfont iconsaoma" style="font-size:29px;color:#3BCEC3"></view>
         </view>
         <view class="condition-item-name">扫一扫</view>
+       
       </view>
+      
 
     </view>
 

@@ -44,14 +44,16 @@ Page({
         longitude: wxMarkerData[0].longitude
       });
     }
-    console.log(success)
     // 发起regeocoding检索请求 
-    BMap.regeocoding({
+
+    BMap.geocoding({
+      address: '北京市海淀区上地十街10号',
       fail: fail,
       success: success,
       iconPath: '../../img/marker_red.png',
       iconTapPath: '../../img/marker_red.png'
-    }); 
+
+    });
   },
   showSearchInfo: function (data, i) {
     var that = this;

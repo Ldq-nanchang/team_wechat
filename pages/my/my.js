@@ -57,6 +57,13 @@ Page({
       url: '/pages/join_activity/join_activity',
     })
   }, 
+  sanCode () {
+    wx.scanCode({
+      success(res) {
+        console.log(res)
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

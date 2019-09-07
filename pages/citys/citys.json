@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "选择城市",
+  "usingComponents": {
+    "wux-index": "../../dist/index/index",
+    "wux-index-item": "../../dist/index-item/index"
+  }
+}

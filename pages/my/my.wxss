@@ -75,3 +75,20 @@
 .get-user-btn {
   width: 100%;
 }
+.condition-item {
+  position: relative;
+}
+.sancode::after {
+  border: none;
+}
+.sancode {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100rpx;
+  height: 130rpx;
+  line-height: none;
+  background: transparent;
+}
