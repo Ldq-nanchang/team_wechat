@@ -1,11 +1,12 @@
 // pages/activity/activity.js
-const app = getApp()
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    city: {},
     condition: [],
     condition_edit: {
       NearBy: '',
@@ -13,6 +14,16 @@ Page({
       Status: ''
     },
     type_: ''
+  },
+  to_city_list() {
+    wx.navigateTo({
+      url: '/pages/citys/citys',
+    })
+  },
+  to_search_before() {
+    wx.navigateTo({
+      url: '/pages/search_before/search_before',
+    })
   },
   // 条件筛选
   bindPickerChange(e) {
@@ -130,7 +141,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({ city: app.globalData.select_city });
   },
 
   /**

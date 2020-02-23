@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "./assets/wxss/iconfont.wxss";
+
 .container {
   height: 100%;
   /* display: flex;
@@ -201,6 +202,10 @@
 }
 .share-input::after {
   border: none;
+}
+.share-icon- {
+  width: 50rpx;
+  height:50rpx
 }
 .share-icon {
   width: 50rpx;

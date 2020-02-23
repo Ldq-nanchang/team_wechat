@@ -1,0 +1,20 @@
+<!--pages/search_before/search_before.wxml-->
+<view>
+  <form bindsubmit="search">
+    <view class="search flex-row">
+      <view class="input-wrapper flex-row">
+        <icon type="search" size="18" />
+        <input class="input" placeholder="请输入关键字..." name="keywords" style="font-size:28rpx"></input>
+      </view>
+      <button class="btn" form-type="submit">搜索</button>
+    </view>
+  </form>
+
+  <view class="title">
+    <text>历史访问</text>
+  </view>
+  <view class="list flex-row">
+    <view class="item" wx:for="{{keywords}}" wx:key="{{index}}" bindtap="to_search" data-item="{{item}}">{{item}}</view>
+  </view>
+
+</view>

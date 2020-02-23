@@ -1,6 +1,6 @@
 // pages/map/map.js
 var bmap = require('../../utils/bmap-wx.js');
-var wxMarkerData = [{ longitude: '' }, { latitude: ''}]; 
+var wxMarkerData = []; 
 Page({
 
   /**
@@ -13,26 +13,25 @@ Page({
     rgcData: {}
   },
   makertap: function (e) {
-    var that = this;
-    var id = e.markerId;
-    that.showSearchInfo(wxMarkerData, id);
+    // var that = this;
+    // var id = e.markerId;
+    // that.showSearchInfo(wxMarkerData, id);
   }, 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wxMarkerData[0].longitude = Number(options.lng);
-    wxMarkerData[0].latitude = Number(options.lat);
-    console.log(wxMarkerData)
+
     var that = this;
     // 新建百度地图对象 
     var BMap = new bmap.BMapWX({
-      ak: 'xyAetixKHfnTzVXcdnNhFOPfqua31H9y'
+      ak: 'yPpzXirf2qQM9HnmWZVzQ0iDbquFFZRC'
     });
     var fail = function (data) {
       console.log(data)
     };
     var success = function (data) {
+
       wxMarkerData = data.wxMarkerData;
       that.setData({
         markers: wxMarkerData
@@ -43,17 +42,24 @@ Page({
       that.setData({
         longitude: wxMarkerData[0].longitude
       });
+      console.log(that.data.latitude, that.data.longitude)
     }
     // 发起regeocoding检索请求 
 
     BMap.geocoding({
-      address: '北京市海淀区上地十街10号',
+      address: options.address,
       fail: fail,
       success: success,
-      iconPath: '../../img/marker_red.png',
-      iconTapPath: '../../img/marker_red.png'
-
+      iconPath: '../../assets/marker_red.png',
+      iconTapPath: '../../assets/marker_red.png'
     });
+
+    that.setData({
+      rgcData: {
+        address: options.address,
+        desc: options.community ? options.community : ''
+      }
+    })
   },
   showSearchInfo: function (data, i) {
     var that = this;

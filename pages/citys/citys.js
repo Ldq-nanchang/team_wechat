@@ -1,6 +1,6 @@
 // pages/citys/citys.js
-const NAMES = ['Aaron', 'Alden', 'Austin', 'Baldwin', 'Braden', 'Carl', 'Chandler', 'Clyde', 'David', 'Edgar', 'Elton', 'Floyd', 'Freeman', 'Gavin', 'Hector', 'Henry', 'Ian', 'Jason', 'Joshua', 'Kane', 'Lambert', 'Matthew', 'Morgan', 'Neville', 'Oliver', 'Oscar', 'Perry', 'Quinn', 'Ramsey', 'Scott', 'Seth', 'Spencer', 'Timothy', 'Todd', 'Trevor', 'Udolf', 'Victor', 'Vincent', 'Walton', 'Willis', 'Xavier', 'Yvonne', 'Zack', 'Zane'];
-var $http = require('../../utils/request')
+var $http = require('../../utils/request');
+var app = getApp();
 Page({
 
   /**
@@ -8,33 +8,58 @@ Page({
    */
   data: {
     alphabet: [],
+    toView: 'A'
   },
   get_list() {
     $http.request(true,'/api/common/GetSelectCityList',{},(res)=>{
-      console.log(res)
+      let list = [];
+      Object.keys(res.data).forEach((key)=>{
+        list.push({
+          initial: key,
+          cells: res.data[key]
+        })
+      });
+      this.setData({ alphabet: list})
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const alphabet = []
-
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((initial) => {
-      const cells = NAMES.filter((name) => name.charAt(0) === initial)
-      alphabet.push({
-        initial,
-        cells
-      })
-    })
-
-    this.setData({
-      alphabet,
-    })
     this.get_list()
   },
   onChange(e) {
-    console.log('onChange', e.detail)
+    this.setData({ toView: e.detail.name})
+  },
+  select_city(e) {
+    console.log(e.currentTarget.dataset.item);
+    let item_click = e.currentTarget.dataset.item;
+    let hive = false;
+
+    for(let item of app.globalData.citys_code) {
+      if (item == item_click.Code) {
+        hive = true;
+        break;
+      }
+    }
+    if(hive) {
+      app.globalData.select_city = {
+        Name: item_click.Name,
+        Code: item_click.Code
+      }
+      wx.navigateBack()
+    }else {
+      wx.showToast({
+        title: '该城市没有社团',
+        icon: 'none',
+        success() {
+          setTimeout(()=>{
+            wx.navigateBack()
+          },1500)
+        }
+      })
+    }
+   
   },
 
   /**

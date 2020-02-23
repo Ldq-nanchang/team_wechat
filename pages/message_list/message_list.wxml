@@ -1,0 +1,25 @@
+<!--pages/message_list/message_list.wxml-->
+<view class="container">
+  <view class="list">
+
+    <view class="item-wrapper" wx:for="{{list}}" wx:key="{{item.Id}}" data-item="{{item}}" bindtap="to_info">
+      <view class='date'>{{item.AddDate}}</view>
+      <view class="item">
+
+        <view class="item-top flex-row">
+          <view class="item-top-title">【{{item.ObjectName}}】</view>
+          <view class="item-top-btn theme-color">立即查看</view>
+        </view>
+        <view class="item-body flex-row">
+          <view class="icon" style="background: url({{item.Icon}}) center center /cover"></view>
+          <view class="item-content flex-row">
+            <view class="title">{{item.Content}}</view>
+            <view class="circle" wx:if="{{!item.Status}}"></view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+</view>

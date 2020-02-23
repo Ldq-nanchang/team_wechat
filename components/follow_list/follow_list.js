@@ -46,8 +46,13 @@ Component({
         this.setData({list});
       })
     },
-    get_list() {
-      console.log(this.properties.list_type)
+    get_list(init) {
+      if(init=='init') {
+        this.setData({
+          page: 1,
+          loading_state: true
+        })
+      }
       if (!this.data.loading_state) {
         return false;
       }
@@ -71,7 +76,12 @@ Component({
         for(let item of res.data) {
           item.is_follow = 1;
         }
-        this.setData({ list: [...this.data.list, ...res.data], page: this.data.page++})
+        if(init=='init') {
+          this.setData({list: res.data});
+        }else {
+          this.setData({ list: [...this.data.list, ...res.data] })
+        }
+        this.setData({ page: this.data.page++ });
         if(res.data.length<this.data.page_size) {
           this.setData({loading_state: false})
         }

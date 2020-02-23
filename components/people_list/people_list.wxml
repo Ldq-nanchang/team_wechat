@@ -18,18 +18,23 @@
               <view wx:for="{{item.stars_}}" wx:key="{{index}}"
               class="people-item-star iconfont iconxingxing" style="color:#B3B3B3"></view>
             </view>
-            <view class="people-item-address flex-row">
-              <view class="iconfont iconaddress"></view>
-              <view class="people-item-address-text"><text style="padding-left:10rpx;">{{item.Address}}</text></view>
-            </view>
+
 
             <view class="people-item-num flex-row">
-              <wux-icon type="md-contacts" size="16"></wux-icon>
-              <view style="margin-left:16rpx;">{{item.MemberCount}}</view>
+              <view class="flex-row">
+                <wux-icon type="md-contacts" size="16"></wux-icon>
+                <view style="margin-left:16rpx;">{{item.MemberCount}}</view>
+              </view>
+
+              <view class="flex-row">
+                <wux-tag color="gold" wx:for="{{item.tags}}" wx:for-item="item_" wx:for-index="index_" wx:key="index_"
+                style="margin-right:10rpx">{{item_}}</wux-tag>
+              </view>
             </view>
-            <view class="people-item-btn">
-              <wux-tag color="gold" wx:for="{{item.tags}}" wx:for-item="item_" wx:for-index="index_" wx:key="index_"
-              style="margin-right:10rpx">{{item_}}</wux-tag>
+
+            <view class="people-item-address flex-row" catchtap="to_map" data-item="{{item}}">
+              <view class="iconfont iconaddress"></view>
+              <view class="people-item-address-text"><text style="padding-left:10rpx;">{{item.Address}}</text></view>
             </view>
 
 

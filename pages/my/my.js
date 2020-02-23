@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    personal: {}
+    personal: {},
+    my_status: 0
   },
   onGotUserInfo(e) {
     app.get_code((code)=>{
@@ -17,6 +18,7 @@ Page({
         NickName: e.detail.userInfo.nickName,
         Gender: e.detail.userInfo.gender
       }, (res) => {
+        
         wx.setStorageSync('uuid', res.uuid);
         wx.setStorageSync('htoken', res.htoken);
         // wx.setStorageSync('mobile', res.data.userInfo.Mobile);
@@ -28,8 +30,13 @@ Page({
   get_personal() {
     $http.request(true, '/api/my/MyInfo', {
       UserId: wx.getStorageSync('uuid')
-    }, (res) => {
-      this.setData({ personal: res.data });
+    }, (res,status) => {
+      if (status ==='0000') {
+        this.setData({ personal: res.data, my_status: 1 });
+      }else {
+        this.setData({ my_status: -1 });
+      }
+      
     })
   },
   to_peronsal() {
@@ -60,7 +67,15 @@ Page({
   sanCode () {
     wx.scanCode({
       success(res) {
-        console.log(res)
+        console.log(res.result)
+        $http.request(true, '/api/my/SignInActivity', { 
+          SignInCode: res.result
+        },()=>{
+          wx.showToast({
+            title: '签到成功',
+            icon: 'none'
+          });
+        })
       }
     });
   },
@@ -70,6 +85,8 @@ Page({
   onLoad: function (options) {
     if(wx.getStorageSync('uuid')) {
       this.get_personal()
+    }else {
+      this.setData({my_status: -1})
     }
     
   },

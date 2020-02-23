@@ -1,0 +1,61 @@
+/* pages/message_list/message_list.wxss */
+.list {
+  padding: 30rpx;
+}
+.item-wrapper {
+  margin-bottom: 60rpx;
+}
+.date {
+  
+  padding-bottom: 20rpx;
+  text-align: center;
+  color: #808080;
+  font-size: 26rpx;
+}
+.item-top {
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.item-top-title {
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.item-top-btn {
+  font-size: 28rpx;
+}
+.item {
+  padding: 20rpx 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.item-content {
+  align-items: center;
+  flex-grow: 1;
+  font-size: 28rpx;
+}
+.title {
+  flex-grow: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.circle {
+  flex-shrink: 0;
+  margin-left: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 20rpx;
+  background: #FF3233;
+}

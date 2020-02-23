@@ -1,5 +1,6 @@
 // components/people_list/people_list.js
 var $http = require("../../utils/request.js");
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -35,11 +36,20 @@ Component({
         url: '/pages/association_info/association_info?id='+id,
       })
     },
+    to_map(e) {
+      let item = e.currentTarget.dataset.item;
+      wx.navigateTo({
+        url: '/pages/map/map?address=' + item.Address + '&community=' + item.FullName,
+      })
+    },
     init_list(condition) {
       this.setData({ loading_state: true, page: 1});
-      this.get_list(condition,'init')
+      this.get_list('init',condition)
     },
-    get_list(condition,init,callback) {
+    get_list(init, condition,callback) {
+      if(init=='init') {
+        this.setData({ loading_state: true, page: 1 });
+      }
       if (!this.data.loading_state) {
         return false;
       }
@@ -50,8 +60,8 @@ Component({
         City: '',
         Tag: '',
         NearBy: '',
-        Lat: '',
-        Lng: '',
+        Lat: app.globalData.lat ? app.globalData.lat: '',
+        Lng: app.globalData.lng ? app.globalData.lng : '',
         SortCode: ''
       }
       if (condition) {
@@ -84,10 +94,12 @@ Component({
           item.stars_ = new Array(5 - item.Star);
           item.tags = item.TagName.split(',');
         }
-        that.setData({
-          community_list: init!='init'?[...that.data.community_list, ...res.data]:res.data,
-          page: that.data.page++
-        })
+        if(init=='init') {
+          this.setData({ community_list: res.data,})
+        }else {
+          this.setData({ community_list: [...that.data.community_list, ...res.data] })
+        }
+        that.setData({ page: that.data.page++ })
         
 
         if (res.data.length < that.data.page_size) {

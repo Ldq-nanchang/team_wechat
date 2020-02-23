@@ -13,25 +13,25 @@ Page({
         key: 'tab1',
         title: '关注的人',
         content: 'Content of tab 1',
-        active: true
+
       },
       {
         key: 'tab2',
         title: '粉丝',
         content: 'Content of tab 2',
-        active: false
+
       },
       {
         key: 'tab3',
         title: '社团',
         content: 'Content of tab 3',
-        active: false
+
       },
       {
         key: 'tab4',
         title: '收藏',
         content: 'Content of tab 4',
-        active: false
+
       },
     ]
   },
@@ -72,13 +72,12 @@ Page({
       let tabs = this.data.tabs;
       tabs[index].active = true;
       this.setData({ tabs });
-      this.get_list();
+      this.get_list('init');
     // }
   },
-  get_list() {
+  get_list(init) {
     let that = this;
     let active = '#peopleList';
-    console.log(this.data.index)
     switch(this.data.index) {
       case 0:
         active = "#followList";
@@ -93,14 +92,7 @@ Page({
         active = "#storeList";
         break;
     }
-    console.log('ss')
-    this.selectComponent(active).get_list();
-    // util.domH(active, (rect) => {
-    //   that.setData({
-    //     swiper_h: rect.height + 'px'
-    //   })
-    // })
-    
+    this.selectComponent(active).get_list(init?init:'');
   },
   updata_height() {
     let that = this;
@@ -157,8 +149,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('sss')
-    this.get_list();
+    this.get_list('init');
   },
 
   /**

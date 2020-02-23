@@ -122,7 +122,17 @@ Page({
       CurrentPage: 1,
       PageSize: 3
     },(res)=>{
+      for (let item of res.data) {
+        if (item.PublishDate) {
+          item.PublishDate = item.PublishDate.split(' ')[0];
+        }
+      }
       this.setData({notice:res.data})
+    })
+  },
+  to_personal(e) {
+    wx.navigateTo({
+      url: '/pages/personal/personal?userid=' + e.currentTarget.dataset.userid,
     })
   },
   //获取社团详情名人列表
@@ -135,7 +145,11 @@ Page({
       if (res.data.length>0) {
         res.data[res.data.length - 1].last = true;
       }
-      
+      for (let item of res.data) {
+        if (item.PublishDate) {
+          item.PublishDate = item.PublishDate.split(' ')[0];
+        }
+      }
       this.setData({leader_list: res.data});
       util.domH('.member-list-' + this.data.people_active, (rect) => {
         console.log('.member-list-' + this.data.people_active)
@@ -175,6 +189,11 @@ Page({
       PageSize: 3,
       CurrentPage: 1
     },(res)=>{
+      for (let item of res.data) {
+        if (item.PublishDate) {
+          item.PublishDate = item.PublishDate.split(' ')[0];
+        }
+      }
       this.setData({ information: res.data})
       util.domH('.information-activity-h-' + that.data.information_activity_active, (rect) => {
         that.setData({
@@ -597,6 +616,7 @@ Page({
   onShareAppMessage: function () {
     
     this.share('Wechat');
+    this.select_share()
     return {
       title: '社团详情',
       desc: this.data.community.FullName,

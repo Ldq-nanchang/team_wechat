@@ -9,6 +9,7 @@
   padding: 0 30rpx;
   background: #fff;
   min-height: 200rpx;
+  overflow: visible;
 }
 .activity-head {
   position: absolute;
@@ -143,6 +144,10 @@
   height: 100rpx;
   line-height: 100rpx;
   color: #fff;
+}
+
+image {
+  width: 100%!important;
 }
 
 

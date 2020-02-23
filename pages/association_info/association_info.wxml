@@ -89,7 +89,7 @@
           <block>
               <swiper-item>
                   <view class="people-block member-list-1">
-                    <view class="people-item flex-row" 
+                    <view class="people-item flex-row" bindtap="to_personal" data-userid="{{item.UserId}}"
                     style="{{item.last?'border-bottom:none':''}}"
                     wx:for="{{member_list}}" wx:key="{{index}}">
                       <view class="people-item-icon" style="background:url({{item.HeadPic}}) center center /cover"></view>
@@ -260,13 +260,17 @@
         <view class="select-share-btns flex-row">
           <button open-type="share" class="share-input">
             <view class="select-share-btn flex-col" bindtap="share-friend">
-              <image class="share-icon" src="../../assets/weixin.png"></image>
+              <view class="share-icon-">
+                <image class="share-icon" src="../../assets/weixin.png"></image>
+              </view>
               <view>微信好友</view>
             </view>
           </button>
            <button class="share-input" bindtap="share_circle">
             <view class="select-share-btn flex-col">
-              <image class="share-icon" src="../../assets/firend_circle.png"></image>
+              <view class="share-icon-">
+                <image class="share-icon" src="../../assets/firend_circle.png"></image>
+              </view>
               <view>生成分享大图</view>
             </view>
           </button>

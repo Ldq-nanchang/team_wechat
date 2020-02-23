@@ -1,10 +1,20 @@
 /* pages/map/map.wxss */
 .map_container{ 
-    height: 300px; 
+    height: 80vh; 
     width: 100%; 
 } 
 
 .map { 
     height: 100%; 
     width: 100%; 
+}
+.rgc_info {
+  padding: 30rpx;
+}
+.title {
+  width: 100rpx;
+  flex-shrink: 0;
+}
+.text {
+  flex-grow: 1;
 }

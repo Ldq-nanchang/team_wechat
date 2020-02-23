@@ -3,18 +3,19 @@
   <view class="top">
 
     <view class="flex-row">
-      <view class="top-address flex-row">
+      <view class="top-address flex-row" bindtap="to_city_list">
           <view style="margin-right:10rpx;align-items:center;" class="flex-row">
             <text class="iconfont iconaddress" style="font-size:38rpx"></text>
           </view>
           <view style="height:50rpx;">
-            <text>南昌</text>
+            <text>{{city.Name}}</text>
           </view>
           <view class="iconfont iconjiantouxia" style="height:50rpx;"></view>
       </view>
-      <view class="search flex-row" bindtap="goSearch">
+      <view class="search flex-row" bindtap="to_search_before">
         <icon type="search" size="18" color="#999"/>
-        <input placeholder="请输入关键字查询"/>
+        <!-- <input placeholder="请输入关键字查询"/> -->
+        <text style="margin-left:20rpx">请输入关键字查询</text>
       </view>
     </view>
 

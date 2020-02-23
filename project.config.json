@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 28,
 			"list": [
 				{
 					"id": 0,
@@ -76,7 +76,7 @@
 					"id": 3,
 					"name": "活动详情",
 					"pathName": "pages/activity_info/activity_info",
-					"query": "id=31474d3a-a559-48e7-b229-ebc7e354a481",
+					"query": "id=2ab9f075-1cf8-4a0c-825a-60383f0a3f63",
 					"scene": null
 				},
 				{
@@ -223,13 +223,34 @@
 					"id": 24,
 					"name": "地图",
 					"pathName": "pages/map/map",
-					"query": "lng=115.915302022238&lat=28.668297388952",
+					"query": "address=IM盈石广场&community=进贤长跑协会",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "城市搜索",
 					"pathName": "pages/citys/citys",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 26,
+					"name": "全网搜索",
+					"pathName": "pages/search/search",
+					"query": "keywords=南昌",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search_before/search_before",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/message_list/message_list",
 					"query": "",
 					"scene": null
 				}

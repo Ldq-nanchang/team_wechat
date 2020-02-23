@@ -1,3 +1,6 @@
 {
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "地址",
   "usingComponents": {}
 }

@@ -1,4 +1,5 @@
 <!--pages/information_info/information.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
 <view class="container">
   <view class="information">
 
@@ -10,9 +11,10 @@
         <text style="margin-left: 10rpx">{{information.ClicksNum}}</text>
       </view>
     </view>
-    <view class="information-content">
-      <rich-text nodes="{{information.Content}}" bindtap="tap"></rich-text>
-    </view>
+    <!-- <view class="information-content"> -->
+      <!-- <rich-text nodes="{{information.Content}}" bindtap="tap"></rich-text> -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <!-- </view> -->
 
   </view>
 </view>

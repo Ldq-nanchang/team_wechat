@@ -1,6 +1,8 @@
 // pages/information_info/information.js
 var util = require("../../utils/util.js");
 const $http = require("../../utils/request.js");
+
+var WXParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -34,6 +36,9 @@ Page({
       this.setData({
         information: res.data
       })
+      const that = this;
+      var temp = WXParse.wxParse('article', 'html', res.data.Content, that, 5);
+
     })
   },
   /**

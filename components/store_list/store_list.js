@@ -22,7 +22,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    get_list() {
+    get_list(init) {
+      if(init=='init') {
+        this.setData({ loading_state: true,page: 1});
+      }
       if (!this.data.loading_state) {
         return false;
       }
@@ -30,7 +33,12 @@ Component({
         CurrentPage: this.data.page,
         PageSize: this.data.page_size
       },(res)=>{
-        this.setData({list:[...this.data.list,...res.data],page_size: this.data.page++});
+        if(init=='init') {
+          this.setData({list: res.data});
+        }else {
+          this.setData({ list: [...this.data.list, ...res.data]})
+        }
+        this.setData({ page: this.data.page++});
         if(res.data.length<this.data.page_size) {
           this.setData({loading_state: false});
         }

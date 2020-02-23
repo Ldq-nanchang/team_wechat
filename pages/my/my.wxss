@@ -1,4 +1,7 @@
  /* pages/my/my.wxss */
+ view {
+   overflow: visible!important;
+ }
 .head {
   padding: 30rpx;
   align-items: center;

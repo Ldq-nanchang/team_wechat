@@ -1,0 +1,32 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+
+  <view class="head">
+    <form bindsubmit="search">
+      <view class="search flex-row">
+        <view class="input-wrapper flex-row">
+          <icon type="search" size="18" />
+          <input class="input" placeholder="请输入关键字..." name="keywords" value="{{keywords}}"></input>
+        </view>
+        <button class="btn" form-type="submit">搜索</button>
+      </view>
+    </form>
+    <view class="tab-list flex-row">
+      <view class="{{tab_active==index?'tab-item tab-item-active':'tab-item'}}" bindtap="select_tab" data-index="{{index}}"
+      wx:for="{{tab_list}}" wx:key="{{index}}">{{item.title}}</view>
+    </view>
+  </view>
+  
+
+  <swiper current="{{tab_active}}" bindchange="swiper_change" style="height:100vh">
+    <block wx:for="{{tab_list}}" wx:key="{{index}}">
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scroll-view" bindscrolltolower="get_list">
+          <view style="height:230rpx"></view>
+          <searchList id="shareList{{index}}" search_type="{{tab_list[index].type}}"></searchList>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+</view>

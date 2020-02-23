@@ -1,22 +1,25 @@
 <!--index.wxml-->
 <view class="container">
   <view class="{{search_shadow&&!tab_fixed?'top top-shadow flex-row':'top flex-row'}}">
-    <view class="top-address flex-row">
-        <view style="margin-right:10rpx;">
+    <view class="top-address flex-row" bindtap="to_city_list">
+        <!-- <view style="margin-right:10rpx;">
           <text class="iconfont icondingwei1" style="font-size:38rpx"></text>
         </view>
         <picker class="picker-wrapper flex-row" bindchange="bindPickerChange" value="{{index}}" range="{{citys}}">
           <view class="picker">{{citys[city_index]}}</view>
-        </picker>
-        <!-- <view class="picker-arrow arrow-bottom"></view> -->
+        </picker> -->
+        <view style="margin-right:10rpx;">{{city.Name}}</view>
         <view class="iconfont iconjiantouxia"></view>
     </view>
-    <view class="search flex-row" bindtap="goSearch">
+    <view class="search flex-row" bindtap="to_search_before">
       <icon type="search" size="18" />
       <text>请输入关键字查询</text>
     </view>
-    <view class="top-message">
-      <view class="iconfont iconxiaoxi" style="font-size:45rpx;color:#ff9d20"></view>
+    <view class="top-message" bindtap="to_message_list">
+    <wux-badge count="{{msgcount}}">
+      <!-- <view class="iconfont iconxiaoxi" style="font-size:45rpx;color:#ff9d20"></view> -->
+      <wux-icon type="md-notifications" size="25" color="#ff9d20"></wux-icon>
+    </wux-badge>
     </view>
   </view>
   <view style="height:134rpx;"></view>
@@ -106,21 +109,24 @@
               class="people-item-star iconfont iconxingxing" style="color:#B3B3B3"></view>
             </view>
 
-            <view class="people-item-address flex-row">
-              <view class="iconfont iconaddress"></view>
-              <view class="people-item-address-text"><text style="padding-left:10rpx;">{{item.Address}}</text></view>
-              
-            </view>
+
 
 
             <view class="people-item-num flex-row">
-              <wux-icon type="md-contacts" size="16"></wux-icon>
-              <view style="margin-left:16rpx;">{{item.MemberCount}}</view>
+              <view class="flex-row">
+                <wux-icon type="md-contacts" size="16"></wux-icon>
+                <view style="margin-left:16rpx;">{{item.MemberCount}}</view>
+              </view>
+              <view class="flex-row">
+                <wux-tag color="gold" wx:for="{{item.tags}}" wx:for-item="item_" wx:for-index="index_" wx:key="index_"
+                style="margin-right:10rpx">{{item_}}</wux-tag>
+              </view>
             </view>
-            <view class="people-item-btn">
-              <wux-tag color="gold" wx:for="{{item.tags}}" wx:for-item="item_" wx:for-index="index_" wx:key="index_"
-              style="margin-right:10rpx">{{item_}}</wux-tag>
+            <view class="people-item-address flex-row" catchtap="to_map" data-item="{{item}}">
+              <view class="iconfont iconaddress"></view>
+              <view class="people-item-address-text"><text style="padding-left:10rpx;">{{item.Address}}</text></view>  
             </view>
+
 
 
           </view>

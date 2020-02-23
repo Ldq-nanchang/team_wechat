@@ -24,8 +24,16 @@
     "pages/my_info/my_info",
     "pages/login/login",
     "pages/map/map",
-    "pages/citys/citys"
+    "pages/citys/citys",
+    "pages/search/search",
+    "pages/search_before/search_before",
+    "pages/message_list/message_list"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",

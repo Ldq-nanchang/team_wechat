@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ff9d20",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "全网搜索",
+  "usingComponents": {
+    "searchList": "../../components/search_list/search_list"
+  }
+}

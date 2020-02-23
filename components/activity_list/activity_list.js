@@ -1,5 +1,6 @@
 // components/activity_list/activity_list.js
 var $http = require("../../utils/request.js");
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -47,7 +48,7 @@ Component({
       let status = that.properties.status;
       console.log(this.properties.type_)
       let data = {
-        City: '',
+        City: app.globalData.select_city.Code,
         Type: this.properties.type_ ? this.properties.type_ : '',
         NearBy: '',
         Category: '',

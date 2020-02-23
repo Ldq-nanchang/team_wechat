@@ -3,7 +3,7 @@
   height: 500rpx;
 }
 .head {
-  
+  overflow: visible;
   padding: 30rpx;
   background: #fff;
   border-top-left-radius: 26rpx;

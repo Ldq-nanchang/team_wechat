@@ -6,18 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    other_user: true, 
     personal: {}
   },
-  get_personal() {
+  get_personal(userid) {
     $http.request(true,'/api/my/MyInfo',{
-      UserId: wx.getStorageSync('uuid')
+      UserId: userid ? userid : wx.getStorageSync('uuid')
     },(res)=>{
       console.log(res.data)
       this.setData({personal: res.data});
     })
   },
-  get_comment() {
-    this.selectComponent('#commentList').get_list(wx.getStorageSync('uuid'), 'personal');
+  get_comment(userid) {
+    this.selectComponent('#commentList').get_list(userid ? userid : wx.getStorageSync('uuid'), 'personal');
   },
   to_my_info() {
     wx.navigateTo({
@@ -33,8 +34,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.get_personal();
-    this.get_comment(wx.getStorageSync('uuid'),'personal')
+    if(options.userid) {
+      this.get_personal(options.userid);
+      this.get_comment(options.userid, 'personal');
+    }else {
+      this.setData({ other_user: false});
+      this.get_personal();
+      this.get_comment(wx.getStorageSync('uuid'), 'personal');
+    }
+
   },
 
   /**

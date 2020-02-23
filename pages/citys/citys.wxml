@@ -1,6 +1,10 @@
 <!--pages/citys/citys.wxml-->
-<wux-index height="100%" bind:change="onChange">
-    <wux-index-item wx:for="{{ alphabet }}" wx:key="" name="{{ item.initial }}">
-        <view class="demo-item" wx:for="{{ item.cells }}" wx:for-item="cell" wx:key="">{{ cell }}</view>
-    </wux-index-item>
-</wux-index>
+
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-width-animation="true" style="height:100vh">
+  <wux-index height="100%" bind:change="onChange">
+      <wux-index-item wx:for="{{ alphabet }}" wx:key="{{item.initial}}" name="{{ item.initial }}" id="{{item.initial}}">
+          <view class="item" bindtap="select_city" data-item="{{cell}}"
+          wx:for="{{ item.cells }}" wx:for-item="cell" wx:key="{{cell.Code}}">{{ cell.Name }}</view>
+      </wux-index-item>
+  </wux-index>
+</scroll-view>

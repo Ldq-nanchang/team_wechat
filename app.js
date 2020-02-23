@@ -187,13 +187,20 @@ App({
     near_list: [],
     community_tag: [],
     community_sort: [],
+    // 全网搜索历史访问
+    // keywords:[],
     // 新增或编辑我的社团
     community: {},
     // province: [],
 
     // 认证社长
     authoriza: {},
-
+    // 有社团的城市列表
+    citys_code: [],
+    // 用户已选择的城市
+    select_city: {Name: '南昌', Code: '360100'},
+    lat: null,
+    lng: null,
     status: {
       // 创建编辑社团后刷新 我的社团数据
       init_my_community: false,

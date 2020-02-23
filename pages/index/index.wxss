@@ -47,7 +47,9 @@
   margin-left: 14rpx;
 }
 .top-message {
+  flex-shrink: 0;
   height:45rpx;
+  min-width:60rpx;
   padding-left: 20rpx;
 }
 
@@ -155,7 +157,7 @@
 }
 .people-item-address {
 
-  margin-bottom: 15rpx;
+  margin-top: 15rpx;
   color: #34C3CB;
   font-size: 26rpx;
 }
@@ -169,10 +171,11 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 }
 .people-item-num {
+  justify-content: space-between;
   margin: 10rpx 0;
   color: #e0a03c;
 }

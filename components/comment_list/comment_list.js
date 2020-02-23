@@ -100,7 +100,11 @@ Component({
       }
       $http.request(that.data.page != 1,url,data,(res)=>{
         // res.data[0].FileUrl = res.data[0].HeadPic;
+
         for(let item of res.data) {
+          if (item.CreatorTime) {
+            item.CreatorTime = item.CreatorTime.split(' ')[0];
+          }
           item.is_del = false;
           if (item.UserId == wx.getStorageSync('uuid')) {
             item.is_del = true;

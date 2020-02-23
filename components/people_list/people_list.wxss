@@ -52,7 +52,7 @@
   font-size: 30rpx;
 }
 .people-item-address {
-  margin-top: 15rpx;
+  padding-top: 15rpx;
   color: #34C3CB;
 }
 
@@ -70,6 +70,7 @@
   width: 100%;
 }
 .people-item-num {
+  justify-content: space-between;
   margin: 10rpx 0;
   color: #e0a03c;
 }
@@ -80,7 +81,7 @@
 } */
 
 .actions-item-name {
-  height: 65rpx;
+  /* height: 65rpx; */
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;

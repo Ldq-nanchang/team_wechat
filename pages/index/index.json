@@ -7,7 +7,8 @@
     "notice": "/components/notice/notice",
 
     "wux-icon": "../../dist/icon/index",
-    "wux-tag": "../../dist/tag/index"
+    "wux-tag": "../../dist/tag/index",
+    "wux-badge": "../../dist/badge/index"
   },
   "enablePullDownRefresh": true
 }

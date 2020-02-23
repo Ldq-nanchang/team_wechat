@@ -1,0 +1,17 @@
+<!--components/search_list/search_list.wxml-->
+<view class="list">
+  <view class="item flex-row" wx:for="{{list}}" wx:key="{{item.Id}}" bindtap="to_info" data-item="{{item}}">
+    <view class="pic" style="background: url({{item.CoverPic}}) center center /cover;"></view>
+    <view class="content">
+      <view class="name">
+        <rich-text nodes="{{item.Name}}"></rich-text>
+      </view>
+      <view class="des">{{item.TypeName}}</view>
+    </view>
+  </view>
+      <view class="loading-wrapper">
+        <text class="loading" wx:if="{{loading_state}}">数据加载中...</text>
+        <text class="loaded" wx:elif="{{!loading_state}}">没有更多数据了~</text>
+        
+      </view>
+</view>

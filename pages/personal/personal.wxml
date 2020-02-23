@@ -3,9 +3,10 @@
   <view class="banner" style="background:url({{personal.CoverPic}}) center center /cover"></view>
 
   <view class="head">
-    <view class="flex-row" style="justify-content:flex-end;position: relative">
+    <view class="flex-row" style="justify-content:flex-end;position: relative;overflow:visible;">
       <view class="icon" style="background:url({{personal.HeadPic}}) center center /cover"></view>
-      <view class="btn" bindtap="to_my_info">编辑个人资料</view>
+      <view style="height:66rpx"></view>
+      <view class="btn" bindtap="to_my_info" wx:if="{{!other_user}}">编辑个人资料</view>
     </view>
     <view class="name">{{personal.NickName}}</view>
     <view class="hot flex-row">
@@ -22,7 +23,7 @@
   <view class="list-title-wrapper" bindtap="to_post_comment">
     <view class="list-title flex-row">
       <text>动态</text>
-      <text class="theme-color">发布</text>
+      <text class="theme-color" wx:if="{{!other_user}}" bindtap="to_post_comment">发布</text>
     </view>
   </view>
   <view class="list">

@@ -2,6 +2,10 @@
 var $http = require("../../utils/request.js");
 var app = getApp();
 import util from '../../utils/util'
+
+var WXParse = require('../../wxParse/wxParse.js');
+
+
 Page({
 
   /**
@@ -58,6 +62,19 @@ Page({
       Id: id
     },(res)=>{
       let activity = res.data.activityInfo;
+      if (activity.SignStartTime) {
+        activity.SignStartTime = activity.SignStartTime.split(' ')[0]
+      }
+      if (activity.SignEndTime) {
+        activity.SignEndTime = activity.SignEndTime.split(' ')[0]
+      }
+      if (activity.StartTime) {
+        activity.StartTime = activity.StartTime.split(' ')[0]
+      }
+      if (activity.EndTime) {
+        activity.EndTime = activity.EndTime.split(' ')[0]
+      }
+
       let community = res.data.communityInfo;
 
       this.setData({
@@ -70,7 +87,8 @@ Page({
         time: activity.SignStartTime,
         address: activity.Address
       });
-
+        const that = this;
+        var temp = WXParse.wxParse('article', 'html', activity.Content, that, 5);
 
     })
   },
@@ -87,7 +105,7 @@ Page({
         EN: e.detail.encryptedData
       }, (res) => {
         wx.setStorageSync('mobile', res.data.phoneNumber);
-        this.enroll(res.data.phoneNumber)
+        this.enroll(res.data.phoneNumber)   
       })
     })
   },
@@ -144,6 +162,7 @@ Page({
     let show_share = this.data.show_share;
     this.setData({ show_share: !show_share});
     this.downloadImages()
+    
   },
 
   /**
@@ -199,10 +218,11 @@ Page({
    */
   onShareAppMessage: function () {
     this.share('Wechat');
+    this.select_share()
     return {
       title: '活动详情',
       desc: this.data.activity.Title,
-      path: '/pages/activity_info/activity_info?id=' + this.data.activity.Id
+      path: '/pages/activity_info/activity_info?id=' + this.data.activity.Id,
     }
   },
   downloadImages: function () {

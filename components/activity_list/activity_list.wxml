@@ -12,8 +12,10 @@
               <view>{{item.Title}}</view>
             </view>
             <view class="des">
-              <text>{{item.StatusName}}</text>
+              <text style="margin-right:20rpx;">{{item.StatusName}}</text>
+              <text>{{item.TypeName}}</text>
             </view>
+
 
             <view class="activity-item-foot flex-row">
               <view class="activity-item-num flex-row">
