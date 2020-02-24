@@ -8,7 +8,7 @@
       <view class="theme-color margin-top-10">{{personal.Level}}  级</view>
       <view class="theme-color margin-top-10">积分:  {{personal.Score}}</view>
     </view>
-    <view class="head-info-btn">
+    <view class="head-info-btn" bindtap="sign_in">
       <text>签到</text>
     </view>
   </view>
