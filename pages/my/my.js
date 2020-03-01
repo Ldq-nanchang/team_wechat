@@ -45,6 +45,11 @@ Page({
       })
     })
   },
+  sign_in() {
+    $http.request(true,'/api/my/SaveSignin',{},res => {
+      console.log(res)
+    })
+  },
   get_personal() {
     $http.request(true, '/api/my/MyInfo', {
       UserId: wx.getStorageSync('uuid')
