@@ -22,6 +22,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toInfo(e) {
+      console.log(e.currentTarget.dataset.item)
+      wx.navigateTo({
+        url: '/pages/activity_info/activity_info?id=' + e.currentTarget.dataset.item.Id,
+      })
+    },
     get_list(init) {
       if(init=='init') {
         this.setData({ loading_state: true,page: 1});

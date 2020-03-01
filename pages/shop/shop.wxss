@@ -1,0 +1,10 @@
+/* pages/shop/shop.wxss */
+.container {
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.img {
+  width: 300rpx;
+  height: 300rpx;
+}

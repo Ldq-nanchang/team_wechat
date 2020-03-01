@@ -48,6 +48,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 28,
 			"list": [
@@ -251,6 +255,13 @@
 					"id": -1,
 					"name": "消息",
 					"pathName": "pages/message_list/message_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分商城",
+					"pathName": "pages/shop/shop",
 					"query": "",
 					"scene": null
 				}

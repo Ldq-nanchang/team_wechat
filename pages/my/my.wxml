@@ -8,8 +8,11 @@
       <view class="theme-color margin-top-10">{{personal.Level}}  级</view>
       <view class="theme-color margin-top-10">积分:  {{personal.Score}}</view>
     </view>
-    <view class="head-info-btn">
+    <view class="head-info-btn" bindtap="sign_in" wx:if="{{personal.IsSignIn==0}}">
       <text>签到</text>
+    </view>
+    <view class="head-info-btn" wx:if="{{personal.IsSignIn!=0}}">
+      <text>已签到</text>
     </view>
   </view>
   <!-- 菜单按钮 -->
@@ -23,7 +26,7 @@
         </view>
         <view class="condition-item-name">我的社团</view>
       </view>
-      <view class="condition-item">
+      <view class="condition-item" bindtap="to_shop">
         <view class="condition-item-icon">
           <wux-icon type="md-basket" color="#F5DC62"></wux-icon>
         </view>

@@ -27,7 +27,8 @@
     "pages/citys/citys",
     "pages/search/search",
     "pages/search_before/search_before",
-    "pages/message_list/message_list"
+    "pages/message_list/message_list",
+    "pages/shop/shop"
   ],
   "permission": {
     "scope.userLocation": {

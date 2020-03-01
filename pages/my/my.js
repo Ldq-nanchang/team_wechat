@@ -10,13 +10,31 @@ Page({
     personal: {},
     my_status: 0
   },
+  sign_in() {
+    $http.request(true,'/api/my/SaveSignin',{},res => {
+      this.get_personal()
+      wx.showToast({
+        title: '+ '+res.data.Score,
+        icon: 'none',
+        duration: 1500,
+      })
+    })
+  },
+  to_shop() {
+    wx.navigateTo({
+      url: '/pages/shop/shop',
+    })
+  },
   onGotUserInfo(e) {
+
     app.get_code((code)=>{
       $http.request(true, '/api/user/WechatLogin', {
         Code: code,
-        AvatarUrl: e.detail.userInfo.avatarUrl,
-        NickName: e.detail.userInfo.nickName,
-        Gender: e.detail.userInfo.gender
+        // AvatarUrl: e.detail.userInfo.avatarUrl,
+        // NickName: e.detail.userInfo.nickName,
+        // Gender: e.detail.userInfo.gender
+        IV: e.detail.iv,
+        EN: e.detail.encryptedData
       }, (res) => {
         
         wx.setStorageSync('uuid', res.uuid);

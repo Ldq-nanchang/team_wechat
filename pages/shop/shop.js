@@ -1,6 +1,4 @@
-// pages/login/login.js
-var $http = require('../../utils/request');
-var app = getApp();
+// pages/shop/shop.js
 Page({
 
   /**
@@ -10,27 +8,6 @@ Page({
 
   },
 
-  onGotUserInfo(e) {
-    condole.log(e)
-    return;
-    app.get_code((code)=>{
-      $http.request(true, '/api/user/WechatLogin', {
-        Code: code,
-        AvatarUrl: e.detail.userInfo.avatarUrl,
-        NickName: e.detail.userInfo.nickName,
-        Gender: e.detail.userInfo.gender
-      }, (res) => {
-        wx.setStorageSync('uuid', res.uuid);
-        wx.setStorageSync('htoken', res.htoken);
-        wx.setStorageSync('mobile', res.data.userInfo.Mobile);
-        $http.initHtoken();
-
-        app.globalData.status.after_login = true
-        wx.navigateBack();
-      })
-    })
-
-  },
   /**
    * 生命周期函数--监听页面加载
    */

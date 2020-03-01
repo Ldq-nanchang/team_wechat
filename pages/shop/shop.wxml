@@ -1,0 +1,9 @@
+<!--pages/shop/shop.wxml-->
+<view class="container flex-row">
+  <view style="text-align:center;color:#999">
+    <image class="img" src="/assets/shop.png" mode="aspectFit"></image>
+    <view style="font-size:40rpx;margin-bottom:20rpx">积分商城</view>
+    <view>功能即将上线，敬请期待！</view>
+  </view>
+  
+</view>
