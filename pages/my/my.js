@@ -26,7 +26,7 @@ Page({
     })
   },
   onGotUserInfo(e) {
-
+    if(!e.detail.iv) { return; }
     app.get_code((code)=>{
       $http.request(true, '/api/user/WechatLogin', {
         Code: code,

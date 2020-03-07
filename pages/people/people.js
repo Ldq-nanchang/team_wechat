@@ -45,7 +45,8 @@ Page({
         // TagCode: that.data.condition_edit.TagCode,
       }
     })
-    console.log(that.selectComponent("#peopleList"))
+    console.log(that.data.condition,that.data.condition_edit)
+
     that.selectComponent("#peopleList").init_list(that.data.condition_edit);
   },
   /**
@@ -142,7 +143,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.selectComponent('#peopleList').get_list('init',this.data.condition_edit);
   },
 
   /**

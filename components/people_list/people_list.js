@@ -96,6 +96,7 @@ Component({
         }
         if(init=='init') {
           this.setData({ community_list: res.data,})
+          wx.stopPullDownRefresh();
         }else {
           this.setData({ community_list: [...that.data.community_list, ...res.data] })
         }
